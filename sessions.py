@@ -114,31 +114,23 @@ class SignupHandler(BaseHandler):
         self.render_template('signup.html')
 
     def post(self):
-        print(self.request.body)
-
         jdata = json.loads(self.request.body)
         if jdata:
-            for vals in jdata:
-                user_name = jdata['username']
-                email = jdata['email']
-                name = jdata['name']
-                password = jdata['password']
+            user_name = jdata['username']
+            email = jdata['email']
+            name = jdata['name']
+            password = jdata['password']
 
-
-        # user_name = self.request.get('username')
-        # email = self.request.get('email')
-        # name = self.request.get('name')
-        # password = self.request.get('password')
-        # last_name = self.request.get('lastname')
-        print(user_name + "&" + name)
         unique_properties = ['email_address']
         user_data = self.user_model.create_user(user_name,
                                                 unique_properties,
                                                 email_address=email, name=name, password_raw=password,
                                                 verified=False)
         if not user_data[0]:  # user_data is a tuple
-            self.display_message('Unable to create user for email %s because of \
-        duplicate keys %s' % (user_name, user_data[1]))
+            self.response.out.write(json.dumps({"state":"error"}))
+            #self.display_message("error")
+            #self.display_message('Unable to create user for email %s because of \
+        #duplicate keys %s' % (user_name, user_data[1]))
             return
 
         user = user_data[1]
@@ -186,7 +178,11 @@ class SignupHandler(BaseHandler):
         """ + verification_url
 
         message.send()
-        self.display_message(msg.format(url=verification_url))
+        self.response.out.write(json.dumps({"state":"ok"}))
+        #self.display_message("ok")
+        #self.response.out.write(json.dumps({"state":"ok"}))
+        #self.response.out.write(json.dumps({"state": "ERROR"}))
+        #self.display_message(msg.format(url=verification_url))
 
 
 class ForgotPasswordHandler(BaseHandler):
@@ -288,37 +284,28 @@ class SetPasswordHandler(BaseHandler):
 
 class LoginHandler(BaseHandler):
     def get(self):
-        if self.user:
-            obj = {"state": "logged", "user": self.user.token}
-        else:
-            obj = {"state": "error"}
-
         todo = {"users": []}
         user = User.query()
         if self.user:
             if self.user.roles:
+                print("SI")
                 self.response.out.write(json.dumps(self.user.roles))
             else:
+                print("No")
                 self.response.out.write(json.dumps(self.user.auth_ids))
         else:
             for u in user:
                 todo["users"].append({"email": u.email_address, "name": u.name, "roles": u.roles})
             self.response.out.write(json.dumps(todo))
 
-        self.response.out.write(json.dumps(obj))
         self.render_template("login.html")
         #self._serve_page()
 
     def post(self):
-        # jdata = json.loads(self.request.body)
-        # print(jdata)
-        # if jdata:
-        #     for vals in jdata:
-        #         username = jdata[vals]['username'] if jdata[vals]['username'] else ""
-        #         password = jdata[vals]['password'] if jdata[vals]['password'] else ""
-
-        username = self.request.get('username')
-        password = self.request.get('password')
+        jdata = json.loads(self.request.body)
+        if jdata:
+            username = jdata['username']
+            password = jdata['password']
 
         try:
             u = self.auth.get_user_by_password(username, password, remember=True,

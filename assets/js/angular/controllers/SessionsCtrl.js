@@ -4,26 +4,16 @@ app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
 });
 
-app.controller('SessionsCtrl', function($scope, Session){
-    $scope.init = function(){
-        Session.show({}, function($data){
-            console.log($data);
-        });
-    }
-
+app.controller('SessionsCtrl', function($scope, $window, Session){
     $scope.acceder = function(params){
         $scope.session = new Session(params);
 
         Session.create(params, function($data){
-            console.log($data);
-        })
-    }
+            if($data.state == "ok"){
+                $window.location.href = '/';
+            }else{
 
-    $scope.nuevo = function(params){
-        $scope.user = new User(params);
-
-        User.create(params, function($data){
-            console.log($data);
+            }
         })
-    }
+    };
 });
