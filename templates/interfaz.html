@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" ng-app="bibliotecaTelmex" ng-controller="InterfazBiblio">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Biblioteca Digital Telmex</title>
+	<link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/angular.min.js"></script>
+	<script src="/assets/js/angular/bibliodigital.js"></script>
+</head>
+<body >
+	<header ng-class="sinBlur">
+		<div class="container">
+			<h1><span class="ocultar">Telmex Biblioteca Digital</span><img src="/assets/img/logo2.png" alt=""></h1>
+			<div class="buscador">
+				<form action="#">
+					<input type="search" placeholder="Buscar Documentos">
+				</form>
+			</div>
+			<section class="login">
+				<a href="index.html"><img src="/assets/img/cuentas.png" alt=""></a>
+			</section>
+		</div>
+	</header>
+	<section id="contenidos" ng-class="sinBlur">
+		<div class="container" ng-controller="CategoriasCtr as Cat">
+			<article id="Categoria" class="activo">
+				<!-- <span class="crear icono"><img src="img/crear.png" alt=""></span> -->
+				<h2>Categoría</h2>
+				{[{mensaje}]}
+				<ul id="col-1">
+					<li ng-repeat="cat in categorias" ng-click="seleccionCategoria(cat.id)">
+						<figure></figure>
+						<span>{[{cat.nombre}]}</span>
+					</li>
+				</ul>
+			</article>
+
+			<article id="Productos" class="activo" ng-hide="productoListado == true">
+				<!-- <span class="crear icono"><img src="img/crear.png" alt=""></span> -->
+				<h2>Producto</h2>
+				<ul id="col-2">
+					<li ng-repeat="prod in productos | filter:busquedaCategoria:strict" ng-click="seleccionProducto(prod.categoria_id,prod.id)">
+						{[{prod.nombre}]}
+					</li>
+				</ul>
+			</article>
+
+			<article id="Documentos" class="activo" ng-hide="documentosListado == true">
+				<!-- <span class="crear icono"><img src="img/crear.png" alt=""></span>
+				<span class="subir icono"><img src="img/subir.png" alt=""></span> -->
+				<h2>Documentos</h2>
+				<ul id="col-3">
+					<li ng-repeat="doc in documentos | filter:busquedaProducto:strict" ng-click="seleccionDocumento(doc.id);">
+						<span>{[{doc.nombre}]}</span>
+						<figure style="background-color: #0092D2;">
+						</figure>
+					</li>
+				</ul>
+			</article>
+		</div>
+	</section>
+
+	<div id="lightbox" class="activo" ng-show="Lightbox == true">
+		<div class="fondoClicable" ng-click="cerrarLightbox();"></div>
+		<div id="contenidoLightbox">
+			<div class="tituloLight">
+				<figure></figure>
+				<span>COMUNICACIONES ADMINISTRADAS</span>
+				<div class="cerrar" ng-click="cerrarLightbox();">X</div>
+			</div>
+			<div class="titulo">DOCUMENTO 1</div>
+			<hr>
+			<dl>
+				<dt>Formato:</dt>
+				<dd></dd>
+				<dt>Tamaño:</dt>
+				<dd>2 mb</dd>
+				<dt>Fecha:</dt>
+				<dd> 13/07/14</dd>
+			</dl>
+			<hr>
+
+			<a href="#" class="descargar">
+				<figure>
+					<img src="/assets/img/descargarbig.jpg" alt="">
+					<figcaption>
+						DESCARGAR ARCHIVO
+					</figcaption>
+				</figure>
+			</a>
+	
+		</div><!-- Fin del contenido Lightbox -->
+
+		<div id="busquedaResultados">
+			<h2><img src="/assets/img/buscar.jpg" width="15"> Resultados de busqueda</h2>
+			<hr>
+			<h3>Nombre de la busqueda</h3>
+			<ul>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

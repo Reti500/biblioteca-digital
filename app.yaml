@@ -1,0 +1,34 @@
+application: biblioteca-digital
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /assets
+  static_dir: assets
+
+- url: /dashboard
+  script: routes.app
+
+- url: /login
+  script: routes.app
+
+- url: /signup
+  script: routes.app
+
+- url: /password
+  script: routes.app
+
+- url: /
+  script: routes.app
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest

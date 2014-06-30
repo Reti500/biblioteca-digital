@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en" ng-app="bibliotecaTelmex" ng-controller="InterfazBiblio">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Biblioteca Digital Telmex</title>
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/assets/js/angular.min.js"></script>
+	<script src="/assets/js/angular/bibliodigital.js"></script>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1><span class="ocultar">Telmex Biblioteca Digital</span><img src="/assets/img/logo2.png" alt=""></h1>
+			<div class="buscador">
+				<form action="#">
+					<input type="search" placeholder="Buscar Documentos">
+				</form>
+			</div>
+			<section class="login">
+				<a href="index.html"><img src="/assets/img/cuentas.png" alt=""></a>
+			</section>
+		</div>
+	</header>
+	<section id="contenidos">
+		<div class="container">
+			<article id="Categoria" class="activo">
+				<span class="crear categoria icono"><img src="/assets/img/crear.png" alt=""></span>
+				<h2>Categoría</h2>
+				<ul id="col-1">
+					<li>
+						<figure></figure>
+						<span>Comunicaciones Administradas</span>
+					</li>
+					<li>
+						<figure></figure>
+						<span>Servicios Administrados</span>
+					</li>
+					<li>
+						<figure></figure>
+						<span>Cloud y DC</span>
+					</li>
+					<li>
+						<figure></figure>
+						<span>Seguridad</span>
+					</li>
+					<li>
+						<figure></figure>
+						<span>Servicios Profesionales y Consultoría</span>
+					</li>
+					<li>
+						<figure></figure>
+						<span>Aplicaciones y Soluciones Verticales</span>
+					</li>
+				</ul>
+			</article>
+			<article id="Productos" class="activo">
+				<span class="crear producto icono"><img src="/assets/img/crear.png" alt=""></span>
+				<h2>Producto</h2>
+				<ul id="col-2">
+					<li>Comunicaciones Unificadas Administradas (CUAD + IP-PBX)</li>
+					<li>Troncales IP</li>
+					<li>Telepresencia</li>
+					<li>Contact Center Administrado</li>
+					<li>Conferencia Web (Webex) (Cisco)</li>
+				</ul>
+			</article>
+			<article id="Documentos" class="activo">
+				<span class="subir icono"><img src="/assets/img/subir.png" alt=""></span>
+				<h2>Documentos</h2>
+				<ul id="col-3">
+					<li><span>Documento 1</span> <figure style="background-color: #0092D2;"></figure></li>
+					<li><span>Documento 2</span> <figure style="background-color: #FF6100;"></figure></li>
+					<li><span>Documento 3</span> <figure style="background-color: #EC1D39;"></figure></li>
+					<li><span>Documento 4</span> <figure style="background-color: #0092D2;"></figure></li>
+					<li><span>Documento 5</span> <figure style="background-color: #FF6100;"></figure></li>
+				</ul>
+			</article>
+		</div>
+	</section>
+	
+	<div id="lightbox">
+		<div class="fondoClicable"></div>
+
+		<div id="subidaLightbox">
+			<div class="tituloLight">
+				<figure></figure>
+				<span>COMUNICACIONES ADMINISTRADAS</span>
+				<div class="cerrar">X</div>
+			</div>
+			<div class="titulo">SUBIR ARCHIVO</div>
+			<hr>
+				<figure class="subirArchivo">
+					<div class="cargaArchivo">
+						<img src="/assets/img/cargarArchivo.jpg">
+					</div>
+					<div class="cargaAnimacion">
+						<img src="/assets/img/animacionArchivo.jpg">
+					</div>
+				</figure>
+			<hr>
+
+			<span href="#" class="mensajeArchivos">
+				<span class="msg1">
+					<h4>ARRASTRAR Ó BUSCAR ARCHIVOS</h4>
+					<span>*Archivos .doc,.ppt o .pdf <br>máximo 5mb</span>
+				</span>
+				<span class="msg2">
+					<h3>SUBIENDO ARCHIVOS</h3>
+				</span>
+				<span class="msg3">
+					<ul>
+						<li>CV AA MARTINEZ.pdf <span class="cerrar">x</span></li>
+						<li>CV AA MARTINEZ.pdf <span class="cerrar">x</span></li>
+					</ul>
+					<a href="" class="guardarbtn">GUARDAR</a>
+					<a href="" class="cerrarbtn">CERRAR</a>
+				</span>
+			</span>
+	
+		</div><!-- Fin del subidaLightbox -->
+
+		<div id="CategoriaLightbox">
+			<div class="tituloLight">
+				<figure></figure>
+				<span>CATEGORIA</span>
+				<div class="cerrar">X</div>
+			</div>
+
+			<span href="#" class="mensajeArchivos">
+				<span class="msg1">
+					<form action="#">
+						<input type="text" placeholder="Nombre de la categoría">
+						<hr>
+						<a href="" class="guardarbtn">GUARDAR</a>
+						<a href="" class="cerrarbtn">CERRAR</a>
+					</form>
+				</span>
+			</span>
+	
+		</div><!-- Fin del CategoriaLightbox -->
+
+		<div id="ProductoLightbox">
+			<div class="tituloLight">
+				<figure></figure>
+				<span>PRODUCTO</span>
+				<div class="cerrar">X</div>
+			</div>
+			<span href="#" class="mensajeArchivos">
+				<span class="msg1">
+					<form action="#">
+						<input type="text" placeholder="Nombre del producto">
+						<input type="text" placeholder="Nombre de la categoría">
+						<hr>
+						<a href="" class="guardarbtn">GUARDAR</a>
+						<a href="" class="cerrarbtn">CERRAR</a>
+					</form>
+				</span>
+			</span>
+		</div><!-- Fin del ProductoLightbox -->
+
+
+		<!-- <div id="contenidoLightbox">
+			<div class="tituloLight">
+				<figure></figure>
+				<span>COMUNICACIONES ADMINISTRADAS</span>
+				<div class="cerrar">X</div>
+			</div>
+			<div class="titulo">DOCUMENTO 1</div>
+			<hr>
+			<dl>
+				<dt>Formato:</dt>
+				<dd></dd>
+				<dt>Tamaño:</dt>
+				<dd>2 mb</dd>
+				<dt>Fecha:</dt>
+				<dd> 13/07/14</dd>
+			</dl>
+			<hr>
+
+			<a href="#" class="descargar">
+				<figure>
+					<img src="img/descargarbig.jpg" alt="">
+					<figcaption>
+						DESCARGAR ARCHIVO
+					</figcaption>
+				</figure>
+			</a>
+	
+		</div> --><!-- Fin del contenidoLightbox -->
+
+		<!-- <div id="busquedaResultados">
+			<h2><img src="img/buscar.jpg" width="15"> Resultados de busqueda</h2>
+			<hr>
+			<h3>Nombre de la busqueda</h3>
+			<ul>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+				<li>
+					<figure></figure>
+					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
+					<span class="categoria">Categoría</span>
+					<span class="icono"></span>
+				</li>
+			</ul>
+		</div> -->
+	</div>
+
+	<footer class="panel"></footer>
+</body>
+</html>

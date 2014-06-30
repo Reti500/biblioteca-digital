@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app="bibliotecaTelmex" ng-controller="SessionsCtrl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Biblioteca Digital Telmex</title>
+	<link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/angular.min.js"></script>
+    <script src="/assets/js/angular-resource.js"></script>
+    <script src="/assets/js/angular/controllers/SessionsCtrl.js"></script>
+    <script src="/assets/js/angular/services/Session.js"></script>
+
+</head>
+<body class="principal">
+	<section id="login">
+		<h2>BIENVENIDO</h2>
+		<h1><span class="ocultar">Biblioteca Digital</span> <img src="/assets/img/logos.png" alt="Biblioteca Digital"></h1>
+		<form action="" >
+			<input type="text" placeholder="USUARIO" ng-model="user.username">
+			<input type="password" placeholder="CONTRASEÑA" ng-model="user.password">
+			<div ng-click="acceder(user)" style="cursor: pointer;" class="btn">INICIAR SESIÓN</div>
+		</form>
+		<p>¿OLVIDASTE TU NOMBRE DE USUARIO O CONTRASEÑA?</p> </section>
+	<footer>
+		<figure class="telmexEsta">
+			<img src="/assets/img/telmexesta.png" alt="Telmex está contigo">
+		</figure>
+		<figure class="telmexIt">
+			<div href="dashboard.html"><img src="/assets/img/telmexit.png" alt="Telmex IT" ng-click="acceder()"></div>
+		</figure>
+	</footer>
+</body>
+</html>

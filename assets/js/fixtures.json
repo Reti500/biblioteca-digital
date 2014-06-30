@@ -1,0 +1,100 @@
+{
+    "Categorias": [
+        {
+            "id": 0,
+            "nombre": "Comunicaciones Administradas"
+        },
+        {
+            "id": 1,
+            "nombre": "Servicios Administrados"
+        },
+        {
+            "id": 2,
+            "nombre": "Cloud y DC"
+        },
+        {
+            "id": 3,
+            "nombre": "Seguridad"
+        },
+        {
+            "id": 4,
+            "nombre": "Servicios Profesionales y Consultor\u00eda"
+        },
+        {
+            "id": 5,
+            "nombre": "Aplicaciones y Soluciones Verticales"
+        }
+    ],
+    "Productos": [
+        {
+            "categoria_id": 0,
+            "id": 6,
+            "nombre": "Comunicaciones Unificadas Administradas (CUAD + IP-PBX)"
+        },
+        {
+            "categoria_id": 0,
+            "id": 7,
+            "nombre": "Troncales IP"
+        },
+        {
+            "categoria_id": 0,
+            "id": 8,
+            "nombre": "Telepresencia"
+        },
+        {
+            "categoria_id": 0,
+            "id": 9,
+            "nombre": "Contact Center Administrado"
+        },
+        {
+            "categoria_id": 0,
+            "id": 10,
+            "nombre": "Conferencia Web (Webex) (Cisco)"
+        },
+        {
+            "categoria_id": 1,
+            "id": 11,
+            "nombre": "Redes administradas (C-NOC, NOC)"
+        },
+        {
+            "categoria_id": 1,
+            "id": 12,
+            "nombre": "Seguridad Perimetral Administrada (Puerto Seguro)"
+        },
+        {
+            "categoria_id": 1,
+            "id": 13,
+            "nombre": "I-Hospitality"
+        },
+        {
+            "categoria_id": 1,
+            "id": 14,
+            "nombre": "I-Hospitality Business"
+        },
+        {
+            "categoria_id": 1,
+            "id": 15,
+            "nombre": "Viva Internet"
+        }
+    ],
+    "Documentos":[
+        {
+            "id":0,
+            "categoria_id":0,
+            "producto_id":6,
+            "nombre":"Documento 1"
+        },
+        {
+            "id":1,
+            "categoria_id":0,
+            "producto_id":6,
+            "nombre":"Documento 2"
+        },
+        {
+            "id":2,
+            "categoria_id":0,
+            "producto_id":7,
+            "nombre":"Documento 3"
+        }
+    ]
+}
