@@ -13,7 +13,7 @@
 
 </head>
 <body class="principal">
-	<section id="login">
+	<!--<section id="login">
 		<h2>BIENVENIDO</h2>
 		<h1><span class="ocultar">Biblioteca Digital</span> <img src="/assets/img/logos.png" alt="Biblioteca Digital"></h1>
 		<form action="" >
@@ -31,6 +31,24 @@
 		<figure class="telmexIt">
 			<div href="dashboard.html"><img src="/assets/img/telmexit.png" alt="Telmex IT" ng-click="acceder()"></div>
 		</figure>
-	</footer>
+	</footer>-->
+
+    <section id="login" class="acceso">
+        <h2>BIENVENIDO</h2>
+        <figure>
+            <img src="/assets/img/TelmexLogo.png" alt="Telmex">
+        </figure>
+        <h1><span class="ocultar">Biblioteca Digital</span> <img src="/assets/img/logos.png" alt="Biblioteca Digital"></h1>
+        <form ng-submit="nuevo(user)">
+            <input type="text" placeholder="Nombre y apellidos" ng-model="user.name">
+            <input type="text" placeholder="Nombre de usuario" ng-model="user.username">
+            <input type="email" placeholder="Correo electrónico" ng-model="user.email">
+            <input type="password" placeholder="Contraseña" ng-model="user.password">
+            <input type="password" placeholder="Repetir contraseña" ng-model="user.password_confirmation">
+            <input type="submit" class="btn" value="REGISTRARME">
+            <div ng-show="error"><span class="error">{[{error_message}]}</span></div>
+
+        </form>
+    </section>
 </body>
 </html>

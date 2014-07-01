@@ -12,22 +12,18 @@
 
 </head>
 <body class="principal">
-	<section id="login">
-		<h2>BIENVENIDO</h2>
-		<h1><span class="ocultar">Biblioteca Digital</span> <img src="/assets/img/logos.png" alt="Biblioteca Digital"></h1>
-		<form action="" >
-			<input type="text" placeholder="USUARIO" ng-model="user.username">
-			<input type="password" placeholder="CONTRASEÑA" ng-model="user.password">
-			<div ng-click="acceder(user)" style="cursor: pointer;" class="btn">INICIAR SESIÓN</div>
-		</form>
-		<p><a href="signup">Nuevo usuario</a> ¿OLVIDASTE TU NOMBRE DE USUARIO O CONTRASEÑA?</p> </section>
-	<footer>
-		<figure class="telmexEsta">
-			<img src="/assets/img/telmexesta.png" alt="Telmex está contigo">
-		</figure>
-		<figure class="telmexIt">
-			<div href="dashboard.html"><img src="/assets/img/telmexit.png" alt="Telmex IT" ng-click="acceder()"></div>
-		</figure>
-	</footer>
+    <section id="login">
+	    <h2>BIENVENIDO</h2>
+	    <figure>
+		    <img src="/assets/img/TelmexLogo.png" alt="Telmex">
+	    </figure>
+        <h1><span class="ocultar">Biblioteca Digital</span> <img src="/assets/img/logos.png" alt="Biblioteca Digital"></h1>
+        <form ng-submit="acceder(user)">
+            <input type="text" placeholder="Usuario" ng-model="user.username">
+            <input type="password" placeholder="Contraseña" ng-model="user.password">
+            <input type="submit" class="btn" value="INICIAR SESIÓN">
+        </form>
+        <a href="/forgot">¿OLVIDASTE TU NOMBRE DE USUARIO O CONTRASEÑA?</a>
+    </section>
 </body>
 </html>

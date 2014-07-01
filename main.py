@@ -18,10 +18,12 @@
 import os
 
 import jinja2
-import webapp2
+import json
 
+from google.appengine.ext import ndb
 from sessions import BaseHandler
 from sessions import user_required
+from models import *
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__) + '/templates'),
@@ -30,15 +32,36 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 
 class MainPage(BaseHandler):
-    @user_required
     def get(self):
         template_values = {}
-        template = JINJA_ENVIRONMENT.get_template('interfaz.html')
+        template = JINJA_ENVIRONMENT.get_template('landing.html')
         self.response.write(template.render(template_values))
 
 
 class DashboardPage(BaseHandler):
     def get(self):
         tempplate_values = {}
-        template = JINJA_ENVIRONMENT.get_template('dashboard.html')
+        template = JINJA_ENVIRONMENT.get_template('dashboard2.html')
         self.response.write(template.render(tempplate_values))
+
+
+class InterfazPage(BaseHandler):
+    def get(self):
+        template_values = {}
+        template = JINJA_ENVIRONMENT.get_template('interfaz.html')
+        self.response.write(template.render(template_values))
+
+
+
+class CategoriasPage(BaseHandler):
+    @user_required
+    def get(self):
+        self.response.out.write(json.dumps(Categoria.query()))
+
+    def post(self):
+        jdata = json.loads(self.request.body)
+        category = Categoria.query(jdata['categoria'])
+        if category:
+            print("SI")
+        else:
+            print("NO")

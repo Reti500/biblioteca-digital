@@ -5,12 +5,15 @@ app.config(function($interpolateProvider) {
 });
 
 app.controller('UserCtrl', function($scope, $window, User){
+    $scope.error = false;
+    $scope.error_message = "";
+
     $scope.nuevo = function(params){
         $scope.user = new User(params);
 
         User.create(params, function($data){
             console.log($data);
-            if($data.state == 'ok'){
+            if($data.state == 'OK'){
                 $window.location.href = '/';
             }else{
                 console.log($data);

@@ -9,10 +9,10 @@ app.controller('SessionsCtrl', function($scope, $window, Session){
         $scope.session = new Session(params);
 
         Session.create(params, function($data){
-            if($data.state == "ok"){
+            if($data.state == "OK"){
                 $window.location.href = '/';
             }else{
-
+                console.log($data.state)
             }
         })
     };

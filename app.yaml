@@ -12,19 +12,7 @@ handlers:
 - url: /assets
   static_dir: assets
 
-- url: /dashboard
-  script: routes.app
-
-- url: /login
-  script: routes.app
-
-- url: /signup
-  script: routes.app
-
-- url: /password
-  script: routes.app
-
-- url: /
+- url: .*
   script: routes.app
 
 libraries:

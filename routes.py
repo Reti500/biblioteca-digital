@@ -22,5 +22,7 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/logout', LogoutHandler, name='logout'),
     webapp2.Route('/forgot', ForgotPasswordHandler, name='forgot'),
     webapp2.Route('/authenticated', AuthenticatedHandler, name='authenticated'),
-    webapp2.Route('/dashboard', DashboardPage, name="dashboard")
+    webapp2.Route('/dashboard', DashboardPage, name="dashboard"),
+    webapp2.Route('/categorias', CategoriasPage, name="categorias"),
+    webapp2.Route('/interfaz', InterfazPage, name="interfaz")
 ], debug=True, config=config)

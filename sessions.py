@@ -127,7 +127,7 @@ class SignupHandler(BaseHandler):
                                                 email_address=email, name=name, password_raw=password,
                                                 verified=False)
         if not user_data[0]:  # user_data is a tuple
-            self.response.out.write(json.dumps({"state":"error"}))
+            self.response.out.write(json.dumps({"state":"ERROR"}))
             #self.display_message("error")
             #self.display_message('Unable to create user for email %s because of \
         #duplicate keys %s' % (user_name, user_data[1]))
@@ -178,7 +178,7 @@ class SignupHandler(BaseHandler):
         """ + verification_url
 
         message.send()
-        self.response.out.write(json.dumps({"state":"ok"}))
+        self.response.out.write(json.dumps({"state":"OK"}))
         #self.display_message("ok")
         #self.response.out.write(json.dumps({"state":"ok"}))
         #self.response.out.write(json.dumps({"state": "ERROR"}))
@@ -187,7 +187,7 @@ class SignupHandler(BaseHandler):
 
 class ForgotPasswordHandler(BaseHandler):
     def get(self):
-        self._serve_page()
+        self.render_template('forgot_password.html')
 
     def post(self):
         username = self.request.get('username')
@@ -329,7 +329,7 @@ class LoginHandler(BaseHandler):
 class LogoutHandler(BaseHandler):
     def get(self):
         self.auth.unset_session()
-        self.redirect(self.uri_for('home'))
+        self.redirect(self.uri_for('main'))
 
 
 class AuthenticatedHandler(BaseHandler):

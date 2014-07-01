@@ -56,7 +56,7 @@ class User(webapp2_extras.appengine.auth.models.User):
 
 class Categoria(ndb.Model):
     name = ndb.StringProperty(required=True)
-    owner = ndb.UserProperty(auto_current_user_add=True)
+    #owner = ndb.UserProperty(auto_current_user_add=True)
     created_at = ndb.DateTimeProperty(auto_now_add=True)
     updated_at = ndb.DateTimeProperty(auto_now_add=True)
 

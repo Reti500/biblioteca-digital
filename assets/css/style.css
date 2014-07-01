@@ -1,2 +1,1409 @@
-body{width:100%;*zoom:1;}body:before,body:after{content:"";display:table}body:after{clear:both}/* normalize.css v3.0.1 | MIT License | git.io/normalize */
-html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline;}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0;}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0;}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0;}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}body{padding-bottom:5em;}@media (max-width:480px){body{padding-bottom:0}}.principal{background:#0085c0;background-image:url("../img/fondoindex.jpg");background-position:center center;-webkit-background-size:240px 287px;background-size:240px 287px}img{max-width:100%;height:auto}.ocultar{display:none}.container{overflow:hidden;max-width:980px;clear:both;margin:0 auto}#login{max-width:300px;background:#fff;overflow:hidden;margin:4em auto;margin:20vh auto;text-align:center;-webkit-box-shadow:0 0 2em rgba(0,0,0,0.8);box-shadow:0 0 2em rgba(0,0,0,0.8);}@media (max-width:480px){#login{margin:1em auto}}#login h2{color:#b3b3b3;font-size:1em}#login h1{color:transparent;display:block;overflow:hidden;margin:.25em 0}#login p{color:#0092d2;font-size:.75em}#login form input,#login form .btn{display:inline;float:left;width:81.25%;margin:0 1.0416666666667%;*width:81.2076822916667%;*margin:0 1.041124131944478%;margin-left:9.375%;padding:.25em;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-top:.35em;margin-bottom:.35em}#login form input[type="submit"],#login form .btn{background:#0085c0;color:#fff;border:0 solid;margin-top:1em;margin-bottom:1em;text-decoration:none;padding:.5em}header{border-bottom:1px solid #0085c0;padding:.5em 1em;overflow:hidden;text-align:center;}header h1{margin:0;display:inline;float:left;width:31.25%;margin:0 1.0416666666667%;*width:31.233723958333343%;*margin:0 1.041124131944478%;text-align:left;}@media (max-width:550px){header h1{display:inline;float:left;width:39.5833333333333%;margin:0 1.0416666666667%;*width:39.56271701388887%;*margin:0 1.041124131944478%}}header .login{cursor:pointer;display:inline;float:left;width:31.25%;margin:0 1.0416666666667%;*width:31.233723958333343%;*margin:0 1.041124131944478%;}@media (max-width:550px){header .login{display:inline;float:left;width:56.25%;margin:0 1.0416666666667%;*width:56.22070312500002%;*margin:0 1.041124131944478%}}header .buscador{display:inline;float:left;width:31.25%;margin:0 1.0416666666667%;*width:31.233723958333343%;*margin:0 1.041124131944478%;margin-top:.5em;}header .buscador input{width:280px;max-width:100%;padding:.25em .25em .25em 1.5em;background-image:url("../img/buscar.jpg");-webkit-background-size:12px;background-size:12px;background-position:.25em;background-repeat:no-repeat;-webkit-background-size:1em;background-size:1em;height:1.75em;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}header .buscador ::-webkit-input-placeholder{color:#0085c0}#contenidos{margin-top:1em;text-align:center;-webkit-transition:all .3s ease;transition:all .3s ease;}#contenidos article{display:inline;float:left;width:30.416666666666696%;margin:0 1.0416666666667%;*width:30.400824652777818%;*margin:0 1.041124131944478%;text-align:center;float:none;display:none;vertical-align:top;opacity:0;}#contenidos article.activo{display:inline-block;opacity:1}@media (max-width:700px){#contenidos article{display:inline;float:left;width:81.25%;margin:0 1.0416666666667%;*width:81.2076822916667%;*margin:0 1.041124131944478%;margin-left:9.375%}}#contenidos ul{padding:0;border:1px solid #5a5a5a;text-align:left;}#contenidos ul li{list-style-type:none;-webkit-box-shadow:0 1px 0 #5a5a5a;box-shadow:0 1px 0 #5a5a5a;margin-bottom:1px;cursor:pointer}#contenidos ul#col-1 li{-webkit-transition:all .15s ease;transition:all .15s ease;overflow:hidden;padding:.5em;}#contenidos ul#col-1 li figure{width:3em;height:3em;margin:-.5em .5em 0 0;display:inline-block;vertical-align:middle;background-color:#b3b3b3;border-radius:50%;overflow:hidden;float:none;vertical-align:middle}#contenidos ul#col-1 li span{display:inline;float:left;width:64.5833333333333%;margin:0 1.0416666666667%;*width:64.54969618055554%;*margin:0 1.041124131944478%;padding:1em 0;display:inline-block;float:none;vertical-align:middle}#contenidos ul#col-1 li:hover,#contenidos ul#col-1 li.activo{background-color:#0092d2;color:#fff;}#contenidos ul#col-1 li:hover figure,#contenidos ul#col-1 li.activo figure{background-color:transparent;border:1px solid #fff}#contenidos ul#col-2 li{-webkit-transition:all .15s ease;transition:all .15s ease;border-right:0;padding:1.5em 1em;}#contenidos ul#col-2 li:hover,#contenidos ul#col-2 li.activo{border-left:10px solid #69d1ff}#contenidos ul#col-3 li{overflow:hidden;-webkit-transition:all .15s ease;transition:all .15s ease;border-left:10px solid #d9d9d9;}#contenidos ul#col-3 li:hover{background-color:#69d1ff;border-left:10px solid #0fb6ff;color:#fff;text-shadow:0 2px 1px rgba(0,133,192,0.8)}#contenidos ul#col-3 li span{display:inline;float:left;width:60.4166666666667%;margin:0 1.0416666666667%;*width:60.38519965277783%;*margin:0 1.041124131944478%;padding:1.5em .5em;display:inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#contenidos ul#col-3 li figure{width:3em;height:3em;margin:-.5em .5em 0 0;display:inline-block;vertical-align:middle;border-radius:50%;overflow:hidden;float:right;vertical-align:middle;margin-top:.5em}#contenidos .icono{width:50px;display:inline-block;overflow:hidden;cursor:pointer}footer{background:#fff;position:fixed;bottom:0;left:0;width:100%;height:auto;overflow:hidden;padding:1em 0;-webkit-box-shadow:0 0 1em rgba(0,0,0,0.4);box-shadow:0 0 1em rgba(0,0,0,0.4);}footer.panel{position:fixed;background-image:url("../img/fondo.png");background-position:center bottom;background-repeat:repeat-x;-webkit-background-size:75px;background-size:75px;height:25px;padding:0;}@media (max-width:480px){footer.panel{position:inherit;margin-top:3em}}@media (max-width:480px){footer{position:absolute}}footer figure{margin:0}footer .telmexEsta{display:inline-block;float:left;text-align:center;margin-left:1em;}@media (max-width:480px){footer .telmexEsta{display:inline;float:left;width:39.5833333333333%;margin:0 1.0416666666667%;*width:39.56271701388887%;*margin:0 1.041124131944478%;margin-left:9.375%}}footer .telmexIt{display:inline-block;float:right;text-align:center;margin-right:1em;}@media (max-width:480px){footer .telmexIt{display:inline;float:left;width:39.5833333333333%;margin:0 1.0416666666667%;*width:39.56271701388887%;*margin:0 1.041124131944478%}}.ocultar{display:none}#lightbox{height:0;width:0;overflow:hidden;opacity:0;-webkit-transition:opacity .3s ease;transition:opacity .3s ease;}#lightbox.activo{position:fixed;top:0;left:0;height:100%;width:100%;opacity:1;z-index:20;}#lightbox.activo .fondoClicable{background-color:rgba(179,179,179,0.6);height:100%;width:100%;position:absolute;z-index:-40}#lightbox.activo #contenidoLightbox,#lightbox.activo #subidaLightbox{-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}#lightbox #busquedaResultados{background-color:#fff;max-width:90%;margin:1em auto;padding:.25em;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;color:#b3b3b3;border:5px solid rgba(179,179,179,0.3);}#lightbox #busquedaResultados h2{font-size:1em;font-weight:normal;text-align:center;margin:.5em auto;color:#0092d2}#lightbox #busquedaResultados hr{max-width:300px;margin:0 auto}#lightbox #busquedaResultados h3{text-align:center;font-size:1em;margin:.5em auto;font-weight:normal}#lightbox #busquedaResultados ul{padding:0;margin:1em auto;display:block;overflow-y:auto;height:350px;background-color:#fff;}#lightbox #busquedaResultados ul li{list-style-type:none;padding:.5em 0;border-top:1px solid #b3b3b3;display:block;clear:both;overflow:hidden;cursor:pointer;}#lightbox #busquedaResultados ul li:hover{background-color:#f0f0f0}#lightbox #busquedaResultados ul li figure{display:block;margin:0;padding:0;width:1.5em;height:1.5em;background-color:#fff;border:1px solid #b3b3b3;display:inline-block;vertical-align:middle;border-radius:50%}#lightbox #busquedaResultados ul li .nombre{display:inline;float:left;width:47.9166666666667%;margin:0 1.0416666666667%;*width:47.89171006944449%;*margin:0 1.041124131944478%;display:inline-block;float:none}#lightbox #busquedaResultados ul li .categoria{display:inline;float:left;width:35.4166666666667%;margin:0 1.0416666666667%;*width:35.39822048611116%;*margin:0 1.041124131944478%;display:inline-block;float:none;border-left:1px solid #b3b3b3;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding-left:1em;height:1.5em;vertical-align:middle;text-transform:uppercase}#lightbox #busquedaResultados ul li .icono{width:1.5em;height:1.5em;background-color:#0085c0;display:inline-block;float:right;margin-right:.25em;border-radius:50%}#lightbox #contenidoLightbox,#lightbox #subidaLightbox,#lightbox #CategoriaLightbox,#lightbox #ProductoLightbox{width:400px;max-width:90%;background-color:#fff;margin:1em auto;position:relative;overflow:hidden;color:#b3b3b3;-webkit-transition:all .3s ease;transition:all .3s ease;-webkit-transform:translateY(5em);-ms-transform:translateY(5em);transform:translateY(5em);}#lightbox #contenidoLightbox input,#lightbox #subidaLightbox input,#lightbox #CategoriaLightbox input,#lightbox #ProductoLightbox input{display:inline;float:left;width:97.9166666666667%;margin:0 1.0416666666667%;*width:97.86566840277784%;*margin:0 1.041124131944478%;margin-bottom:1em;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#lightbox #contenidoLightbox .subirArchivo,#lightbox #subidaLightbox .subirArchivo,#lightbox #CategoriaLightbox .subirArchivo,#lightbox #ProductoLightbox .subirArchivo{width:150px;margin:2em auto}#lightbox #contenidoLightbox .cargaArchivo,#lightbox #subidaLightbox .cargaArchivo,#lightbox #CategoriaLightbox .cargaArchivo,#lightbox #ProductoLightbox .cargaArchivo{cursor:pointer}#lightbox #contenidoLightbox .cargaAnimacion,#lightbox #subidaLightbox .cargaAnimacion,#lightbox #CategoriaLightbox .cargaAnimacion,#lightbox #ProductoLightbox .cargaAnimacion{display:none;-webkit-animation:cargaAnimacion 1.5s linear 0 infinite;animation:cargaAnimacion 1.5s linear 0 infinite}#lightbox #contenidoLightbox .mensajeArchivos .msg1,#lightbox #subidaLightbox .mensajeArchivos .msg1,#lightbox #CategoriaLightbox .mensajeArchivos .msg1,#lightbox #ProductoLightbox .mensajeArchivos .msg1{width:50%;display:block;margin:0 auto;text-align:center;}#lightbox #contenidoLightbox .mensajeArchivos .msg1 h4,#lightbox #subidaLightbox .mensajeArchivos .msg1 h4,#lightbox #CategoriaLightbox .mensajeArchivos .msg1 h4,#lightbox #ProductoLightbox .mensajeArchivos .msg1 h4{font-weight:normal;margin:.5em}#lightbox #contenidoLightbox .mensajeArchivos .msg1 span,#lightbox #subidaLightbox .mensajeArchivos .msg1 span,#lightbox #CategoriaLightbox .mensajeArchivos .msg1 span,#lightbox #ProductoLightbox .mensajeArchivos .msg1 span{color:#0092d2;font-size:.8em}#lightbox #contenidoLightbox .mensajeArchivos .msg2,#lightbox #subidaLightbox .mensajeArchivos .msg2,#lightbox #CategoriaLightbox .mensajeArchivos .msg2,#lightbox #ProductoLightbox .mensajeArchivos .msg2{display:none;color:#0092d2;text-align:center;}#lightbox #contenidoLightbox .mensajeArchivos .msg2 h3,#lightbox #subidaLightbox .mensajeArchivos .msg2 h3,#lightbox #CategoriaLightbox .mensajeArchivos .msg2 h3,#lightbox #ProductoLightbox .mensajeArchivos .msg2 h3{font-weight:normal}#lightbox #contenidoLightbox .mensajeArchivos .msg3,#lightbox #subidaLightbox .mensajeArchivos .msg3,#lightbox #CategoriaLightbox .mensajeArchivos .msg3,#lightbox #ProductoLightbox .mensajeArchivos .msg3{display:none;}#lightbox #contenidoLightbox .mensajeArchivos .msg3 ul,#lightbox #subidaLightbox .mensajeArchivos .msg3 ul,#lightbox #CategoriaLightbox .mensajeArchivos .msg3 ul,#lightbox #ProductoLightbox .mensajeArchivos .msg3 ul{padding:.25em;}#lightbox #contenidoLightbox .mensajeArchivos .msg3 ul li,#lightbox #subidaLightbox .mensajeArchivos .msg3 ul li,#lightbox #CategoriaLightbox .mensajeArchivos .msg3 ul li,#lightbox #ProductoLightbox .mensajeArchivos .msg3 ul li{list-style-type:none;cursor:pointer;margin:.25em 0;display:clear;overflow:hidden;padding:.5em 0;}#lightbox #contenidoLightbox .mensajeArchivos .msg3 ul li .cerrar,#lightbox #subidaLightbox .mensajeArchivos .msg3 ul li .cerrar,#lightbox #CategoriaLightbox .mensajeArchivos .msg3 ul li .cerrar,#lightbox #ProductoLightbox .mensajeArchivos .msg3 ul li .cerrar{float:right;padding:.15em .45em;text-align:center;border:1px solid #0092d2;border-radius:50%;color:#0092d2}#lightbox #contenidoLightbox .mensajeArchivos .guardarbtn,#lightbox #subidaLightbox .mensajeArchivos .guardarbtn,#lightbox #CategoriaLightbox .mensajeArchivos .guardarbtn,#lightbox #ProductoLightbox .mensajeArchivos .guardarbtn{display:inline;float:left;width:47.9166666666667%;margin:0 1.0416666666667%;*width:47.89171006944449%;*margin:0 1.041124131944478%;text-align:center;background-color:#0092d2;padding:.5em 0;color:#fff;text-decoration:none;margin-bottom:1em}#lightbox #contenidoLightbox .mensajeArchivos .cerrarbtn,#lightbox #subidaLightbox .mensajeArchivos .cerrarbtn,#lightbox #CategoriaLightbox .mensajeArchivos .cerrarbtn,#lightbox #ProductoLightbox .mensajeArchivos .cerrarbtn{display:inline;float:left;width:47.9166666666667%;margin:0 1.0416666666667%;*width:47.89171006944449%;*margin:0 1.041124131944478%;text-align:center;background-color:#aaa;padding:.5em 0;color:#fff;text-decoration:none;margin-bottom:1em}#lightbox #contenidoLightbox .tituloLight,#lightbox #subidaLightbox .tituloLight,#lightbox #CategoriaLightbox .tituloLight,#lightbox #ProductoLightbox .tituloLight{background-color:#0085c0;color:#fff;padding:.5em;text-align:center;margin-bottom:1em;}#lightbox #contenidoLightbox .tituloLight span,#lightbox #subidaLightbox .tituloLight span,#lightbox #CategoriaLightbox .tituloLight span,#lightbox #ProductoLightbox .tituloLight span{vertical-align:middle;display:inline-block}#lightbox #contenidoLightbox .tituloLight figure,#lightbox #subidaLightbox .tituloLight figure,#lightbox #CategoriaLightbox .tituloLight figure,#lightbox #ProductoLightbox .tituloLight figure{margin:0;padding:0;display:inline-block;width:1em;height:1em;border:2px solid;border-radius:50%;overflow:hidden;vertical-align:middle;margin-bottom:.5em}#lightbox #contenidoLightbox .tituloLight .cerrar,#lightbox #subidaLightbox .tituloLight .cerrar,#lightbox #CategoriaLightbox .tituloLight .cerrar,#lightbox #ProductoLightbox .tituloLight .cerrar{right:1em;top:.55em;position:absolute;cursor:pointer}#lightbox #contenidoLightbox .titulo,#lightbox #subidaLightbox .titulo,#lightbox #CategoriaLightbox .titulo,#lightbox #ProductoLightbox .titulo{padding:0 1em;text-align:center}#lightbox #contenidoLightbox hr,#lightbox #subidaLightbox hr,#lightbox #CategoriaLightbox hr,#lightbox #ProductoLightbox hr{display:block;clear:both;width:100%}#lightbox #contenidoLightbox dl,#lightbox #subidaLightbox dl,#lightbox #CategoriaLightbox dl,#lightbox #ProductoLightbox dl{display:block;clear:both;margin:0;padding:.5em 0;overflow:hidden;}#lightbox #contenidoLightbox dl dt,#lightbox #subidaLightbox dl dt,#lightbox #CategoriaLightbox dl dt,#lightbox #ProductoLightbox dl dt{display:inline;float:left;width:31.25%;margin:0 1.0416666666667%;*width:31.233723958333343%;*margin:0 1.041124131944478%;clear:left;margin-bottom:.5em;text-align:right}#lightbox #contenidoLightbox dl dd,#lightbox #subidaLightbox dl dd,#lightbox #CategoriaLightbox dl dd,#lightbox #ProductoLightbox dl dd{display:inline;float:left;width:64.5833333333333%;margin:0 1.0416666666667%;*width:64.54969618055554%;*margin:0 1.041124131944478%;margin-bottom:.5em;clear:right}#lightbox #contenidoLightbox .descargar,#lightbox #subidaLightbox .descargar,#lightbox #CategoriaLightbox .descargar,#lightbox #ProductoLightbox .descargar{display:block;margin:0;padding:0;text-align:center;color:#b3b3b3;text-decoration:none;margin-bottom:1em;}#lightbox #contenidoLightbox .descargar figure,#lightbox #subidaLightbox .descargar figure,#lightbox #CategoriaLightbox .descargar figure,#lightbox #ProductoLightbox .descargar figure{margin:1.5em 1em 2.5em 1em}#lightbox #contenidoLightbox .descargar img,#lightbox #subidaLightbox .descargar img,#lightbox #CategoriaLightbox .descargar img,#lightbox #ProductoLightbox .descargar img{max-width:130px;margin-bottom:1em}.blur{-webkit-filter:blur(5px);filter:blur(5px)}@-webkit-keyframes cargaAnimacion{from{-webkit-transform:rotateZ(0);transform:rotateZ(0)}to{-webkit-transform:rotateZ(360deg);transform:rotateZ(360deg)}}@keyframes cargaAnimacion{from{-webkit-transform:rotateZ(0);-ms-transform:rotateZ(0);transform:rotateZ(0)}to{-webkit-transform:rotateZ(360deg);-ms-transform:rotateZ(360deg);transform:rotateZ(360deg)}}
+body {
+  width: 100%;
+  *zoom: 1;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+body {
+  padding-bottom: 5em;
+}
+@media (max-width: 480px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+body.principal {
+  background: #0085c0;
+  background-image: url("../img/fondoindex.jpg");
+  background-position: center center;
+  background-size: 240px 287px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+a {
+  color: #0092d2;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.ocultar {
+  display: none;
+}
+.error {
+  display: block;
+  background: #f66;
+  overflow: hidden;
+  clear: both;
+  width: 70%;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  border: 3px dotted #f00;
+  color: #fff;
+  margin: 0 auto;
+}
+.container {
+  overflow: hidden;
+  max-width: 980px;
+  clear: both;
+  margin: 0 auto;
+}
+#login {
+  max-width: 300px;
+  background: #fff;
+  overflow: hidden;
+  margin: 4em auto;
+  margin: 20vh auto;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  #login {
+    margin: 1em auto;
+  }
+}
+#login h2 {
+  color: #b3b3b3;
+  font-size: 1em;
+}
+#login h1 {
+  color: transparent;
+  display: block;
+  overflow: hidden;
+  margin: 0.25em 0;
+}
+#login p {
+  color: #0092d2;
+  font-size: 0.75em;
+}
+#login form {
+  display: block;
+  clear: both;
+  width: 100%;
+  overflow: hidden;
+}
+#login form input,
+#login form .btn {
+  display: inline;
+  float: left;
+  width: 81.25%;
+  margin: 0 1.0416666666667%;
+  *width: 81.2076822916667%;
+  *margin: 0 1.041124131944478%;
+  margin-left: 9.375%;
+  padding: 0.25em;
+  box-sizing: border-box;
+  margin-top: 0.35em;
+  margin-bottom: 0.35em;
+}
+#login form input[type="submit"],
+#login form .btn {
+  background: #0085c0;
+  color: #fff;
+  border: 0 solid;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-decoration: none;
+  padding: 0.5em;
+}
+.btn {
+  background: #0085c0;
+  color: #fff;
+  border: 0 solid;
+  margin: 1em auto;
+  text-decoration: none;
+  padding: 0.5em;
+  width: 90%;
+  display: block;
+}
+header {
+  border-bottom: 1px solid #0085c0;
+  padding: 0.5em 1em;
+  height: 3em;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  display: inline;
+  float: left;
+  width: 31.25%;
+  margin: 0 1.0416666666667%;
+  *width: 31.233723958333343%;
+  *margin: 0 1.041124131944478%;
+  text-align: left;
+}
+@media (max-width: 550px) {
+  header h1 {
+    display: inline;
+    float: left;
+    width: 39.5833333333333%;
+    margin: 0 1.0416666666667%;
+    *width: 39.56271701388887%;
+    *margin: 0 1.041124131944478%;
+  }
+}
+header .login {
+  position: relative;
+  text-align: right;
+}
+header .login img {
+  display: inline-block;
+  vertical-align: middle;
+}
+header .login p {
+  display: inline-block;
+  vertical-align: middle;
+}
+header .login a {
+  border-left: 2px solid #0092d2;
+  margin-left: 0.25em;
+  padding-left: 0.5em;
+  display: inline-block;
+}
+header .login .menuEmergente {
+  font-size: 0.8rem;
+}
+@media (max-width: 860px) {
+  header .login .menuEmergente {
+    display: none;
+    clear: both;
+    padding: 1em;
+    overflow: hidden;
+    position: fixed;
+    background: #fff;
+    top: 5em;
+    right: 0;
+    text-align: right;
+    border: 1px solid #0092d2;
+  }
+  header .login .menuEmergente img {
+    cursor: pointer;
+  }
+  header .login .menuEmergente.activo {
+    display: inline-block;
+  }
+}
+header .buscador {
+  display: inline;
+  float: left;
+  width: 31.25%;
+  margin: 0 1.0416666666667%;
+  *width: 31.233723958333343%;
+  *margin: 0 1.041124131944478%;
+  margin-top: 0.5em;
+}
+header .buscador input {
+  width: 280px;
+  max-width: 100%;
+  padding: 0.25em 0.25em 0.25em 1.5em;
+  background-image: url("../img/buscar.jpg");
+  background-size: 12px;
+  background-position: 0.25em;
+  background-repeat: no-repeat;
+  background-size: 1em;
+  height: 1.75em;
+  box-sizing: border-box;
+}
+header .buscador ::-webkit-input-placeholder {
+  color: #0085c0;
+}
+#contenidos {
+  margin-top: 1em;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+#contenidos article {
+  display: inline;
+  float: left;
+  width: 30.416666666666696%;
+  margin: 0 1.0416666666667%;
+  *width: 30.400824652777818%;
+  *margin: 0 1.041124131944478%;
+  text-align: center;
+  float: none;
+  display: none;
+  vertical-align: top;
+  opacity: 0;
+}
+#contenidos article.activo {
+  display: inline-block;
+  opacity: 1;
+}
+@media (max-width: 700px) {
+  #contenidos article {
+    display: inline;
+    float: left;
+    width: 81.25%;
+    margin: 0 1.0416666666667%;
+    *width: 81.2076822916667%;
+    *margin: 0 1.041124131944478%;
+    margin-left: 9.375%;
+  }
+}
+#contenidos ul {
+  padding: 0;
+  border: 1px solid #5a5a5a;
+  text-align: left;
+}
+#contenidos ul li {
+  list-style-type: none;
+  border-bottom: 1px solid #5a5a5a;
+  cursor: pointer;
+}
+#contenidos ul#col-1 li {
+  transition: all 0.15s ease;
+  overflow: hidden;
+  padding: 0.5em;
+}
+#contenidos ul#col-1 li figure {
+  width: 3em;
+  height: 3em;
+  margin: -0.5em 0.5em 0 0;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #b3b3b3;
+  border-radius: 50%;
+  overflow: hidden;
+  float: none;
+  vertical-align: middle;
+}
+#contenidos ul#col-1 li span {
+  display: inline;
+  float: left;
+  width: 64.5833333333333%;
+  margin: 0 1.0416666666667%;
+  *width: 64.54969618055554%;
+  *margin: 0 1.041124131944478%;
+  padding: 1em 0;
+  display: inline-block;
+  float: none;
+  vertical-align: middle;
+}
+#contenidos ul#col-1 li:hover,
+#contenidos ul#col-1 li.activo {
+  background-color: #0092d2;
+  color: #fff;
+}
+#contenidos ul#col-1 li:hover figure,
+#contenidos ul#col-1 li.activo figure {
+  background-color: transparent;
+  border: 1px solid #fff;
+}
+#contenidos ul#col-2 li {
+  transition: all 0.15s ease;
+  border-right: 0px;
+  padding: 1.5em 1em;
+}
+#contenidos ul#col-2 li:hover,
+#contenidos ul#col-2 li.activo {
+  border-left: 10px solid #00aeef;
+}
+#contenidos ul#col-3 li {
+  overflow: hidden;
+  transition: all 0.15s ease;
+  border-left: 10px solid #d9d9d9;
+}
+#contenidos ul#col-3 li:hover {
+  background-color: #00aeef;
+  border-left: 10px solid #00aeef;
+  color: #fff;
+  text-shadow: 0 2px 1px rgba(0,133,192,0.8);
+}
+#contenidos ul#col-3 li span {
+  display: inline;
+  float: left;
+  width: 60.4166666666667%;
+  margin: 0 1.0416666666667%;
+  *width: 60.38519965277783%;
+  *margin: 0 1.041124131944478%;
+  padding: 1.5em 0.5em;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#contenidos ul#col-3 li figure {
+  width: 3em;
+  height: 3em;
+  margin: -0.5em 0.5em 0 0;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+  overflow: hidden;
+  float: right;
+  vertical-align: middle;
+  margin-top: 0.5em;
+}
+#contenidos .icono {
+  width: 50px;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+}
+footer {
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 1em 0;
+}
+footer.panel {
+  position: fixed;
+  background-image: url("../img/fondo.png");
+  background-position: center bottom;
+  background-repeat: repeat-x;
+  background-size: 75px;
+  height: 25px;
+  padding: 0;
+}
+@media (max-width: 480px) {
+  footer.panel {
+    position: inherit;
+    margin-top: 3em;
+  }
+}
+@media (max-width: 480px) {
+  footer {
+    position: absolute;
+  }
+}
+footer figure {
+  margin: 0;
+}
+footer .telmexEsta {
+  display: inline-block;
+  float: left;
+  text-align: center;
+  margin-left: 1em;
+}
+@media (max-width: 480px) {
+  footer .telmexEsta {
+    display: inline;
+    float: left;
+    width: 39.5833333333333%;
+    margin: 0 1.0416666666667%;
+    *width: 39.56271701388887%;
+    *margin: 0 1.041124131944478%;
+    margin-left: 9.375%;
+  }
+}
+footer .telmexIt {
+  display: inline-block;
+  float: right;
+  text-align: center;
+  margin-right: 1em;
+}
+@media (max-width: 480px) {
+  footer .telmexIt {
+    display: inline;
+    float: left;
+    width: 39.5833333333333%;
+    margin: 0 1.0416666666667%;
+    *width: 39.56271701388887%;
+    *margin: 0 1.041124131944478%;
+  }
+}
+.ocultar {
+  display: none;
+}
+#lightbox {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#lightbox.activo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  z-index: 20;
+}
+#lightbox.activo .fondoClicable {
+  background-color: rgba(179,179,179,0.6);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -40;
+}
+#lightbox.activo #contenidoLightbox,
+#lightbox.activo #subidaLightbox {
+  transform: translateY(0);
+}
+#lightbox #busquedaResultados {
+  background-color: #fff;
+  max-width: 90%;
+  margin: 1em auto;
+  padding: 0.25em;
+  box-sizing: border-box;
+  color: #b3b3b3;
+  border: 5px solid rgba(179,179,179,0.3);
+}
+#lightbox #busquedaResultados h2 {
+  font-size: 1em;
+  font-weight: normal;
+  text-align: center;
+  margin: 0.5em auto;
+  color: #0092d2;
+}
+#lightbox #busquedaResultados hr {
+  max-width: 300px;
+  margin: 0 auto;
+}
+#lightbox #busquedaResultados h3 {
+  text-align: center;
+  font-size: 1em;
+  margin: 0.5em auto;
+  font-weight: normal;
+}
+#lightbox #busquedaResultados ul {
+  padding: 0;
+  margin: 1em auto;
+  display: block;
+  overflow-y: auto;
+  height: 350px;
+  background-color: #fff;
+}
+#lightbox #busquedaResultados ul li {
+  list-style-type: none;
+  padding: 0.5em 0;
+  border-top: 1px solid #b3b3b3;
+  display: block;
+  clear: both;
+  overflow: hidden;
+  cursor: pointer;
+}
+#lightbox #busquedaResultados ul li:hover {
+  background-color: #f0f0f0;
+}
+#lightbox #busquedaResultados ul li figure {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #fff;
+  border: 1px solid #b3b3b3;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+#lightbox #busquedaResultados ul li .nombre {
+  display: inline;
+  float: left;
+  width: 47.9166666666667%;
+  margin: 0 1.0416666666667%;
+  *width: 47.89171006944449%;
+  *margin: 0 1.041124131944478%;
+  display: inline-block;
+  float: none;
+}
+#lightbox #busquedaResultados ul li .categoria {
+  display: inline;
+  float: left;
+  width: 35.4166666666667%;
+  margin: 0 1.0416666666667%;
+  *width: 35.39822048611116%;
+  *margin: 0 1.041124131944478%;
+  display: inline-block;
+  float: none;
+  border-left: 1px solid #b3b3b3;
+  box-sizing: border-box;
+  padding-left: 1em;
+  height: 1.5em;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+#lightbox #busquedaResultados ul li .icono {
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #0085c0;
+  display: inline-block;
+  float: right;
+  margin-right: 0.25em;
+  border-radius: 50%;
+}
+#lightbox #contenidoLightbox,
+#lightbox #subidaLightbox,
+#lightbox #CategoriaLightbox,
+#lightbox #ProductoLightbox {
+  width: 400px;
+  max-width: 90%;
+  background-color: #fff;
+  margin: 1em auto;
+  position: relative;
+  overflow: hidden;
+  color: #b3b3b3;
+  transition: all 0.3s ease;
+  transform: translateY(5em);
+}
+#lightbox #contenidoLightbox input,
+#lightbox #subidaLightbox input,
+#lightbox #CategoriaLightbox input,
+#lightbox #ProductoLightbox input {
+  display: inline;
+  float: left;
+  width: 97.9166666666667%;
+  margin: 0 1.0416666666667%;
+  *width: 97.86566840277784%;
+  *margin: 0 1.041124131944478%;
+  margin-bottom: 1em;
+  box-sizing: border-box;
+}
+#lightbox #contenidoLightbox .subirArchivo,
+#lightbox #subidaLightbox .subirArchivo,
+#lightbox #CategoriaLightbox .subirArchivo,
+#lightbox #ProductoLightbox .subirArchivo {
+  width: 150px;
+  margin: 2em auto;
+}
+#lightbox #contenidoLightbox .cargaArchivo,
+#lightbox #subidaLightbox .cargaArchivo,
+#lightbox #CategoriaLightbox .cargaArchivo,
+#lightbox #ProductoLightbox .cargaArchivo {
+  cursor: pointer;
+}
+#lightbox #contenidoLightbox .cargaAnimacion,
+#lightbox #subidaLightbox .cargaAnimacion,
+#lightbox #CategoriaLightbox .cargaAnimacion,
+#lightbox #ProductoLightbox .cargaAnimacion {
+  display: none;
+  animation: cargaAnimacion 1.5s linear 0 infinite;
+}
+#lightbox #contenidoLightbox .mensajeArchivos .msg1,
+#lightbox #subidaLightbox .mensajeArchivos .msg1,
+#lightbox #CategoriaLightbox .mensajeArchivos .msg1,
+#lightbox #ProductoLightbox .mensajeArchivos .msg1 {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+#lightbox #contenidoLightbox .mensajeArchivos .msg1 h4,
+#lightbox #subidaLightbox .mensajeArchivos .msg1 h4,
+#lightbox #CategoriaLightbox .mensajeArchivos .msg1 h4,
+#lightbox #ProductoLightbox .mensajeArchivos .msg1 h4 {
+  font-weight: normal;
+  margin: 0.5em;
+}
+#lightbox #contenidoLightbox .mensajeArchivos .msg1 span,
+#lightbox #subidaLightbox .mensajeArchivos .msg1 span,
+#lightbox #CategoriaLightbox .mensajeArchivos .msg1 span,
+#lightbox #ProductoLightbox .mensajeArchivos .msg1 span {
+  color: #0092d2;
+  font-size: 0.8em;
+}
+#lightbox #contenidoLightbox .mensajeArchivos .msg2,
+#lightbox #subidaLightbox .mensajeArchivos .msg2,
+#lightbox #CategoriaLightbox .mensajeArchivos .msg2,
+#lightbox #ProductoLightbox .mensajeArchivos .msg2 {
+  display: none;
+  color: #0092d2;
+  text-align: center;
+}
+#lightbox #contenidoLightbox .mensajeArchivos .msg2 h3,
+#lightbox #subidaLightbox .mensajeArchivos .msg2 h3,
+#lightbox #CategoriaLightbox .mensajeArchivos .msg2 h3,
+#lightbox #ProductoLightbox .mensajeArchivos .msg2 h3 {
+  font-weight: normal;
+}
+#lightbox #contenidoLightbox .mensajeArchivos .msg3,
+#lightbox #subidaLightbox .mensajeArchivos .msg3,
+#lightbox #CategoriaLightbox .mensajeArchivos .msg3,
+#lightbox #ProductoLightbox .mensajeArchivos .msg3 {
+  display: none;
+}
+#lightbox #contenidoLightbox .mensajeArchivos .msg3 ul,
+#lightbox #subidaLightbox .mensajeArchivos .msg3 ul,
+#lightbox #CategoriaLightbox .mensajeArchivos .msg3 ul,
+#lightbox #ProductoLightbox .mensajeArchivos .msg3 ul {
+  padding: 0.25em;
+}
+#lightbox #contenidoLightbox .mensajeArchivos .msg3 ul li,
+#lightbox #subidaLightbox .mensajeArchivos .msg3 ul li,
+#lightbox #CategoriaLightbox .mensajeArchivos .msg3 ul li,
+#lightbox #ProductoLightbox .mensajeArchivos .msg3 ul li {
+  list-style-type: none;
+  cursor: pointer;
+  margin: 0.25em 0;
+  display: clear;
+  border-bottom: 1px solid #d9d9d9;
+  overflow: hidden;
+  padding: 0.5em 0;
+}
+#lightbox #contenidoLightbox .mensajeArchivos .msg3 ul li .cerrar,
+#lightbox #subidaLightbox .mensajeArchivos .msg3 ul li .cerrar,
+#lightbox #CategoriaLightbox .mensajeArchivos .msg3 ul li .cerrar,
+#lightbox #ProductoLightbox .mensajeArchivos .msg3 ul li .cerrar {
+  float: right;
+  padding: 0.15em 0.45em;
+  text-align: center;
+  border: 1px solid #0092d2;
+  border-radius: 50%;
+  color: #0092d2;
+}
+#lightbox #contenidoLightbox .mensajeArchivos .guardarbtn,
+#lightbox #subidaLightbox .mensajeArchivos .guardarbtn,
+#lightbox #CategoriaLightbox .mensajeArchivos .guardarbtn,
+#lightbox #ProductoLightbox .mensajeArchivos .guardarbtn {
+  display: inline;
+  float: left;
+  width: 47.9166666666667%;
+  margin: 0 1.0416666666667%;
+  *width: 47.89171006944449%;
+  *margin: 0 1.041124131944478%;
+  text-align: center;
+  background-color: #0092d2;
+  padding: 0.5em 0;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 1em;
+}
+#lightbox #contenidoLightbox .mensajeArchivos .cerrarbtn,
+#lightbox #subidaLightbox .mensajeArchivos .cerrarbtn,
+#lightbox #CategoriaLightbox .mensajeArchivos .cerrarbtn,
+#lightbox #ProductoLightbox .mensajeArchivos .cerrarbtn {
+  display: inline;
+  float: left;
+  width: 47.9166666666667%;
+  margin: 0 1.0416666666667%;
+  *width: 47.89171006944449%;
+  *margin: 0 1.041124131944478%;
+  text-align: center;
+  background-color: #aaa;
+  padding: 0.5em 0;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 1em;
+}
+#lightbox #contenidoLightbox .tituloLight,
+#lightbox #subidaLightbox .tituloLight,
+#lightbox #CategoriaLightbox .tituloLight,
+#lightbox #ProductoLightbox .tituloLight {
+  background-color: #0085c0;
+  color: #fff;
+  padding: 0.5em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+#lightbox #contenidoLightbox .tituloLight span,
+#lightbox #subidaLightbox .tituloLight span,
+#lightbox #CategoriaLightbox .tituloLight span,
+#lightbox #ProductoLightbox .tituloLight span {
+  vertical-align: middle;
+  display: inline-block;
+}
+#lightbox #contenidoLightbox .tituloLight figure,
+#lightbox #subidaLightbox .tituloLight figure,
+#lightbox #CategoriaLightbox .tituloLight figure,
+#lightbox #ProductoLightbox .tituloLight figure {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid;
+  border-radius: 50%;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-bottom: 0.5em;
+}
+#lightbox #contenidoLightbox .tituloLight .cerrar,
+#lightbox #subidaLightbox .tituloLight .cerrar,
+#lightbox #CategoriaLightbox .tituloLight .cerrar,
+#lightbox #ProductoLightbox .tituloLight .cerrar {
+  right: 1em;
+  top: 0.55em;
+  position: absolute;
+  cursor: pointer;
+}
+#lightbox #contenidoLightbox .titulo,
+#lightbox #subidaLightbox .titulo,
+#lightbox #CategoriaLightbox .titulo,
+#lightbox #ProductoLightbox .titulo {
+  padding: 0 1em;
+  text-align: center;
+}
+#lightbox #contenidoLightbox hr,
+#lightbox #subidaLightbox hr,
+#lightbox #CategoriaLightbox hr,
+#lightbox #ProductoLightbox hr {
+  display: block;
+  clear: both;
+  width: 100%;
+}
+#lightbox #contenidoLightbox dl,
+#lightbox #subidaLightbox dl,
+#lightbox #CategoriaLightbox dl,
+#lightbox #ProductoLightbox dl {
+  display: block;
+  clear: both;
+  margin: 0;
+  padding: 0.5em 0;
+  overflow: hidden;
+}
+#lightbox #contenidoLightbox dl dt,
+#lightbox #subidaLightbox dl dt,
+#lightbox #CategoriaLightbox dl dt,
+#lightbox #ProductoLightbox dl dt {
+  display: inline;
+  float: left;
+  width: 31.25%;
+  margin: 0 1.0416666666667%;
+  *width: 31.233723958333343%;
+  *margin: 0 1.041124131944478%;
+  clear: left;
+  margin-bottom: 0.5em;
+  text-align: right;
+}
+#lightbox #contenidoLightbox dl dd,
+#lightbox #subidaLightbox dl dd,
+#lightbox #CategoriaLightbox dl dd,
+#lightbox #ProductoLightbox dl dd {
+  display: inline;
+  float: left;
+  width: 64.5833333333333%;
+  margin: 0 1.0416666666667%;
+  *width: 64.54969618055554%;
+  *margin: 0 1.041124131944478%;
+  margin-bottom: 0.5em;
+  clear: right;
+}
+#lightbox #contenidoLightbox .descargar,
+#lightbox #subidaLightbox .descargar,
+#lightbox #CategoriaLightbox .descargar,
+#lightbox #ProductoLightbox .descargar {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #b3b3b3;
+  text-decoration: none;
+  margin-bottom: 1em;
+}
+#lightbox #contenidoLightbox .descargar figure,
+#lightbox #subidaLightbox .descargar figure,
+#lightbox #CategoriaLightbox .descargar figure,
+#lightbox #ProductoLightbox .descargar figure {
+  margin: 1.5em 1em 2.5em 1em;
+}
+#lightbox #contenidoLightbox .descargar img,
+#lightbox #subidaLightbox .descargar img,
+#lightbox #CategoriaLightbox .descargar img,
+#lightbox #ProductoLightbox .descargar img {
+  max-width: 130px;
+  margin-bottom: 1em;
+}
+.blur {
+  filter: blur(2px);
+}
+header.landing {
+  height: 1em;
+  border-bottom: 0.25em solid #87daff;
+  margin-bottom: 1em;
+}
+footer.landing {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-image: url("../img/fondo.png");
+  background-size: 6em 2em;
+}
+.colIzq {
+  display: inline;
+  float: left;
+  width: 31.25%;
+  margin: 0 1.0416666666667%;
+  *width: 31.233723958333343%;
+  *margin: 0 1.041124131944478%;
+}
+@media (max-width: 480px) {
+  .colIzq {
+    display: inline;
+    float: left;
+    width: 97.9166666666667%;
+    margin: 0 1.0416666666667%;
+    *width: 97.86566840277784%;
+    *margin: 0 1.041124131944478%;
+    text-align: center;
+  }
+}
+.colIzq #login {
+  margin: 3em auto;
+}
+.colIzq #login h2 {
+  color: #00aeef;
+}
+.colIzq #login > figure {
+  margin: 0;
+  padding: 0;
+}
+.colIzq #login > figure img {
+  max-width: 115px;
+}
+.colDer {
+  display: inline;
+  float: left;
+  width: 64.5833333333333%;
+  margin: 0 1.0416666666667%;
+  *width: 64.54969618055554%;
+  *margin: 0 1.041124131944478%;
+}
+@media (max-width: 480px) {
+  .colDer {
+    display: inline;
+    float: left;
+    width: 97.9166666666667%;
+    margin: 0 1.0416666666667%;
+    *width: 97.86566840277784%;
+    *margin: 0 1.041124131944478%;
+  }
+}
+.itemLanding {
+  display: inline;
+  float: left;
+  width: 47.9166666666667%;
+  margin: 0 1.0416666666667%;
+  *width: 47.89171006944449%;
+  *margin: 0 1.041124131944478%;
+  padding: 1em 0em;
+  border: 1px solid #b3b3b3;
+  box-shadow: inset 0 0.25em 0 #87daff;
+  color: #8f8f8f;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+}
+.itemLanding h3 {
+  margin: 0 1em 0 0.25em;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: lighter;
+  color: #b3b3b3;
+  vertical-align: middle;
+}
+.itemLanding figure {
+  padding: 0;
+  margin: 0 0 0 1em;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  overflow: hidden;
+  border: 1px solid #b3b3b3;
+  vertical-align: middle;
+}
+.itemLanding p {
+  font-size: 0.65em;
+  padding: 0.5em 1em;
+}
+.itemLanding dl {
+  font-size: 0.8em;
+  padding: 0 1em;
+}
+.itemLanding dl dd {
+  display: inline;
+  float: left;
+  width: 47.9166666666667%;
+  margin: 0 1.0416666666667%;
+  *width: 47.89171006944449%;
+  *margin: 0 1.041124131944478%;
+  margin-left: 9.375%;
+  display: block;
+  clear: right;
+}
+.itemLanding dl dt {
+  display: inline;
+  float: left;
+  width: 39.5833333333333%;
+  margin: 0 1.0416666666667%;
+  *width: 39.56271701388887%;
+  *margin: 0 1.041124131944478%;
+  display: block;
+  text-align: right;
+}
+.itemLanding dl hr {
+  clear: both;
+  display: block;
+  margin: 1em 0;
+  width: 100%;
+  float: left;
+}
+.itemLanding dl figure {
+  margin: 0;
+  padding: 0;
+  background-color: #f00;
+}
+@-moz-keyframes cargaAnimacion {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes cargaAnimacion {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@-o-keyframes cargaAnimacion {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes cargaAnimacion {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
