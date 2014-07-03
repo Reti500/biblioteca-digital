@@ -1,57 +1,87 @@
-(function () {
-    this.app = angular.module("bibliotecaTelmex", []).config(function($interpolateProvider){
-        console.log("wey");
-        $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
-    }), this.app.controller("InterfazBiblio", ["$scope", function (o) {
-        return o.Lightbox = !1, o.seleccionDocumento = function (t) {
-            return o.Lightbox = !0, o.sinBlur = "blur"
-        }, o.cerrarLightbox = function () {
-            return o.Lightbox = !1, o.sinBlur = ""
-        }
-    }]), this.app.controller("CategoriasCtr", ["$scope", "$http", function (o, t) {
-        return o.productoListado = !0, o.documentosListado = !0, o.idCategoria = "", o.busquedaCategoria = [], o.busquedaCategoria.categoria_id = 0, o.busquedaProducto = [], o.busquedaProducto.producto_id = 0, o.busquedaProducto.categoria_id = 0, t.get("/js/fixtures.json").success(function (t) {
-            return o.categorias = t.Categorias, o.productos = t.Productos, o.documentos = t.Documentos
-        }), o.seleccionCategoria = function (t) {
-            return o.busquedaCategoria.categoria_id = t, o.productoListado = !1, t !== o.idCategoria && (o.documentosListado = !0, console.log("cambio el id")), o.idCategoria = t
-        }, o.seleccionProducto = function (t, e) {
-            return console.log("la categoria es: " + t + " y el producto es: " + e), o.busquedaProducto.producto_id = e, o.busquedaProducto.categoria_id = t, o.documentosListado = !1
-        }
-    }])
-}).call(this);
+app = angular.module('bibliotecaTelmex', ['ngResource']);
 
-//var app = angular.module("App", ["ngResource", "ngRoute"]);
-//
-//app.config(function($routeProvider) {
-//    $routeProvider
-//        .when("/home", { templateUrl: "/views/home.html", controller: "HomeCtrl" })
-//        .when("/login", { templateUrl: "/views/sessions/login.html", controller: "SessionsCtrl" })
-//        .when("/interfaz", { templateUrl: "/views/interfaz/index.html", controller: "InterfazCtrl" })
-//});
-//
-//app.factory("Auth", function() {
-//    var session_active = false;
-//    var user_data = null;
-//
-//    this.activate_session = function (user) {
-//        session_active = true;
-//        user_data = user;
-//    };
-//
-//    this.verify_session = function () {
-//        return session_active;
-//    };
-//
-//    return this;
-//});
-//
-//app.run(function($rootScope, $location, Auth, Session){
-//    /*$rootScope.$on('$routeChangeStart', function($event, $next, $current){
-//        Session.show({}, function ($data) {
-//            if($data.state == 'logged' && $data.user){
-//                Auth.activate_session($data.user);
-//            }else{
-//                $location.path('/login')
-//            }
-//        });
-//    });*/
-//});
+app.config(function($interpolateProvider) {
+    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+});
+
+app.controller('InterfazBiblio', function($scope){
+    $scope.Lightbox = false;
+
+	$scope.seleccionDocumento = function(documento_id) {
+        $scope.Lightbox = true;
+        $scope.sinBlur = 'blur';
+    };
+
+	$scope.cerrarLightbox = function() {
+        $scope.Lightbox = false;
+		$scope.sinBlur = '';
+    };
+});
+
+app.controller("CategoriasCtr", function($scope, Categoria, Producto, Archivo) {
+
+    // INIT
+    $scope.init = function () {
+        $scope.getCategorias();
+        $scope.getProductos();
+        $scope.getArchivos();
+    };
+
+    $scope.getCategorias = function () {
+        Categoria.get({}, function($data){
+            $scope.categorias = $data.categorias;
+        });
+    };
+
+    $scope.getProductos = function () {
+        Producto.get({}, function($data){
+            $scope.productos = $data.productos;
+        });
+    };
+
+    $scope.getArchivos = function () {
+        Archivo.get({}, function ($data) {
+            $scope.documentos = $data.Archivos;
+        })
+    };
+
+    //Esto oculta los otros módulos del buscador
+    $scope.productoListado = true;
+    $scope.documentosListado = true;
+
+    //Esto controla las busquedas
+    $scope.idCategoria = "";
+
+    $scope.busquedaCategoria = [];
+    $scope.busquedaCategoria.categoria_id = 0;
+    $scope.busquedaProducto = [];
+    $scope.busquedaProducto.producto_id = 0;
+    $scope.busquedaProducto.categoria_id = 0;
+
+    //Carga las busquedas
+    /*$http.get("/assets/js/fixtures.json").success(function (data) {
+        $scope.categorias = data.Categorias;
+        $scope.productos = data.Productos;
+        $scope.documentos = data.Documentos;
+    });*/
+
+    //Esto es una función que se dispara al seleccionar la categoría
+    $scope.seleccionCategoria = function(categoria) {
+        $scope.busquedaCategoria.categoria_id = categoria;
+        $scope.productoListado = false;
+        //Aqui detecto si cambio la categoria para ocultar los documentos
+        if (categoria != $scope.idCategoria) {
+            $scope.documentosListado = true;
+            console.log("cambio el id");
+        }
+        $scope.idCategoria = categoria;
+    };
+
+    //Esto es una función que se dispara al seleccionar un producto
+    $scope.seleccionProducto = function(categoria_id, producto_id) {
+        console.log("la categoria es: " + categoria_id + " y el producto es: " + producto_id);
+        $scope.busquedaProducto.producto_id = producto_id;
+        $scope.busquedaProducto.categoria_id = categoria_id;
+        $scope.documentosListado = false;
+    };
+});

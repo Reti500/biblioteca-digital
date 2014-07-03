@@ -1,10 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="bibliotecaTelmex" ng-controller="LandingCtrl">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>Biblioteca Digital Telmex</title>
 	<link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/angular.min.js"></script>
+    <script src="/assets/js/angular-resource.js"></script>
+    <script src="/assets/js/angular/controllers/LandingCtrl.js"></script>
+    <script src="/assets/js/angular/services/Session.js"></script>
 </head>
 <body>
 <header class="landing"></header>
@@ -17,7 +21,7 @@
 				</figure>
 				<h1><span class="ocultar">Biblioteca Digital</span> <img src="/assets/img/logos.png" alt="Biblioteca Digital"></h1>
 				<a href="/signup" class="btn">REGISTRO</a>
-				<a href="/login">INICIAR SESIÓN</a>
+				<div ng-click="lightbox()" style="cursor:pointer;">INICIAR SESIÓN</div>
 			</section>
 		</div>
 		<div class="colDer">
@@ -85,5 +89,27 @@
 
 	</div>
 	<footer class="landing"></footer>
+
+    <div id="lightbox" class="activo" ng-show="login">
+        <div class="fondoClicable" ng-click="lightbox()"></div>
+		<div id="ProductoLightbox">
+			<div class="tituloLight">
+				<figure></figure>
+				<span>INICIAR SESION</span>
+				<div class="cerrar" ng-click="lightbox()">X</div>
+			</div>
+			<span href="#" class="mensajeArchivos">
+				<span class="msg1">
+                    <span class="error" ng-show="error">{[{error_message}]}</span><br>
+					<form ng-submit="acceder(user)">
+                        <input type="text" placeholder="Usuario" ng-model="user.username">
+                        <input type="password" placeholder="Contraseña" ng-model="user.password">
+                        <input type="submit" class="btn" value="INICIAR SESIÓN">
+                        <a href="/forgot">¿OLVIDASTE TU NOMBRE DE USUARIO O CONTRASEÑA?</a>
+                    </form>
+				</span>
+			</span>
+        </div>
+    </div>
 </body>
 </html>

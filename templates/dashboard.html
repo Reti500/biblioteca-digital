@@ -5,11 +5,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>Biblioteca Digital Telmex</title>
 	<link rel="stylesheet" href="/assets/css/style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="/assets/js/angular.min.js"></script>
-	<script src="/assets/js/angular-resource.js"></script>
-    <script src="/assets/js/angular/controllers/DashBoardCtrl.js"></script>
+    <script src="/assets/js/angular-resource.js"></script>
+	<script src="/assets/js/angular/controllers/DashBoardCtrl.js"></script>
+    <script src="/assets/js/angular/services/Categoria.js"></script>
+    <script src="/assets/js/angular/services/Producto.js"></script>
+    <script src="/assets/js/angular/services/Archivo.js"></script>
 </head>
-<body>
+<body ng-init="init()">
 	<header>
 		<div class="container">
 			<h1><span class="ocultar">Telmex Biblioteca Digital</span><img src="/assets/img/logo2.png" alt=""></h1>
@@ -24,35 +28,16 @@
 		</div>
 	</header>
 	<section id="contenidos">
-        <div >
-            <div id="lightbox" class="activo" ng-show="light_categoria">
-                <figure></figure>
-                <span>CATEGORIA</span>
-                <div class="cerrar">X</div>
-            </div>
-
-            <span href="#" class="mensajeArchivos">
-                <span class="msg1">
-                    <form action="#">
-                        <input type="text" placeholder="Nombre de la categoría">
-                        <hr>
-                        <a href="" class="guardarbtn">GUARDAR</a>
-                        <a href="" class="cerrarbtn">CERRAR</a>
-                    </form>
-                </span>
-            </span>
-
-        </div>
 		<div class="container">
 			<article id="Categoria" class="activo">
-				<span class="crear categoria icono"><img src="/assets/img/crear.png" alt=""></span>
+				<span class="crear categoria icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('categorias')"></span>
 				<h2>Categoría</h2>
 				<ul id="col-1">
-					<li>
+					<li ng-repeat="c in categorias">
 						<figure></figure>
-						<span>Comunicaciones Administradas</span>
+						<span>{[{c.name}]}</span>
 					</li>
-					<li>
+					<!--<li>
 						<figure></figure>
 						<span>Servicios Administrados</span>
 					</li>
@@ -71,53 +56,72 @@
 					<li>
 						<figure></figure>
 						<span>Aplicaciones y Soluciones Verticales</span>
-					</li>
+					</li>-->
 				</ul>
 			</article>
 			<article id="Productos" class="activo">
-				<span class="crear producto icono"><img src="/assets/img/crear.png" alt=""></span>
+				<span class="crear producto icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('productos')"></span>
 				<h2>Producto</h2>
 				<ul id="col-2">
-					<li>Comunicaciones Unificadas Administradas (CUAD + IP-PBX)</li>
+                    <li ng-repeat="p in productos">{[{p.name}]}</li>
+					<!--<li>Comunicaciones Unificadas Administradas (CUAD + IP-PBX)</li>
 					<li>Troncales IP</li>
 					<li>Telepresencia</li>
 					<li>Contact Center Administrado</li>
-					<li>Conferencia Web (Webex) (Cisco)</li>
+					<li>Conferencia Web (Webex) (Cisco)</li>-->
 				</ul>
 			</article>
 			<article id="Documentos" class="activo">
-				<span class="subir icono"><img src="/assets/img/subir.png" alt=""></span>
+				<span class="subir icono"><img src="/assets/img/subir.png" alt="" ng-click="openLightbox('archivos')"></span>
 				<h2>Documentos</h2>
 				<ul id="col-3">
-					<li><span>Documento 1</span> <figure style="background-color: #0092D2;"></figure></li>
+                    <li ng-repeat="a in archivos"><span>{[{a.name}]}</span> <figure style="background-color: #0092D2;" /></li>
+					<!--<li><span>Documento 1</span> <figure style="background-color: #0092D2;"></figure></li>
 					<li><span>Documento 2</span> <figure style="background-color: #FF6100;"></figure></li>
 					<li><span>Documento 3</span> <figure style="background-color: #EC1D39;"></figure></li>
 					<li><span>Documento 4</span> <figure style="background-color: #0092D2;"></figure></li>
-					<li><span>Documento 5</span> <figure style="background-color: #FF6100;"></figure></li>
+					<li><span>Documento 5</span> <figure style="background-color: #FF6100;"></figure></li>-->
 				</ul>
 			</article>
 		</div>
 	</section>
 	
-	<div id="lightbox">
-		<div class="fondoClicable"></div>
+	<div id="lightbox" class="activo" ng-show="lightboxes['archivos']">
+		<div class="fondoClicable" ng-click="closeLightbox('archivos')"></div>
 
 		<div id="subidaLightbox">
 			<div class="tituloLight">
 				<figure></figure>
-				<span>COMUNICACIONES ADMINISTRADAS</span>
-				<div class="cerrar">X</div>
+				<span>ARCHIVOS</span>
+				<div class="cerrar" ng-click="closeLightbox('archivos')">X</div>
 			</div>
 			<div class="titulo">SUBIR ARCHIVO</div>
 			<hr>
-				<figure class="subirArchivo">
+				<!--<figure class="subirArchivo">
 					<div class="cargaArchivo">
 						<img src="/assets/img/cargarArchivo.jpg">
 					</div>
 					<div class="cargaAnimacion">
 						<img src="/assets/img/animacionArchivo.jpg">
 					</div>
-				</figure>
+				</figure>-->
+                <!--<form ng-submit="addArchivo(archivo)">
+                    <select ng-model="archivo.categoria" ng-options="c as c.name for c in categorias | orderBy:'name'">
+                        <option value="">-- Escoge una categoria --</option>
+                    </select><br/>
+                    <select ng-model="archivo.producto" ng-options="p as p.name for p in productos | filter:{categoria:archivo.categoria.name}">
+                        <option value="">-- Escoge un producto --</option>
+                    </select><br>
+                    <input type="file" name="file" onchange="angular.element(this).scope().filesChanged(this)" />
+                    <hr>
+                    <input type="submit" class="guardarbtn">
+                </form>-->
+
+                <form action="{{url}}" method="POST" enctype="multipart/form-data">
+                    File Name: <input type="text" name="name"><br>
+                    Upload File: <input type="file" name="file"><br>
+                    <input type="submit" name="submit" value="Submit">
+                </form>
 			<hr>
 
 			<span href="#" class="mensajeArchivos">
@@ -137,47 +141,53 @@
 					<a href="" class="cerrarbtn">CERRAR</a>
 				</span>
 			</span>
-	
-		</div>
+	    </div>
+	</div><!-- Fin del subidaLightbox -->
 
-		<div id="CategoriaLightbox">
+    <div id="lightbox" class="activo" ng-show="lightboxes['categorias']">
+        <div class="fondoClicable" ng-click="closeLightbox('categorias')"></div>
+		<div id="CategoriaLightbox" >
 			<div class="tituloLight">
 				<figure></figure>
 				<span>CATEGORIA</span>
-				<div class="cerrar">X</div>
+				<div class="cerrar" ng-click="closeLightbox('categorias')">X</div>
 			</div>
 
 			<span href="#" class="mensajeArchivos">
 				<span class="msg1">
-					<form action="#">
-						<input type="text" placeholder="Nombre de la categoría">
+					<form ng-submit="addCategoria(categoria)">
+						<input type="text" placeholder="Nombre de la categoría" ng-model="categoria.name">
 						<hr>
-						<a href="" class="guardarbtn">GUARDAR</a>
-						<a href="" class="cerrarbtn">CERRAR</a>
+						<input type="submit" class="guardarbtn"></a>
 					</form>
 				</span>
 			</span>
-	
-		</div>
+	    </div>
+    </div><!-- Fin del CategoriaLightbox -->
 
+    <div id="lightbox" class="activo" ng-show="lightboxes['productos']">
+        <div class="fondoClicable" ng-click="closeLightbox('productos')"></div>
 		<div id="ProductoLightbox">
 			<div class="tituloLight">
 				<figure></figure>
 				<span>PRODUCTO</span>
-				<div class="cerrar">X</div>
+				<div class="cerrar" ng-click="closeLightbox('productos')">X</div>
 			</div>
 			<span href="#" class="mensajeArchivos">
 				<span class="msg1">
-					<form action="#">
-						<input type="text" placeholder="Nombre del producto">
-						<input type="text" placeholder="Nombre de la categoría">
+					<form ng-submit="addProducto(producto)">
+						<input type="text" placeholder="Nombre del producto" ng-model="producto.name">
+						<select ng-model="producto.categoria" ng-options="c as c.name for c in categorias | orderBy:'name'">
+                            <option value="">-- Escoge una categoria --</option>
+						</select>
 						<hr>
-						<a href="" class="guardarbtn">GUARDAR</a>
-						<a href="" class="cerrarbtn">CERRAR</a>
+						<input type="submit" class="guardarbtn"></a>
+						<div class="cerrarbtn" ng-click="closeLightbox('productos')" style="cursor: pointer;">CERRAR</div>
 					</form>
 				</span>
 			</span>
-		</div><!-- Fin del ProductoLightbox -->
+        </div>
+    </div><!-- Fin del ProductoLightbox -->
 
 
 		<!-- <div id="contenidoLightbox">
@@ -279,65 +289,5 @@
 	</div>
 
 	<footer class="panel"></footer>
-
-    <!--<div id="lightbox" class="activo" ng-show="light_subir">
-        <div class="fondoClicable"></div>
-
-        <div id="subidaLightbox" style="display: none;">
-            <div class="tituloLight">
-                <figure></figure>
-                <span>COMUNICACIONES ADMINISTRADAS</span>
-                <div class="cerrar">X</div>
-            </div>
-            <div class="titulo">SUBIR ARCHIVO</div>
-            <hr>
-            <figure class="subirArchivo">
-                <div class="cargaArchivo">
-                    <img src="img/cargarArchivo.jpg">
-                </div>
-                <div class="cargaAnimacion">
-                    <img src="img/animacionArchivo.jpg">
-                </div>
-            </figure>
-            <hr>
-
-            <span href="#" class="mensajeArchivos">
-                <span class="msg1">
-                    <h4>ARRASTRAR Ó BUSCAR ARCHIVOS</h4>
-                    <span>*Archivos .doc,.ppt o .pdf <br>máximo 5mb</span>
-                </span>
-                <span class="msg2">
-                    <h3>SUBIENDO ARCHIVOS</h3>
-                </span>
-                <span class="msg3">
-                    <ul>
-                        <li>CV AA MARTINEZ.pdf <span class="cerrar">x</span></li>
-                        <li>CV AA MARTINEZ.pdf <span class="cerrar">x</span></li>
-                    </ul>
-                    <a href="" class="guardarbtn">GUARDAR</a>
-                    <a href="" class="cerrarbtn">CERRAR</a>
-                </span>
-            </span>
-        </div>
-    </div>&lt;!&ndash; Fin del subidaLightbox &ndash;&gt;-->
-
-    <div style="display: none;" ng-show="ligth_productos">
-        <div class="tituloLight">
-            <figure></figure>
-            <span>PRODUCTO</span>
-            <div class="cerrar">X</div>
-        </div>
-        <span href="#" class="mensajeArchivos">
-            <span class="msg1">
-                <form action="#">
-                    <input type="text" placeholder="Nombre del producto">
-                    <input type="text" placeholder="Nombre de la categoría">
-                    <hr>
-                    <a href="" class="guardarbtn">GUARDAR</a>
-                    <a href="" class="cerrarbtn">CERRAR</a>
-                </form>
-            </span>
-        </span>
-    </div>
 </body>
 </html>

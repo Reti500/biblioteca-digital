@@ -28,7 +28,7 @@ def user_required(handler):
     def check_login(self, *args, **kwargs):
         auth = self.auth
         if not auth.get_user_by_session():
-            self.redirect(self.uri_for('login'), abort=True)
+            self.redirect(self.uri_for('main'), abort=True)
         else:
             return handler(self, *args, **kwargs)
 

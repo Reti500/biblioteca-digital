@@ -14,7 +14,7 @@ app.controller('UserCtrl', function($scope, $window, User){
         User.create(params, function($data){
             console.log($data);
             if($data.state == 'OK'){
-                $window.location.href = '/';
+                $window.location.href = '/interfaz';
             }else{
                 console.log($data);
             }
