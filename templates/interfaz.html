@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="bibliotecaTelmex" ng-controller="InterfazBiblio">
+<html lang="en" ng-app="bibliotecaTelmex" ng-controller="CategoriasCtr">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -16,18 +16,18 @@
 	<header ng-class="sinBlur">
 		<div class="container">
 			<h1><span class="ocultar">Telmex Biblioteca Digital</span><img src="/assets/img/logo2.png" alt=""></h1>
-			<div class="buscador">
-				<form action="#">
-					<input type="search" placeholder="Buscar Documentos">
+			<div class="buscador" ng-click="openLightbox('busquedas')">
+				<form ng-submit="buscar(search)">
+					<input type="search" ng-model="search.name" placeholder="Buscar Documentos">
 				</form>
 			</div>
-			<section class="login">
+			<div class="login">
 				<a href="index.html"><img src="/assets/img/cuentas.png" alt=""></a>
-			</section>
+			</div>
 		</div>
 	</header>
 	<section id="contenidos" ng-class="sinBlur">
-		<div class="container" ng-controller="CategoriasCtr" ng-init="init()">
+		<div class="container" ng-init="init()">
 			<article id="Categoria" class="activo">
 				<!-- <span class="crear icono"><img src="img/crear.png" alt=""></span> -->
 				<h2>Categoría</h2>
@@ -43,7 +43,7 @@
 				<!-- <span class="crear icono"><img src="img/crear.png" alt=""></span> -->
 				<h2>Producto</h2>
 				<ul id="col-2">
-					<li ng-repeat="prod in productos | filter:prod.categoria=idCategoria:strict" ng-click="seleccionProducto(prod.categoria,prod.id)">
+					<li ng-repeat="prod in productos | filter:prod.categoria=idCategoria:strict" ng-click="seleccionProducto(prod.categoria,prod.name)">
 						{[{prod.name}]}
 					</li>
 				</ul>
@@ -54,7 +54,7 @@
 				<span class="subir icono"><img src="img/subir.png" alt=""></span> -->
 				<h2>Documentos</h2>
 				<ul id="col-3">
-					<li ng-repeat="doc in documentos | filter:busquedaProducto:strict" ng-click="seleccionDocumento(doc.id);">
+					<li ng-repeat="doc in documentos | filter:{categoria:strCat,producto:strProd}" ng-click="seleccionDocumento(doc);">
 						<span>{[{doc.name}]}</span>
 						<figure style="background-color: #0092D2;">
 						</figure>
@@ -72,7 +72,7 @@
 				<span>COMUNICACIONES ADMINISTRADAS</span>
 				<div class="cerrar" ng-click="cerrarLightbox();">X</div>
 			</div>
-			<div class="titulo">DOCUMENTO 1</div>
+			<div class="titulo">{[{current_file.name}]}</div>
 			<hr>
 			<dl>
 				<dt>Formato:</dt>
@@ -86,21 +86,29 @@
 
 			<a href="#" class="descargar">
 				<figure>
-					<img src="/assets/img/descargarbig.jpg" alt="">
+                    <a href="/serve/{[{current_file.file}]}"><img src="/assets/img/descargarbig.jpg" alt=""></a>
 					<figcaption>
 						DESCARGAR ARCHIVO
 					</figcaption>
 				</figure>
 			</a>
-	
-		</div><!-- Fin del contenido Lightbox -->
+	    </div>
+	</div><!-- Fin del contenido Lightbox -->
 
+    <div id="lightbox" class="activo" ng-show="busquedas">
+        <div class="fondoClicable" ng-click="closeSearch()"></div>
 		<div id="busquedaResultados">
-			<h2><img src="/assets/img/buscar.jpg" width="15"> Resultados de busqueda</h2>
+			<h2><img src="/assets/img/buscar.jpg" width="15">Resultados de busqueda</h2>
 			<hr>
-			<h3>Nombre de la busqueda</h3>
+			<h3>{[{find}]}</h3>
 			<ul>
-				<li>
+                <li ng-repeat="a in documentos | searchfilter:search.name">
+                    <figure></figure>
+                    <img src="" alt=""><span class="nombre">{[{a.name}]}</span>
+                    <span class="categoria">{[{a.categoria}]}</span>
+                    <span class="icono"></span>
+                </li>
+				<!--<li>
 					<figure></figure>
 					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
 					<span class="categoria">Categoría</span>
@@ -159,7 +167,7 @@
 					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
 					<span class="categoria">Categoría</span>
 					<span class="icono"></span>
-				</li>
+				</li>-->
 			</ul>
 		</div>
 	</div>

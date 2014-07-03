@@ -118,8 +118,14 @@
                 </form>-->
 
                 <form action="{{url}}" method="POST" enctype="multipart/form-data">
-                    File Name: <input type="text" name="name"><br>
+                    <select name="categoria" ng-model="categoria" >
+                        <option value="{[{c.name}]}" ng-repeat="c in categorias" ng-model="categoria">{[{c.name}]}</option>
+				    </select><br/>
+                    <select name="producto" ng-model="producto">
+                        <option value="{[{p.name}]}" ng-repeat="p in productos | filter:{categoria:categoria}">{[{p.name}]}</option>
+                    </select><br/>
                     Upload File: <input type="file" name="file"><br>
+
                     <input type="submit" name="submit" value="Submit">
                 </form>
 			<hr>

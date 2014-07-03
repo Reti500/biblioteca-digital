@@ -111,7 +111,10 @@ class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
     def get(self):
         arch_json = []
         for a in Archivo.query():
-            my_json = {"name": a.name, "file": a.file}
+            if a.categoria and a.producto:
+                my_json = {"name": a.name, "file": a.file, "categoria": a.categoria.id(), "producto": a.producto.id()}
+            else:
+                my_json = {"name": a.name, "file": a.file}
             arch_json.append(my_json)
 
         obj = {"Archivos": arch_json}
@@ -153,15 +156,23 @@ class MainUploadImage(webapp2.RequestHandler):
 
 class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     def post(self):
-        print(self.request.body)
+        categoria_str = self.request.get('categoria')
+        producto_str = self.request.get('producto')
+
         upload_files = self.get_uploads('file')  # 'file' is file upload field in the form
         blob_info = upload_files[0]
         data = blobstore.BlobInfo.get(blob_info.key())
+
+        cat_key = ndb.Key(Categoria, categoria_str)
+        prod_key = ndb.Key(Producto, producto_str)
+
         archivo = Archivo()
         archivo.file = str(blob_info.key())
         archivo.name = data.filename
         archivo.size = data.size
         archivo.type = data.content_type
+        archivo.categoria = cat_key
+        archivo.producto = prod_key
         archivo.put()
         self.redirect('/serve/%s' % blob_info.key())
 
@@ -170,4 +181,4 @@ class ServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
     def get(self, resource):
         resource = str(urllib.unquote(resource))
         blob_info = blobstore.BlobInfo.get(resource)
-        self.send_blob(blob_info, save_as=blob_info.filename)
+        self.send_blob(blob_info)

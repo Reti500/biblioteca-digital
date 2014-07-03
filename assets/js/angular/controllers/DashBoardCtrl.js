@@ -17,7 +17,8 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
     $scope.lightboxes = {
         "categorias": false,
         "productos": false,
-        "archivos": false
+        "archivos": false,
+        "busquedas": true
     };
 
     $scope.openLightbox = function(light){

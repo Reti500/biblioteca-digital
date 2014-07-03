@@ -4,21 +4,49 @@ app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
 });
 
-app.controller('InterfazBiblio', function($scope){
+//app.controller('InterfazBiblio', function($scope){
+//    $scope.Lightbox = false;
+//
+//	$scope.seleccionDocumento = function(documento_id) {
+//        $scope.Lightbox = true;
+//        $scope.sinBlur = 'blur';
+//    };
+//
+//	$scope.cerrarLightbox = function() {
+//        $scope.Lightbox = false;
+//		$scope.sinBlur = '';
+//    };
+//
+//    $scope.buscar = function($data){
+//
+//    };
+//});
+
+app.controller("CategoriasCtr", function($scope, Categoria, Producto, Archivo) {
+    $scope.busquedas = false;
     $scope.Lightbox = false;
 
-	$scope.seleccionDocumento = function(documento_id) {
+	$scope.seleccionDocumento = function(documento) {
         $scope.Lightbox = true;
         $scope.sinBlur = 'blur';
+        $scope.current_file = documento;
     };
 
 	$scope.cerrarLightbox = function() {
         $scope.Lightbox = false;
 		$scope.sinBlur = '';
     };
-});
 
-app.controller("CategoriasCtr", function($scope, Categoria, Producto, Archivo) {
+    $scope.buscar = function($data){
+        if($data) {
+            $scope.busquedas = true;
+            $scope.find = $data;
+        }
+    };
+
+    $scope.closeSearch = function(){
+        $scope.busquedas = false;
+    };
 
     // INIT
     $scope.init = function () {
@@ -83,5 +111,19 @@ app.controller("CategoriasCtr", function($scope, Categoria, Producto, Archivo) {
         $scope.busquedaProducto.producto_id = producto_id;
         $scope.busquedaProducto.categoria_id = categoria_id;
         $scope.documentosListado = false;
+        $scope.strCat = categoria_id;
+        $scope.strProd = producto_id;
     };
 });
+
+app.filter('searchfilter', [function() {
+    return function(items, searchText){
+        var filtered = [];
+        console.log("filter!!!!!");
+        searchText = String(searchText).toLowerCase();
+        angular.forEach(items, function(item) {
+            if( item.name.toLowerCase().indexOf(searchText) >= 0 ) filtered.push(item);
+        });
+        return filtered;
+    };
+}]);

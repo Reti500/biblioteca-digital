@@ -75,5 +75,5 @@ class Archivo(ndb.Model):
     owner = ndb.UserProperty(auto_current_user_add=True)
     created_at = ndb.DateTimeProperty(auto_now_add=True)
     updated_at = ndb.DateTimeProperty(auto_now_add=True)
-    #categoria = ndb.KeyProperty(kind=Categoria)
-    #producto = ndb.KeyProperty(kind=Producto)
+    categoria = ndb.KeyProperty(kind=Categoria)
+    producto = ndb.KeyProperty(kind=Producto)

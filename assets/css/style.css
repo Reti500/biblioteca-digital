@@ -575,7 +575,7 @@ header h1 {
   }
 }
 header .login {
-  position: relative;
+  /*position: relative;*/
   text-align: right;
 }
 header .login img {
