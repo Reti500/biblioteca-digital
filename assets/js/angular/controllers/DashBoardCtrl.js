@@ -7,11 +7,23 @@ app.config(function($interpolateProvider) {
 app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Archivo){
     $scope.error = false;
     $scope.error_message = "";
+    $scope.buquedas = false;
 
     $scope.init = function () {
         $scope.getCategorias();
         $scope.getProductos();
         $scope.getArchivos();
+    };
+
+    $scope.buscar = function($data){
+        if($data) {
+            $scope.busquedas = true;
+            $scope.find = $data;
+        }
+    };
+
+    $scope.closeSearch = function(){
+        $scope.busquedas = false;
     };
 
     $scope.lightboxes = {
@@ -94,3 +106,15 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
         $scope.$apply();
     }
 });
+
+app.filter('searchfilter', [function() {
+    return function(items, searchText){
+        var filtered = [];
+        console.log("filter!!!!!");
+        searchText = String(searchText).toLowerCase();
+        angular.forEach(items, function(item) {
+            if( item.name.toLowerCase().indexOf(searchText) >= 0 ) filtered.push(item);
+        });
+        return filtered;
+    };
+}]);

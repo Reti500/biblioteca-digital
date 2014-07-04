@@ -284,19 +284,17 @@ class SetPasswordHandler(BaseHandler):
 
 class LoginHandler(BaseHandler):
     def get(self):
-        todo = {"users": []}
-        user = User.query()
-        if self.user:
-            if self.user.roles:
-                print("SI")
-                self.response.out.write(json.dumps(self.user.roles))
-            else:
-                print("No")
-                self.response.out.write(json.dumps(self.user.auth_ids))
-        else:
-            for u in user:
-                todo["users"].append({"email": u.email_address, "name": u.name, "roles": u.roles})
-            self.response.out.write(json.dumps(todo))
+        #todo = {"users": []}
+        #user = User.query()
+        # if self.user:
+        #     if self.user.roles:
+        #         self.response.out.write(json.dumps(self.user.roles))
+        #     else:
+        #         self.response.out.write(json.dumps(self.user.auth_ids))
+        # else:
+        #     for u in user:
+        #         todo["users"].append({"email": u.email_address, "name": u.name, "roles": u.roles})
+        #     self.response.out.write(json.dumps(todo))
 
         self.render_template("login.html")
         #self._serve_page()
@@ -310,7 +308,10 @@ class LoginHandler(BaseHandler):
         try:
             u = self.auth.get_user_by_password(username, password, remember=True,
                                                save_session=True)
-            self.response.out.write(json.dumps({"state": "OK", "user": u}))
+            if not self.user.verified:
+                self.response.out.write(json.dumps({"state": "VERIFIED"}))
+            else:
+                self.response.out.write(json.dumps({"state": "OK", "user": u}))
             #self.redirect(self.uri_for('home'))
         except (InvalidAuthIdError, InvalidPasswordError) as e:
             logging.info('Login failed for user %s because of %s', username, type(e))

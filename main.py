@@ -47,7 +47,7 @@ class MainPage(BaseHandler):
 class DashboardPage(BaseHandler):
     @user_required
     def get(self):
-        tempplate_values = {"url":upload_url}
+        tempplate_values = {"url":upload_url, "username":self.user.name}
         template = JINJA_ENVIRONMENT.get_template('dashboard.html')
         self.response.write(template.render(tempplate_values))
 
@@ -57,7 +57,7 @@ class InterfazPage(BaseHandler):
     def get(self):
         if self.user.has_role('admin'):
             self.redirect_to(self.url_for('dashboard'))
-        template_values = {}
+        template_values = {"username":self.user.name}
         template = JINJA_ENVIRONMENT.get_template('interfaz.html')
         self.response.write(template.render(template_values))
 

@@ -18,12 +18,14 @@
 		<div class="container">
 			<h1><span class="ocultar">Telmex Biblioteca Digital</span><img src="/assets/img/logo2.png" alt=""></h1>
 			<div class="buscador">
-				<form action="#">
-					<input type="search" placeholder="Buscar Documentos">
+				<form ng-submit="buscar(search)">
+					<input type="search" ng-model="search.name" placeholder="Buscar Documentos">
 				</form>
 			</div>
 			<section class="login">
-				<a href="index.html"><img src="/assets/img/cuentas.png" alt=""></a>
+                <a href="index.html"><img src="/assets/img/cuentas.png" alt=""></a>
+                {{username}}
+                <a href="/logout">Salir</a>
 			</section>
 		</div>
 	</header>
@@ -118,15 +120,17 @@
                 </form>-->
 
                 <form action="{{url}}" method="POST" enctype="multipart/form-data">
-                    <select name="categoria" ng-model="categoria" >
+                    Categoria:  <select name="categoria" ng-model="categoria" >
                         <option value="{[{c.name}]}" ng-repeat="c in categorias" ng-model="categoria">{[{c.name}]}</option>
 				    </select><br/>
-                    <select name="producto" ng-model="producto">
+                    <hr/>
+                    Producto:  <select name="producto" ng-model="producto">
                         <option value="{[{p.name}]}" ng-repeat="p in productos | filter:{categoria:categoria}">{[{p.name}]}</option>
                     </select><br/>
-                    Upload File: <input type="file" name="file"><br>
-
-                    <input type="submit" name="submit" value="Submit">
+                    <hr/>
+                    <input type="file" name="file"><br>
+                    <hr/>
+                    <input type="submit" name="submit" value="Guardar">
                 </form>
 			<hr>
 
@@ -196,6 +200,24 @@
     </div><!-- Fin del ProductoLightbox -->
 
 
+    <div id="lightbox" class="activo" ng-show="busquedas">
+        <div class="fondoClicable" ng-click="closeSearch()"></div>
+		<div id="busquedaResultados">
+			<h2><img src="/assets/img/buscar.jpg" width="15">Resultados de busqueda</h2>
+			<hr>
+			<h3>{[{find.name}]}</h3>
+			<ul>
+                <div ng-repeat="a in archivos | searchfilter:search.name">
+                    <a href="/serve/{[{a.file}]}"><li >
+                        <figure></figure>
+                        <img src="" alt=""><span class="nombre">{[{a.name}]}</span>
+                        <span class="categoria">{[{a.categoria}]}</span>
+                        <span class="icono"></span>
+                    </li></a>
+                </div>
+            </ul>
+		</div>
+	</div>
 		<!-- <div id="contenidoLightbox">
 			<div class="tituloLight">
 				<figure></figure>

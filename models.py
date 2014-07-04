@@ -55,24 +55,23 @@ class User(webapp2_extras.appengine.auth.models.User):
 
 class Categoria(ndb.Model):
     name = ndb.StringProperty(required=True)
-    owner = ndb.UserProperty(auto_current_user_add=True)
+    owner = ndb.UserProperty(auto_current_user=True)
     created_at = ndb.DateTimeProperty(auto_now_add=True)
     updated_at = ndb.DateTimeProperty(auto_now_add=True)
 
 class Producto(ndb.Model):
     name = ndb.StringProperty(required=True)
-    owner = ndb.UserProperty(auto_current_user_add=True)
+    owner = ndb.UserProperty(auto_current_user=True)
     created_at = ndb.DateTimeProperty(auto_now_add=True)
     updated_at = ndb.DateTimeProperty(auto_now_add=True)
     categoria = ndb.KeyProperty(kind=Categoria)
 
 class Archivo(ndb.Model):
     name = ndb.StringProperty(required=True)
-    #description = ndb.TextProperty(required=True)
     type = ndb.StringProperty(required=True)
     size = ndb.IntegerProperty(required=True)
     file = ndb.BlobProperty(required=True)
-    owner = ndb.UserProperty(auto_current_user_add=True)
+    owner = ndb.UserProperty(auto_current_user=True)
     created_at = ndb.DateTimeProperty(auto_now_add=True)
     updated_at = ndb.DateTimeProperty(auto_now_add=True)
     categoria = ndb.KeyProperty(kind=Categoria)

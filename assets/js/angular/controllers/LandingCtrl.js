@@ -20,6 +20,10 @@ app.controller('LandingCtrl', function($scope, $window, Session){
             console.log($data);
             if($data.state == "OK"){
                 $window.location.href = '/interfaz';
+            }else if($data.state == "VERIFIED"){
+                $scope.user = angular.copy({})
+                $scope.error = true;
+                $scope.error_message = "Verifica el tu correo!!!";
             }else{
                 $scope.user = angular.copy({})
                 $scope.error = true;

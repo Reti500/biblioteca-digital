@@ -11,6 +11,8 @@ app.controller('SessionsCtrl', function($scope, $window, Session){
         Session.create(params, function($data){
             if($data.state == "OK"){
                 $window.location.href = '/';
+            }else if($data.state == "VERIFIED"){
+
             }else{
                 console.log($data.state)
             }

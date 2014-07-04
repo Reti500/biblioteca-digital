@@ -22,7 +22,9 @@
 				</form>
 			</div>
 			<div class="login">
-				<a href="index.html"><img src="/assets/img/cuentas.png" alt=""></a>
+                <a href="index.html"><img src="/assets/img/cuentas.png" alt=""></a>
+                {{username}}
+                <a href="/logout">Salir</a>
 			</div>
 		</div>
 	</header>
@@ -54,7 +56,7 @@
 				<span class="subir icono"><img src="img/subir.png" alt=""></span> -->
 				<h2>Documentos</h2>
 				<ul id="col-3">
-					<li ng-repeat="doc in documentos | filter:{categoria:strCat,producto:strProd}" ng-click="seleccionDocumento(doc);">
+					<li ng-repeat="doc in documentos | filter:{categoria:strCat,producto:strProd}" ng-click="seleccionDocumento(doc)">
 						<span>{[{doc.name}]}</span>
 						<figure style="background-color: #0092D2;">
 						</figure>
@@ -100,14 +102,16 @@
 		<div id="busquedaResultados">
 			<h2><img src="/assets/img/buscar.jpg" width="15">Resultados de busqueda</h2>
 			<hr>
-			<h3>{[{find}]}</h3>
+			<h3>{[{find.name}]}</h3>
 			<ul>
-                <li ng-repeat="a in documentos | searchfilter:search.name">
-                    <figure></figure>
-                    <img src="" alt=""><span class="nombre">{[{a.name}]}</span>
-                    <span class="categoria">{[{a.categoria}]}</span>
-                    <span class="icono"></span>
-                </li>
+                <div ng-repeat="a in documentos | searchfilter:search.name">
+                    <a href="/serve/{[{a.file}]}"><li >
+                        <figure></figure>
+                        <img src="" alt=""><span class="nombre">{[{a.name}]}</span>
+                        <span class="categoria">{[{a.categoria}]}</span>
+                        <span class="icono"></span>
+                    </li></a>
+                </div>
 				<!--<li>
 					<figure></figure>
 					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
