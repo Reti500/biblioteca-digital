@@ -1,8 +1,8 @@
-app = angular.module('bibliotecaTelmex', ['ngResource']);
+/*app = angular.module('bibliotecaTelmex', ['ngResource']);
 
 app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
-});
+});*/
 
 app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Archivo){
     $scope.error = false;
@@ -107,6 +107,7 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
     }
 });
 
+/*
 app.filter('searchfilter', [function() {
     return function(items, searchText){
         var filtered = [];
@@ -117,4 +118,4 @@ app.filter('searchfilter', [function() {
         });
         return filtered;
     };
-}]);
+}]);*/

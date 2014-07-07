@@ -128,9 +128,6 @@ class SignupHandler(BaseHandler):
                                                 verified=False)
         if not user_data[0]:  # user_data is a tuple
             self.response.out.write(json.dumps({"state":"ERROR"}))
-            #self.display_message("error")
-            #self.display_message('Unable to create user for email %s because of \
-        #duplicate keys %s' % (user_name, user_data[1]))
             return
 
         user = user_data[1]
@@ -178,11 +175,7 @@ class SignupHandler(BaseHandler):
         """ + verification_url
 
         message.send()
-        self.response.out.write(json.dumps({"state":"OK"}))
-        #self.display_message("ok")
-        #self.response.out.write(json.dumps({"state":"ok"}))
-        #self.response.out.write(json.dumps({"state": "ERROR"}))
-        #self.display_message(msg.format(url=verification_url))
+        self.response.out.write(json.dumps({"state":"OK", "url": verification_url}))
 
 
 class ForgotPasswordHandler(BaseHandler):
@@ -306,12 +299,21 @@ class LoginHandler(BaseHandler):
             password = jdata['password']
 
         try:
-            u = self.auth.get_user_by_password(username, password, remember=True,
-                                               save_session=True)
-            if not self.user.verified:
-                self.response.out.write(json.dumps({"state": "VERIFIED"}))
-            else:
-                self.response.out.write(json.dumps({"state": "OK", "user": u}))
+            us = self.user_model.get_by_auth_id(username)
+            if us and us.verified:
+                print("Verificado!!")
+                u = self.auth.get_user_by_password(username, password, remember=True, save_session=True)
+                self.response.out.write(json.dumps({"state": "OK"}))
+            elif us:
+                print("No esta verificado")
+                user_id = us.get_id()
+                token = self.user_model.create_signup_token(user_id)
+
+                verification_url = self.uri_for('verification', type='v', user_id=user_id,
+                                        signup_token=token, _full=True)
+                self.response.out.write(json.dumps({"state": "VERIFIED", "url":verification_url}))
+
+
             #self.redirect(self.uri_for('home'))
         except (InvalidAuthIdError, InvalidPasswordError) as e:
             logging.info('Login failed for user %s because of %s', username, type(e))

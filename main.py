@@ -39,6 +39,10 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 class MainPage(BaseHandler):
     def get(self):
+        if self.user and self.user.has_role('admin'):
+            self.redirect('/dashboard')
+        elif self.user:
+            self.redirect('/interfaz')
         template_values = {}
         template = JINJA_ENVIRONMENT.get_template('landing.html')
         self.response.write(template.render(template_values))
@@ -111,10 +115,11 @@ class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
     def get(self):
         arch_json = []
         for a in Archivo.query():
+            date = str(a.created_at.date())
             if a.categoria and a.producto:
-                my_json = {"name": a.name, "file": a.file, "categoria": a.categoria.id(), "producto": a.producto.id()}
+                my_json = {"name": a.name, "file": a.file, "size": a.size, "type": a.type, "fecha": date, "categoria": a.categoria.id(), "producto": a.producto.id()}
             else:
-                my_json = {"name": a.name, "file": a.file}
+                my_json = {"name": a.name, "file": a.file, "size": a.size, "type": a.type, "fecha": date}
             arch_json.append(my_json)
 
         obj = {"Archivos": arch_json}
@@ -125,24 +130,6 @@ class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
         archivo = Archivo()
         my_file = self.request.get('0').read()
         archivo.file = ndb.BlobKey(my_file)
-        #jdata = json.loads(self.request.body)
-        # print(jdata['file'])
-        # upload_files = self.get_uploads('file')
-        # print(len(upload_files))
-        #
-        #if jdata:
-        #    archivo = Archivo()
-        #    my_file = jdata['file']
-        #    archivo.file = ndb.BlobKey(my_file)
-        #    archivo.put()
-        #     cat_key = ndb.Key(Categoria, jdata['categoria']['name'])
-        #     prod_key = ndb.Key(Producto, jdata['producto']['name'])
-        #     archivo = Archivo(name=jdata['name'], categoria=cat_key, producto=prod_key, type=jdata['type'],
-        #                       size=jdata['size'])
-        #     #archivo.put()
-        #    self.response.out.write(json.dumps({"state": "OK"}))
-        #else:
-        #    self.response.out.write(json.dumps({"state": "ERROR"}))
 
 
 class MainUploadImage(webapp2.RequestHandler):
@@ -182,3 +169,9 @@ class ServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
         resource = str(urllib.unquote(resource))
         blob_info = blobstore.BlobInfo.get(resource)
         self.send_blob(blob_info)
+
+class AdminPage(BaseHandler):
+    def get(self):
+        tempplate_values = {}
+        template = JINJA_ENVIRONMENT.get_template('admin.html')
+        self.response.write(template.render(tempplate_values))

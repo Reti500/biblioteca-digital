@@ -463,6 +463,18 @@ a:hover {
 .ocultar {
   display: none;
 }
+.exito {
+  display: block;
+  background: #4bc8ff;
+  overflow: hidden;
+  clear: both;
+  width: 70%;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  border: 3px dotted #0092d2;
+  color: #fff;
+  margin: 0 auto;
+}
 .error {
   display: block;
   background: #f66;
@@ -575,7 +587,7 @@ header h1 {
   }
 }
 header .login {
-  /*position: relative;*/
+  position: relative;
   text-align: right;
 }
 header .login img {
@@ -964,7 +976,8 @@ footer .telmexIt {
 #lightbox #contenidoLightbox,
 #lightbox #subidaLightbox,
 #lightbox #CategoriaLightbox,
-#lightbox #ProductoLightbox {
+#lightbox #ProductoLightbox,
+#lightbox #adminAlta {
   width: 400px;
   max-width: 90%;
   background-color: #fff;
@@ -978,7 +991,8 @@ footer .telmexIt {
 #lightbox #contenidoLightbox input,
 #lightbox #subidaLightbox input,
 #lightbox #CategoriaLightbox input,
-#lightbox #ProductoLightbox input {
+#lightbox #ProductoLightbox input,
+#lightbox #adminAlta input {
   display: inline;
   float: left;
   width: 97.9166666666667%;
@@ -991,27 +1005,31 @@ footer .telmexIt {
 #lightbox #contenidoLightbox .subirArchivo,
 #lightbox #subidaLightbox .subirArchivo,
 #lightbox #CategoriaLightbox .subirArchivo,
-#lightbox #ProductoLightbox .subirArchivo {
+#lightbox #ProductoLightbox .subirArchivo,
+#lightbox #adminAlta .subirArchivo {
   width: 150px;
   margin: 2em auto;
 }
 #lightbox #contenidoLightbox .cargaArchivo,
 #lightbox #subidaLightbox .cargaArchivo,
 #lightbox #CategoriaLightbox .cargaArchivo,
-#lightbox #ProductoLightbox .cargaArchivo {
+#lightbox #ProductoLightbox .cargaArchivo,
+#lightbox #adminAlta .cargaArchivo {
   cursor: pointer;
 }
 #lightbox #contenidoLightbox .cargaAnimacion,
 #lightbox #subidaLightbox .cargaAnimacion,
 #lightbox #CategoriaLightbox .cargaAnimacion,
-#lightbox #ProductoLightbox .cargaAnimacion {
+#lightbox #ProductoLightbox .cargaAnimacion,
+#lightbox #adminAlta .cargaAnimacion {
   display: none;
   animation: cargaAnimacion 1.5s linear 0 infinite;
 }
 #lightbox #contenidoLightbox .mensajeArchivos .msg1,
 #lightbox #subidaLightbox .mensajeArchivos .msg1,
 #lightbox #CategoriaLightbox .mensajeArchivos .msg1,
-#lightbox #ProductoLightbox .mensajeArchivos .msg1 {
+#lightbox #ProductoLightbox .mensajeArchivos .msg1,
+#lightbox #adminAlta .mensajeArchivos .msg1 {
   width: 50%;
   display: block;
   margin: 0 auto;
@@ -1020,21 +1038,24 @@ footer .telmexIt {
 #lightbox #contenidoLightbox .mensajeArchivos .msg1 h4,
 #lightbox #subidaLightbox .mensajeArchivos .msg1 h4,
 #lightbox #CategoriaLightbox .mensajeArchivos .msg1 h4,
-#lightbox #ProductoLightbox .mensajeArchivos .msg1 h4 {
+#lightbox #ProductoLightbox .mensajeArchivos .msg1 h4,
+#lightbox #adminAlta .mensajeArchivos .msg1 h4 {
   font-weight: normal;
   margin: 0.5em;
 }
 #lightbox #contenidoLightbox .mensajeArchivos .msg1 span,
 #lightbox #subidaLightbox .mensajeArchivos .msg1 span,
 #lightbox #CategoriaLightbox .mensajeArchivos .msg1 span,
-#lightbox #ProductoLightbox .mensajeArchivos .msg1 span {
+#lightbox #ProductoLightbox .mensajeArchivos .msg1 span,
+#lightbox #adminAlta .mensajeArchivos .msg1 span {
   color: #0092d2;
   font-size: 0.8em;
 }
 #lightbox #contenidoLightbox .mensajeArchivos .msg2,
 #lightbox #subidaLightbox .mensajeArchivos .msg2,
 #lightbox #CategoriaLightbox .mensajeArchivos .msg2,
-#lightbox #ProductoLightbox .mensajeArchivos .msg2 {
+#lightbox #ProductoLightbox .mensajeArchivos .msg2,
+#lightbox #adminAlta .mensajeArchivos .msg2 {
   display: none;
   color: #0092d2;
   text-align: center;
@@ -1042,25 +1063,29 @@ footer .telmexIt {
 #lightbox #contenidoLightbox .mensajeArchivos .msg2 h3,
 #lightbox #subidaLightbox .mensajeArchivos .msg2 h3,
 #lightbox #CategoriaLightbox .mensajeArchivos .msg2 h3,
-#lightbox #ProductoLightbox .mensajeArchivos .msg2 h3 {
+#lightbox #ProductoLightbox .mensajeArchivos .msg2 h3,
+#lightbox #adminAlta .mensajeArchivos .msg2 h3 {
   font-weight: normal;
 }
 #lightbox #contenidoLightbox .mensajeArchivos .msg3,
 #lightbox #subidaLightbox .mensajeArchivos .msg3,
 #lightbox #CategoriaLightbox .mensajeArchivos .msg3,
-#lightbox #ProductoLightbox .mensajeArchivos .msg3 {
+#lightbox #ProductoLightbox .mensajeArchivos .msg3,
+#lightbox #adminAlta .mensajeArchivos .msg3 {
   display: none;
 }
 #lightbox #contenidoLightbox .mensajeArchivos .msg3 ul,
 #lightbox #subidaLightbox .mensajeArchivos .msg3 ul,
 #lightbox #CategoriaLightbox .mensajeArchivos .msg3 ul,
-#lightbox #ProductoLightbox .mensajeArchivos .msg3 ul {
+#lightbox #ProductoLightbox .mensajeArchivos .msg3 ul,
+#lightbox #adminAlta .mensajeArchivos .msg3 ul {
   padding: 0.25em;
 }
 #lightbox #contenidoLightbox .mensajeArchivos .msg3 ul li,
 #lightbox #subidaLightbox .mensajeArchivos .msg3 ul li,
 #lightbox #CategoriaLightbox .mensajeArchivos .msg3 ul li,
-#lightbox #ProductoLightbox .mensajeArchivos .msg3 ul li {
+#lightbox #ProductoLightbox .mensajeArchivos .msg3 ul li,
+#lightbox #adminAlta .mensajeArchivos .msg3 ul li {
   list-style-type: none;
   cursor: pointer;
   margin: 0.25em 0;
@@ -1072,7 +1097,8 @@ footer .telmexIt {
 #lightbox #contenidoLightbox .mensajeArchivos .msg3 ul li .cerrar,
 #lightbox #subidaLightbox .mensajeArchivos .msg3 ul li .cerrar,
 #lightbox #CategoriaLightbox .mensajeArchivos .msg3 ul li .cerrar,
-#lightbox #ProductoLightbox .mensajeArchivos .msg3 ul li .cerrar {
+#lightbox #ProductoLightbox .mensajeArchivos .msg3 ul li .cerrar,
+#lightbox #adminAlta .mensajeArchivos .msg3 ul li .cerrar {
   float: right;
   padding: 0.15em 0.45em;
   text-align: center;
@@ -1083,7 +1109,8 @@ footer .telmexIt {
 #lightbox #contenidoLightbox .mensajeArchivos .guardarbtn,
 #lightbox #subidaLightbox .mensajeArchivos .guardarbtn,
 #lightbox #CategoriaLightbox .mensajeArchivos .guardarbtn,
-#lightbox #ProductoLightbox .mensajeArchivos .guardarbtn {
+#lightbox #ProductoLightbox .mensajeArchivos .guardarbtn,
+#lightbox #adminAlta .mensajeArchivos .guardarbtn {
   display: inline;
   float: left;
   width: 47.9166666666667%;
@@ -1100,7 +1127,8 @@ footer .telmexIt {
 #lightbox #contenidoLightbox .mensajeArchivos .cerrarbtn,
 #lightbox #subidaLightbox .mensajeArchivos .cerrarbtn,
 #lightbox #CategoriaLightbox .mensajeArchivos .cerrarbtn,
-#lightbox #ProductoLightbox .mensajeArchivos .cerrarbtn {
+#lightbox #ProductoLightbox .mensajeArchivos .cerrarbtn,
+#lightbox #adminAlta .mensajeArchivos .cerrarbtn {
   display: inline;
   float: left;
   width: 47.9166666666667%;
@@ -1117,7 +1145,8 @@ footer .telmexIt {
 #lightbox #contenidoLightbox .tituloLight,
 #lightbox #subidaLightbox .tituloLight,
 #lightbox #CategoriaLightbox .tituloLight,
-#lightbox #ProductoLightbox .tituloLight {
+#lightbox #ProductoLightbox .tituloLight,
+#lightbox #adminAlta .tituloLight {
   background-color: #0085c0;
   color: #fff;
   padding: 0.5em;
@@ -1127,14 +1156,16 @@ footer .telmexIt {
 #lightbox #contenidoLightbox .tituloLight span,
 #lightbox #subidaLightbox .tituloLight span,
 #lightbox #CategoriaLightbox .tituloLight span,
-#lightbox #ProductoLightbox .tituloLight span {
+#lightbox #ProductoLightbox .tituloLight span,
+#lightbox #adminAlta .tituloLight span {
   vertical-align: middle;
   display: inline-block;
 }
 #lightbox #contenidoLightbox .tituloLight figure,
 #lightbox #subidaLightbox .tituloLight figure,
 #lightbox #CategoriaLightbox .tituloLight figure,
-#lightbox #ProductoLightbox .tituloLight figure {
+#lightbox #ProductoLightbox .tituloLight figure,
+#lightbox #adminAlta .tituloLight figure {
   margin: 0;
   padding: 0;
   display: inline-block;
@@ -1149,7 +1180,8 @@ footer .telmexIt {
 #lightbox #contenidoLightbox .tituloLight .cerrar,
 #lightbox #subidaLightbox .tituloLight .cerrar,
 #lightbox #CategoriaLightbox .tituloLight .cerrar,
-#lightbox #ProductoLightbox .tituloLight .cerrar {
+#lightbox #ProductoLightbox .tituloLight .cerrar,
+#lightbox #adminAlta .tituloLight .cerrar {
   right: 1em;
   top: 0.55em;
   position: absolute;
@@ -1158,14 +1190,16 @@ footer .telmexIt {
 #lightbox #contenidoLightbox .titulo,
 #lightbox #subidaLightbox .titulo,
 #lightbox #CategoriaLightbox .titulo,
-#lightbox #ProductoLightbox .titulo {
+#lightbox #ProductoLightbox .titulo,
+#lightbox #adminAlta .titulo {
   padding: 0 1em;
   text-align: center;
 }
 #lightbox #contenidoLightbox hr,
 #lightbox #subidaLightbox hr,
 #lightbox #CategoriaLightbox hr,
-#lightbox #ProductoLightbox hr {
+#lightbox #ProductoLightbox hr,
+#lightbox #adminAlta hr {
   display: block;
   clear: both;
   width: 100%;
@@ -1173,7 +1207,8 @@ footer .telmexIt {
 #lightbox #contenidoLightbox dl,
 #lightbox #subidaLightbox dl,
 #lightbox #CategoriaLightbox dl,
-#lightbox #ProductoLightbox dl {
+#lightbox #ProductoLightbox dl,
+#lightbox #adminAlta dl {
   display: block;
   clear: both;
   margin: 0;
@@ -1183,7 +1218,8 @@ footer .telmexIt {
 #lightbox #contenidoLightbox dl dt,
 #lightbox #subidaLightbox dl dt,
 #lightbox #CategoriaLightbox dl dt,
-#lightbox #ProductoLightbox dl dt {
+#lightbox #ProductoLightbox dl dt,
+#lightbox #adminAlta dl dt {
   display: inline;
   float: left;
   width: 31.25%;
@@ -1197,7 +1233,8 @@ footer .telmexIt {
 #lightbox #contenidoLightbox dl dd,
 #lightbox #subidaLightbox dl dd,
 #lightbox #CategoriaLightbox dl dd,
-#lightbox #ProductoLightbox dl dd {
+#lightbox #ProductoLightbox dl dd,
+#lightbox #adminAlta dl dd {
   display: inline;
   float: left;
   width: 64.5833333333333%;
@@ -1210,7 +1247,8 @@ footer .telmexIt {
 #lightbox #contenidoLightbox .descargar,
 #lightbox #subidaLightbox .descargar,
 #lightbox #CategoriaLightbox .descargar,
-#lightbox #ProductoLightbox .descargar {
+#lightbox #ProductoLightbox .descargar,
+#lightbox #adminAlta .descargar {
   display: block;
   margin: 0;
   padding: 0;
@@ -1222,13 +1260,15 @@ footer .telmexIt {
 #lightbox #contenidoLightbox .descargar figure,
 #lightbox #subidaLightbox .descargar figure,
 #lightbox #CategoriaLightbox .descargar figure,
-#lightbox #ProductoLightbox .descargar figure {
+#lightbox #ProductoLightbox .descargar figure,
+#lightbox #adminAlta .descargar figure {
   margin: 1.5em 1em 2.5em 1em;
 }
 #lightbox #contenidoLightbox .descargar img,
 #lightbox #subidaLightbox .descargar img,
 #lightbox #CategoriaLightbox .descargar img,
-#lightbox #ProductoLightbox .descargar img {
+#lightbox #ProductoLightbox .descargar img,
+#lightbox #adminAlta .descargar img {
   max-width: 130px;
   margin-bottom: 1em;
 }
@@ -1374,6 +1414,108 @@ footer.landing {
   margin: 0;
   padding: 0;
   background-color: #f00;
+}
+#adminAlta {
+  overflow: hidden;
+}
+#adminAlta #resultadosusuarios {
+  display: block;
+  clear: both;
+  height: auto;
+  max-height: 200px;
+  overflow-y: auto;
+}
+#adminAlta .guardarbtn {
+  display: inline;
+  float: left;
+  width: 47.9166666666667%;
+  margin: 0 1.0416666666667%;
+  *width: 47.89171006944449%;
+  *margin: 0 1.041124131944478%;
+  text-align: center;
+  background-color: #0092d2;
+  padding: 0.5em 0;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 1em;
+}
+#adminAlta .cerrarbtn {
+  display: inline;
+  float: left;
+  width: 47.9166666666667%;
+  margin: 0 1.0416666666667%;
+  *width: 47.89171006944449%;
+  *margin: 0 1.041124131944478%;
+  text-align: center;
+  background-color: #aaa;
+  padding: 0.5em 0;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 1em;
+}
+#adminAlta ul {
+  padding: 0;
+  margin: 1em auto;
+  display: block;
+  overflow-y: auto;
+  background-color: #fff;
+}
+#adminAlta ul li {
+  list-style-type: none;
+  padding: 0.5em 0;
+  border-top: 1px solid #b3b3b3;
+  display: block;
+  clear: both;
+  overflow: hidden;
+  cursor: pointer;
+}
+#adminAlta ul li:hover {
+  background-color: #f0f0f0;
+}
+#adminAlta ul li figure {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #fff;
+  border: 1px solid #b3b3b3;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+#adminAlta ul li .nombre {
+  display: inline;
+  float: left;
+  width: 56.25%;
+  margin: 0 1.0416666666667%;
+  *width: 56.22070312500002%;
+  *margin: 0 1.041124131944478%;
+  display: inline-block;
+  float: none;
+}
+#adminAlta ul li .categoria {
+  display: inline;
+  float: left;
+  width: 18.75%;
+  margin: 0 1.0416666666667%;
+  *width: 18.740234375000007%;
+  *margin: 0 1.041124131944478%;
+  display: inline-block;
+  float: none;
+  border-left: 1px solid #b3b3b3;
+  box-sizing: border-box;
+  padding-left: 1em;
+  height: 1.5em;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+#adminAlta ul li .check {
+  width: 1.5em;
+  height: 1.5em;
+  display: inline-block;
+  float: right;
+  margin-right: 0.25em;
 }
 @-moz-keyframes cargaAnimacion {
   from {

@@ -1,12 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<!doctype html>
+<html lang="en" ng-app="bibliotecaTelmex" ng-controller="UserCtrl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Biblioteca Digital Telmex</title>
+	<link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/angular.min.js"></script>
+    <script src="/assets/js/angular-resource.js"></script>
+    <script src="/assets/js/angular/app.js"></script>
+    <script src="/assets/js/angular/controllers/UserCtrl.js"></script>
+    <script src="/assets/js/angular/services/User.js"></script>
 
-    <div id="adminAlta">
+
+</head>
+<body class="">
+
+
+    <div id="lightbox" class="activo">
+        <div id="adminAlta">
 		<div class="tituloLight">
 			<span>HABILITAR ADMINISTRADORES</span>
 			<div class="cerrar" ng-click="cerrarLightbox();">X</div>
@@ -61,7 +72,6 @@
 		<a href="#" class="guardarbtn">Guardar</a>
 		<a href="#" class="cerrarbtn">Cancelar</a>
 		</div><!-- Fin del adminAlta -->
-
-
+    </div>
 </body>
 </html>

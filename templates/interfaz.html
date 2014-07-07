@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="bibliotecaTelmex" ng-controller="CategoriasCtr">
+<html lang="en" ng-app="bibliotecaTelmex" ng-controller="CategoriasCtrl">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -8,6 +8,7 @@
     <script src="/assets/js/angular.min.js"></script>
     <script src="/assets/js/angular-resource.js"></script>
 	<script src="/assets/js/angular/app.js"></script>
+    <script src="/assets/js/angular/controllers/CategoriasCtrl.js"></script>
     <script src="/assets/js/angular/services/Categoria.js"></script>
     <script src="/assets/js/angular/services/Producto.js"></script>
     <script src="/assets/js/angular/services/Archivo.js"></script>
@@ -77,12 +78,12 @@
 			<div class="titulo">{[{current_file.name}]}</div>
 			<hr>
 			<dl>
-				<dt>Formato:</dt>
-				<dd></dd>
-				<dt>Tamaño:</dt>
-				<dd>2 mb</dd>
+				<dt>Formato: </dt>
+				<dd>{[{current_file.type.split('/')[1]}]}</dd>
+				<dt>Tamaño: </dt>
+				<dd>{[{current_file.size}]}</dd>
 				<dt>Fecha:</dt>
-				<dd> 13/07/14</dd>
+				<dd>{[{current_file.fecha}]}</dd>
 			</dl>
 			<hr>
 

@@ -1,10 +1,4 @@
-var app = angular.module('bibliotecaTelmex', ['ngResource']);
-
-app.config(function($interpolateProvider) {
-    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
-});
-
-/*app.controller("CategoriasCtr", function($scope, Categoria, Producto, Archivo) {
+app.controller("CategoriasCtrl", function($scope, Categoria, Producto, Archivo) {
     $scope.busquedas = false;
     $scope.Lightbox = false;
 
@@ -69,11 +63,11 @@ app.config(function($interpolateProvider) {
     $scope.busquedaProducto.categoria_id = 0;
 
     //Carga las busquedas
-    *//*$http.get("/assets/js/fixtures.json").success(function (data) {
+    /*$http.get("/assets/js/fixtures.json").success(function (data) {
         $scope.categorias = data.Categorias;
         $scope.productos = data.Productos;
         $scope.documentos = data.Documentos;
-    });*//*
+    });*/
 
     //Esto es una función que se dispara al seleccionar la categoría
     $scope.seleccionCategoria = function(categoria) {
@@ -96,48 +90,4 @@ app.config(function($interpolateProvider) {
         $scope.strCat = categoria_id;
         $scope.strProd = producto_id;
     };
-});*/
-
-app.directive("passwordVerify", function() {
-   return {
-      require: "ngModel",
-      scope: {
-        passwordVerify: '='
-      },
-      link: function(scope, element, attrs, ctrl) {
-        scope.$watch(function() {
-            var combined;
-
-            if (scope.passwordVerify || ctrl.$viewValue) {
-               combined = scope.passwordVerify + '_' + ctrl.$viewValue;
-            }
-            return combined;
-        }, function(value) {
-            if (value) {
-                ctrl.$parsers.unshift(function(viewValue) {
-                    var origin = scope.passwordVerify;
-                    if (origin !== viewValue) {
-                        ctrl.$setValidity("passwordVerify", false);
-                        return undefined;
-                    } else {
-                        ctrl.$setValidity("passwordVerify", true);
-                        return viewValue;
-                    }
-                });
-            }
-        });
-     }
-   };
 });
-
-app.filter('searchfilter', [function() {
-    return function(items, searchText){
-        var filtered = [];
-        console.log("filter!!!!!");
-        searchText = String(searchText).toLowerCase();
-        angular.forEach(items, function(item) {
-            if( item.name.toLowerCase().indexOf(searchText) >= 0 ) filtered.push(item);
-        });
-        return filtered;
-    };
-}]);

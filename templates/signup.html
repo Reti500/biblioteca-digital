@@ -7,45 +7,28 @@
 	<link rel="stylesheet" href="/assets/css/style.css">
     <script src="/assets/js/angular.min.js"></script>
     <script src="/assets/js/angular-resource.js"></script>
+    <script src="/assets/js/angular/app.js"></script>
     <script src="/assets/js/angular/controllers/UserCtrl.js"></script>
     <script src="/assets/js/angular/services/User.js"></script>
 
 
 </head>
 <body class="principal">
-	<!--<section id="login">
-		<h2>BIENVENIDO</h2>
-		<h1><span class="ocultar">Biblioteca Digital</span> <img src="/assets/img/logos.png" alt="Biblioteca Digital"></h1>
-		<form action="" >
-            <input type="tetx" placeholder="NOMBRE" ng-model="user.name">
-			<input type="text" placeholder="USUARIO" ng-model="user.username">
-            <input type="text" placeholder="EMAIL" ng-model="user.email">
-			<input type="password" placeholder="CONTRASEÑA" ng-model="user.password">
-            <input type="password" placeholder="CONTRASEÑA" ng-model="user.password_confirmation">
-	    	<div ng-click="nuevo(user)" style="cursor: pointer;" class="btn">REGISTRARSE</div>
-		</form>
-	<footer>
-		<figure class="telmexEsta">
-			<img src="/assets/img/telmexesta.png" alt="Telmex está contigo">
-		</figure>
-		<figure class="telmexIt">
-			<div href="dashboard.html"><img src="/assets/img/telmexit.png" alt="Telmex IT" ng-click="acceder()"></div>
-		</figure>
-	</footer>-->
-
     <section id="login" class="acceso">
         <h2>BIENVENIDO</h2>
         <figure>
             <img src="/assets/img/TelmexLogo.png" alt="Telmex">
         </figure>
         <h1><span class="ocultar">Biblioteca Digital</span> <img src="/assets/img/logos.png" alt="Biblioteca Digital"></h1>
-        <form ng-submit="nuevo(user)">
-            <input type="text" placeholder="Nombre y apellidos" ng-model="user.name">
-            <input type="text" placeholder="Nombre de usuario" ng-model="user.username">
-            <input type="email" placeholder="Correo electrónico" ng-model="user.email">
-            <input type="password" placeholder="Contraseña" ng-model="user.password">
-            <input type="password" placeholder="Repetir contraseña" ng-model="user.password_confirmation">
-            <input type="submit" class="btn" value="REGISTRARME">
+        <form name="form" ng-submit="nuevo(user)" novalidate>
+            <input type="text" placeholder="Nombre y apellidos" ng-model="user.name" required>
+            <input type="text" placeholder="Nombre de usuario" ng-model="user.username" required>
+            <input type="email" placeholder="Correo electrónico" ng-model="user.email" required>
+            <input type="password" name="password" placeholder="Contraseña" ng-model="user.password" required>
+            <input type="password" name="confirm_password" placeholder="Repetir contraseña" ng-model="user.password_verify" required data-password-verify="user.password">
+            <div ng-show="form.confirm_password.$error.passwordVerify">
+                Fields are not equal!</div>
+            <input type="submit" class="btn" value="REGISTRARME" ng-disabled="form.$invalid || isUnchanged(user)">
             <div ng-show="error"><span class="error">{[{error_message}]}</span></div>
 
         </form>

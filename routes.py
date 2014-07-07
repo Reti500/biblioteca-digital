@@ -29,6 +29,7 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/archivos', ArchivosPage, name="archivos"),
     webapp2.Route('/main_upload', MainUploadImage, name='main_upload'),
     webapp2.Route('/upload', UploadHandler, name='upload'),
-    webapp2.Route('/serve/<resource:(.*)>', ServeHandler, name='serve')
+    webapp2.Route('/serve/<resource:(.*)>', ServeHandler, name='serve'),
+    webapp2.Route('/admin', AdminPage, name='admin')
 
 ], debug=True, config=config)
