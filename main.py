@@ -22,9 +22,9 @@ import urllib
 import jinja2
 import json
 
-from google.appengine.ext import webapp
 from sessions import BaseHandler
 from sessions import user_required
+from sessions import admin_required
 from models import *
 
 from google.appengine.ext import blobstore
@@ -50,6 +50,7 @@ class MainPage(BaseHandler):
 
 class DashboardPage(BaseHandler):
     @user_required
+    @admin_required
     def get(self):
         tempplate_values = {"url":upload_url, "username":self.user.name}
         template = JINJA_ENVIRONMENT.get_template('dashboard.html')
@@ -60,10 +61,31 @@ class InterfazPage(BaseHandler):
     @user_required
     def get(self):
         if self.user.has_role('admin'):
-            self.redirect_to(self.url_for('dashboard'))
+            self.redirect('/dashboard')
         template_values = {"username":self.user.name}
         template = JINJA_ENVIRONMENT.get_template('interfaz.html')
         self.response.write(template.render(template_values))
+
+
+class UsersPage(BaseHandler):
+    def get(self):
+        usuarios = []
+        us = User.query()
+        for u in us:
+            new_json = {"username":u.auth_ids[0], "email": u.email_address}
+            usuarios.append(new_json)
+
+        obj = {"usuarios": usuarios}
+        self.response.out.write(json.dumps(obj))
+
+    def put(self):
+        username = self.request.get('username')
+
+        user = User.get_by_auth_id(username)
+        if user and not user.has_role('admin'):
+            user.add_role('admin')
+
+        self.response.out.write(json.dumps({"state":"OK"}))
 
 
 class CategoriasPage(BaseHandler):

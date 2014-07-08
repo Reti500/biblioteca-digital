@@ -34,6 +34,25 @@ def user_required(handler):
 
     return check_login
 
+def admin_required(handler):
+    """
+      Decorator that checks if there's a user associated with the current session.
+      Will also fail if there's no session present.
+    """
+
+    def check_admin(self, *args, **kwargs):
+        if self.user.has_role('admin') or self.user.email_address == "ricardo.gon.tell@gmail.com":
+            return handler(self, *args, **kwargs)
+        else:
+            self.redirect(self.uri_for('interfaz'), abort=True)
+    return check_admin
+
+def send_mail(sender, subject, name, email, body, html):
+    message = mail.EmailMessage(sender=sender, subject=subject)
+    message.to = (":1 <:2>", name, email)
+    message.body = body
+    message.html = html
+    message.send()
 
 class BaseHandler(webapp2.RequestHandler):
     @webapp2.cached_property
@@ -111,7 +130,15 @@ class BaseHandler(webapp2.RequestHandler):
 
 class SignupHandler(BaseHandler):
     def get(self):
-        self.render_template('signup.html')
+        usuarios = []
+        us = User.query()
+        for u in us:
+            rol = 'admin' if u.has_role('admin') else 'user'
+            new_json = {"username":u.auth_ids[0], "email": u.email_address, "rol": rol}
+            usuarios.append(new_json)
+
+        obj = {"usuarios": usuarios}
+        self.response.out.write(json.dumps(obj))
 
     def post(self):
         jdata = json.loads(self.request.body)
@@ -143,24 +170,23 @@ class SignupHandler(BaseHandler):
         msg = 'Send an email to user in order to verify their address. \
           They will be able to do so by visiting <a href="{url}">{url}</a>'
 
-        message = mail.EmailMessage(sender="Ricardo <ricardo.gon.tell@gmail.com>",
-                            subject="Your account has been approved")
+        sender = "Ricardo <ricardo.gon.tell@gmail.com>"
+        subject = "Your account has been approved"
 
-        message.to = (":1 <:2>", name, email)
+        #message.to = (":1 <:2>", name, email)
 
-        message.body = """
-                Dear Albert:
+        body = """
+            Dear Albert:
 
-                Your example.com account has been approved.  You can now visit
-                http://www.example.com/ and sign in using your Google Account to
-                access new features.
+            Your example.com account has been approved.  You can now visit
+            http://www.example.com/ and sign in using your Google Account to
+            access new features.
 
-                Please let us know if you have any questions.
-
-                The example.com Team
+            Please let us know if you have any questions.
+            The example.com Team
         """ + verification_url
 
-        message.html = """
+        html = """
                 <html><head></head><body>
                 Dear Albert:
 
@@ -174,8 +200,26 @@ class SignupHandler(BaseHandler):
                 </body></html>
         """ + verification_url
 
-        message.send()
+        send_mail(sender, subject, name, email, body, html)
         self.response.out.write(json.dumps({"state":"OK", "url": verification_url}))
+
+    @admin_required
+    def put(self):
+        jdata = json.loads(self.request.body)
+        username = self.request.get('username') or jdata['username']
+        action = self.request.get('action') or jdata['action']
+
+        user = User.get_by_auth_id(username)
+
+        if user:
+            if action == 'admin' and not user.has_role('admin'):
+                user.add_role('admin')
+            elif action == 'user' and user.has_role('admin'):
+                user.remove_role('admin')
+            self.response.out.write(json.dumps({"state":"Admin"}))
+        else:
+            self.response.out.write(json.dumps({"state":"OK"}))
+        print(user)
 
 
 class ForgotPasswordHandler(BaseHandler):
@@ -277,18 +321,6 @@ class SetPasswordHandler(BaseHandler):
 
 class LoginHandler(BaseHandler):
     def get(self):
-        #todo = {"users": []}
-        #user = User.query()
-        # if self.user:
-        #     if self.user.roles:
-        #         self.response.out.write(json.dumps(self.user.roles))
-        #     else:
-        #         self.response.out.write(json.dumps(self.user.auth_ids))
-        # else:
-        #     for u in user:
-        #         todo["users"].append({"email": u.email_address, "name": u.name, "roles": u.roles})
-        #     self.response.out.write(json.dumps(todo))
-
         self.render_template("login.html")
         #self._serve_page()
 

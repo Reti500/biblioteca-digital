@@ -9,12 +9,17 @@ class User(webapp2_extras.appengine.auth.models.User):
     roles = ndb.StringProperty(repeated=True)
 
     def add_role(self, new_role):
-        new_array = []
-        if self.roles:
-            for r in self.roles:
-                new_array.append(r)
+        new_array = self.roles
         new_array.append(new_role)
         self.roles = new_array
+        # for r in self.roles:
+        #     new_array.append(r)
+        # new_array.append(new_role)
+        # self.roles = new_array
+        self.put()
+
+    def remove_role(self, old_role):
+        self.roles.remove(old_role)
         self.put()
 
     def has_role(self, role):
@@ -22,6 +27,7 @@ class User(webapp2_extras.appengine.auth.models.User):
             if role == r:
                 return True
         return False
+
 
     def set_password(self, raw_password):
         """Sets the password for the current user

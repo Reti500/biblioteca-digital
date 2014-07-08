@@ -133,11 +133,26 @@ app.directive("passwordVerify", function() {
 app.filter('searchfilter', [function() {
     return function(items, searchText){
         var filtered = [];
-        console.log("filter!!!!!");
         searchText = String(searchText).toLowerCase();
-        angular.forEach(items, function(item) {
-            if( item.name.toLowerCase().indexOf(searchText) >= 0 ) filtered.push(item);
-        });
+        //if(searchText != "") {
+            angular.forEach(items, function (item) {
+                if (item.name.toLowerCase().indexOf(searchText) >= 0) filtered.push(item);
+            });
+        //};
+        return filtered;
+    };
+}]);
+
+app.filter('searchfilteruser', [function() {
+    return function(items, searchText){
+        var filtered = [];
+        searchText = String(searchText).toLowerCase();
+        if(searchText != "") {
+            angular.forEach(items, function (item) {
+                if (item.username.toLowerCase().indexOf(searchText) >= 0 || item.email.toLowerCase().indexOf(searchText) >= 0)
+                    filtered.push(item);
+            });
+        };
         return filtered;
     };
 }]);

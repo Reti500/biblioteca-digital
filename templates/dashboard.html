@@ -13,6 +13,7 @@
     <script src="/assets/js/angular/services/Categoria.js"></script>
     <script src="/assets/js/angular/services/Producto.js"></script>
     <script src="/assets/js/angular/services/Archivo.js"></script>
+    <script src="/assets/js/angular/services/User.js"></script>
 </head>
 <body ng-init="init()">
 	<header>
@@ -23,67 +24,37 @@
 					<input type="search" ng-model="search.name" placeholder="Buscar Documentos">
 				</form>
 			</div>
-			<section class="login">
-                <a href="index.html"><img src="/assets/img/cuentas.png" alt=""></a>
+			<span class="login">
+                <a ng-click="openLightbox('admin')"><img src="/assets/img/cuentas.png" ></a>
                 {{username}}
                 <a href="/logout">Salir</a>
-			</section>
+			</span>
 		</div>
 	</header>
 	<section id="contenidos">
 		<div class="container">
 			<article id="Categoria" class="activo">
 				<span class="crear categoria icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('categorias')"></span>
-				<h2>Categoría</h2>
+				<h2>Categorías</h2>
 				<ul id="col-1">
 					<li ng-repeat="c in categorias">
 						<figure></figure>
 						<span>{[{c.name}]}</span>
 					</li>
-					<!--<li>
-						<figure></figure>
-						<span>Servicios Administrados</span>
-					</li>
-					<li>
-						<figure></figure>
-						<span>Cloud y DC</span>
-					</li>
-					<li>
-						<figure></figure>
-						<span>Seguridad</span>
-					</li>
-					<li>
-						<figure></figure>
-						<span>Servicios Profesionales y Consultoría</span>
-					</li>
-					<li>
-						<figure></figure>
-						<span>Aplicaciones y Soluciones Verticales</span>
-					</li>-->
 				</ul>
 			</article>
-			<article id="Productos" class="activo">
+			<article id="Productos" class="activo" ng-show="view_producto">
 				<span class="crear producto icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('productos')"></span>
 				<h2>Producto</h2>
 				<ul id="col-2">
                     <li ng-repeat="p in productos">{[{p.name}]}</li>
-					<!--<li>Comunicaciones Unificadas Administradas (CUAD + IP-PBX)</li>
-					<li>Troncales IP</li>
-					<li>Telepresencia</li>
-					<li>Contact Center Administrado</li>
-					<li>Conferencia Web (Webex) (Cisco)</li>-->
 				</ul>
 			</article>
-			<article id="Documentos" class="activo">
+			<article id="Documentos" class="activo" ng-show="view_archivo">
 				<span class="subir icono"><img src="/assets/img/subir.png" alt="" ng-click="openLightbox('archivos')"></span>
 				<h2>Documentos</h2>
 				<ul id="col-3">
-                    <li ng-repeat="a in archivos"><span>{[{a.name}]}</span> <figure style="background-color: #0092D2;" /></li>
-					<!--<li><span>Documento 1</span> <figure style="background-color: #0092D2;"></figure></li>
-					<li><span>Documento 2</span> <figure style="background-color: #FF6100;"></figure></li>
-					<li><span>Documento 3</span> <figure style="background-color: #EC1D39;"></figure></li>
-					<li><span>Documento 4</span> <figure style="background-color: #0092D2;"></figure></li>
-					<li><span>Documento 5</span> <figure style="background-color: #FF6100;"></figure></li>-->
+                    <li ng-repeat="a in archivos" ng-click="seleccionDocumento(a)"><span>{[{a.name}]}</span> <figure style="background-color: #0092D2;" /></li>
 				</ul>
 			</article>
 		</div>
@@ -100,26 +71,6 @@
 			</div>
 			<div class="titulo">SUBIR ARCHIVO</div>
 			<hr>
-				<!--<figure class="subirArchivo">
-					<div class="cargaArchivo">
-						<img src="/assets/img/cargarArchivo.jpg">
-					</div>
-					<div class="cargaAnimacion">
-						<img src="/assets/img/animacionArchivo.jpg">
-					</div>
-				</figure>-->
-                <!--<form ng-submit="addArchivo(archivo)">
-                    <select ng-model="archivo.categoria" ng-options="c as c.name for c in categorias | orderBy:'name'">
-                        <option value="">-- Escoge una categoria --</option>
-                    </select><br/>
-                    <select ng-model="archivo.producto" ng-options="p as p.name for p in productos | filter:{categoria:archivo.categoria.name}">
-                        <option value="">-- Escoge un producto --</option>
-                    </select><br>
-                    <input type="file" name="file" onchange="angular.element(this).scope().filesChanged(this)" />
-                    <hr>
-                    <input type="submit" class="guardarbtn">
-                </form>-->
-
                 <form action="{{url}}" method="POST" enctype="multipart/form-data">
                     Categoria:  <select name="categoria" ng-model="categoria" >
                         <option value="{[{c.name}]}" ng-repeat="c in categorias" ng-model="categoria">{[{c.name}]}</option>
@@ -201,8 +152,8 @@
     </div><!-- Fin del ProductoLightbox -->
 
 
-    <div id="lightbox" class="activo" ng-show="busquedas">
-        <div class="fondoClicable" ng-click="closeSearch()"></div>
+    <div id="lightbox" class="activo" ng-show="lightboxes['busquedas']">
+        <div class="fondoClicable" ng-click="closeLightbox('busquedas')"></div>
 		<div id="busquedaResultados">
 			<h2><img src="/assets/img/buscar.jpg" width="15">Resultados de busqueda</h2>
 			<hr>
@@ -219,103 +170,65 @@
             </ul>
 		</div>
 	</div>
-		<!-- <div id="contenidoLightbox">
+
+    <div id="lightbox" class="activo" ng-show="lightboxes['admin']">
+        <div class="fondoClicable" ng-click="closeLightbox('admin')"></div>
+        <div id="adminAlta">
+		<div class="tituloLight">
+			<span>HABILITAR ADMINISTRADORES</span>
+			<div class="cerrar" ng-click="closeLightbox('admin')">X</div>
+		</div>
+		<form>
+			<input type="search" ng-model="search.user" placeholder="Escribe el usuario a buscar">
+		</form>
+
+		<hr>
+
+		<div id="resultadosusuarios">
+			<ul>
+                <div ng-repeat="u in users | searchfilteruser:search.user">
+                    <li>
+                        <img src="" alt=""><span class="nombre">{[{u.username}]} <{[{u.email}]}></span>
+                        <span class="categoria">{[{u.rol}]}</span>
+                        <span class="check"><input type="checkbox" ng-checked="u.rol=='admin'" ng-model="check.Admin" ng-click="cambiarAdmin($event, u)"></span>
+                    </li>
+                </div>
+			</ul>
+		</div>
+		<hr>
+		</div><!-- Fin del adminAlta -->
+    </div>
+
+    <div id="lightbox" class="activo" ng-show="lightboxes['archivo']">
+		<div class="fondoClicable" ng-click="closeLightbox('archivo')"></div>
+		<div id="contenidoLightbox">
 			<div class="tituloLight">
 				<figure></figure>
 				<span>COMUNICACIONES ADMINISTRADAS</span>
-				<div class="cerrar">X</div>
+				<div class="cerrar" ng-click="closeLightbox('archivo')">X</div>
 			</div>
-			<div class="titulo">DOCUMENTO 1</div>
+			<div class="titulo">{[{current_file.name}]}</div>
 			<hr>
 			<dl>
-				<dt>Formato:</dt>
-				<dd></dd>
-				<dt>Tamaño:</dt>
-				<dd>2 mb</dd>
+				<dt>Formato: </dt>
+				<dd>{[{current_file.type.split('/')[1]}]}</dd>
+				<dt>Tamaño: </dt>
+				<dd>{[{current_file.size}]}</dd>
 				<dt>Fecha:</dt>
-				<dd> 13/07/14</dd>
+				<dd>{[{current_file.fecha}]}</dd>
 			</dl>
 			<hr>
 
 			<a href="#" class="descargar">
 				<figure>
-					<img src="img/descargarbig.jpg" alt="">
+                    <a href="/serve/{[{current_file.file}]}"><img src="/assets/img/descargarbig.jpg" alt=""></a>
 					<figcaption>
 						DESCARGAR ARCHIVO
 					</figcaption>
 				</figure>
 			</a>
-	
-		</div> --><!-- Fin del contenidoLightbox -->
-
-		<!-- <div id="busquedaResultados">
-			<h2><img src="img/buscar.jpg" width="15"> Resultados de busqueda</h2>
-			<hr>
-			<h3>Nombre de la busqueda</h3>
-			<ul>
-				<li>
-					<figure></figure>
-					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
-					<span class="categoria">Categoría</span>
-					<span class="icono"></span>
-				</li>
-				<li>
-					<figure></figure>
-					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
-					<span class="categoria">Categoría</span>
-					<span class="icono"></span>
-				</li>
-				<li>
-					<figure></figure>
-					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
-					<span class="categoria">Categoría</span>
-					<span class="icono"></span>
-				</li>
-				<li>
-					<figure></figure>
-					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
-					<span class="categoria">Categoría</span>
-					<span class="icono"></span>
-				</li>
-				<li>
-					<figure></figure>
-					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
-					<span class="categoria">Categoría</span>
-					<span class="icono"></span>
-				</li>
-				<li>
-					<figure></figure>
-					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
-					<span class="categoria">Categoría</span>
-					<span class="icono"></span>
-				</li>
-				<li>
-					<figure></figure>
-					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
-					<span class="categoria">Categoría</span>
-					<span class="icono"></span>
-				</li>
-				<li>
-					<figure></figure>
-					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
-					<span class="categoria">Categoría</span>
-					<span class="icono"></span>
-				</li>
-				<li>
-					<figure></figure>
-					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
-					<span class="categoria">Categoría</span>
-					<span class="icono"></span>
-				</li>
-				<li>
-					<figure></figure>
-					<img src="" alt=""><span class="nombre">Nombre del archivo o producto</span>
-					<span class="categoria">Categoría</span>
-					<span class="icono"></span>
-				</li>
-			</ul>
-		</div> -->
-	</div>
+	    </div>
+	</div><!-- Fin del contenido Lightbox -->
 
 	<footer class="panel"></footer>
 </body>

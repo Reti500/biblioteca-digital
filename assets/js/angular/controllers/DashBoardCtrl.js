@@ -4,15 +4,17 @@ app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
 });*/
 
-app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Archivo){
+app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Archivo, User){
     $scope.error = false;
     $scope.error_message = "";
     $scope.buquedas = false;
+    $scope.admin = false;
 
     $scope.init = function () {
         $scope.getCategorias();
         $scope.getProductos();
         $scope.getArchivos();
+        $scope.get_users();
     };
 
     $scope.buscar = function($data){
@@ -30,7 +32,8 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
         "categorias": false,
         "productos": false,
         "archivos": false,
-        "busquedas": true
+        "busquedas": false,
+        "admin": false
     };
 
     $scope.openLightbox = function(light){
@@ -105,17 +108,34 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
         console.log($scope.files);
         $scope.$apply();
     }
-});
 
-/*
-app.filter('searchfilter', [function() {
-    return function(items, searchText){
-        var filtered = [];
-        console.log("filter!!!!!");
-        searchText = String(searchText).toLowerCase();
-        angular.forEach(items, function(item) {
-            if( item.name.toLowerCase().indexOf(searchText) >= 0 ) filtered.push(item);
+    $scope.get_users = function(){
+        User.get({}, function($data){
+            $scope.users = $data.usuarios;
         });
-        return filtered;
     };
-}]);*/
+
+    $scope.buscar = function($data){
+        console.log("aqui");
+        if($data) {
+            $scope.lightboxes['busquedas'] = true;
+            $scope.find = $data;
+        }
+    };
+
+    $scope.cambiarAdmin = function($event, $user){
+        var checkbox = $event.target;
+        if(checkbox.checked){
+            User.update({"username":$user.username, "action":"admin"});
+            $user.rol = 'ADMIN';
+        }else{
+            User.update({"username":$user.username, "action":"user"});
+            $user.rol = 'USER';
+        }
+    };
+
+    $scope.seleccionDocumento = function(documento) {
+        $scope.openLightbox('archivo');
+        $scope.current_file = documento;
+    };
+});
