@@ -52,6 +52,7 @@ class DashboardPage(BaseHandler):
     @user_required
     @admin_required
     def get(self):
+        upload_url = blobstore.create_upload_url('/upload')
         tempplate_values = {"url":upload_url, "username":self.user.name}
         template = JINJA_ENVIRONMENT.get_template('dashboard.html')
         self.response.write(template.render(tempplate_values))
@@ -183,7 +184,8 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         archivo.categoria = cat_key
         archivo.producto = prod_key
         archivo.put()
-        self.redirect('/serve/%s' % blob_info.key())
+        self.response.out.write(json.dumps({"state":"upload"}))
+        #self.redirect('/serve/%s' % blob_info.key())
 
 
 class ServeHandler(blobstore_handlers.BlobstoreDownloadHandler):

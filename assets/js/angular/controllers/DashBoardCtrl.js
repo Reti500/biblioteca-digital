@@ -9,6 +9,10 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
     $scope.error_message = "";
     $scope.buquedas = false;
     $scope.admin = false;
+    $scope.current_cat = null;
+    $scope.current_prod = null;
+    $scope.view_productos = false;
+    $scope.view_archivos = false;
 
     $scope.init = function () {
         $scope.getCategorias();
@@ -33,7 +37,8 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
         "productos": false,
         "archivos": false,
         "busquedas": false,
-        "admin": false
+        "admin": false,
+        "downloads": false
     };
 
     $scope.openLightbox = function(light){
@@ -42,6 +47,18 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
 
     $scope.closeLightbox = function (light) {
         $scope.lightboxes[light] = false;
+    };
+
+    $scope.openProductos = function(cat){
+        $scope.view_productos = true;
+        $scope.current_cat = cat;
+        $scope.current_prod = null;
+        $scope.view_archivos = false;
+    };
+
+    $scope.openArchivos = function(prod){
+        $scope.view_archivos = true;
+        $scope.current_prod = prod;
     };
 
     $scope.getCategorias = function () {
@@ -68,6 +85,7 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
         Categoria.create($scope.categoria, function($data){
             if($data.state == "OK"){
                 $scope.categorias.push({"name": $scope.categoria.name});
+                $scope.categoria = angular.copy({})
                 $scope.closeLightbox('categorias');
             }
         });
@@ -75,6 +93,7 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
 
     $scope.addProducto = function (params) {
         $scope.producto = new Producto(params);
+        $scope.producto.categoria = $scope.current_cat;
 
         Producto.create($scope.producto, function($data){
             if($data.state == "OK"){
@@ -84,18 +103,9 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
         });
     };
 
-    $scope.addArchivo = function (params) {
-        /*$scope.archivo = new Archivo(params);
-        $scope.archivo.file = $scope.files[0];
-        $scope.archivo.name = $scope.archivo.file.name;
-        $scope.archivo.type = $scope.archivo.file.type;
-        $scope.archivo.size = $scope.archivo.file.size;
-
-        Archivo.create($scope.archivo, function($data){
-            console.log($data);
-        });*/
-
-        $http.post('/upload', $scope.files,
+    $scope.addArchivo = function (params, url) {
+        console.log($scope.files);
+        $http.post(url, $scope.files,
         {
             headers:{'Content-Type':'multipart/form-data; boundary=123'}
         }).success(function($data){
@@ -103,9 +113,39 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
         });
     };
 
+    $scope.upload = function(url){
+        var fb = new FormData();
+        angular.forEach($scope.files, function (file) {
+            fb.append('file', file);
+        });
+
+        fb.append('categoria', $scope.current_cat.name);
+        fb.append('producto', $scope.current_prod.name);
+
+        $http.post(url, fb,
+            {
+                transformRequest: angular.identity,
+                headers:{'Content-Type':undefined}
+            }).success(function($data){
+                if($data.state == 'upload'){
+                    $scope.archivos.push(
+                        {
+                            "name": $scope.files[0].name,
+                            "categoria": $scope.current_cat.name,
+                            "producto": $scope.current_prod.name,
+                            "file": "",
+                            "size": $scope.files[0].size,
+                            "type": $scope.files[0].type
+                        });
+                    $scope.closeLightbox('archivos');
+                    $scope.files = null;
+                }
+            });
+    };
+
     $scope.filesChanged = function (elm) {
         $scope.files = elm.files;
-        console.log($scope.files);
+        console.log($scope.files)
         $scope.$apply();
     }
 
@@ -135,7 +175,7 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
     };
 
     $scope.seleccionDocumento = function(documento) {
-        $scope.openLightbox('archivo');
+        $scope.openLightbox('downloads');
         $scope.current_file = documento;
     };
 });

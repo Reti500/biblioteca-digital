@@ -170,7 +170,7 @@ class SignupHandler(BaseHandler):
         msg = 'Send an email to user in order to verify their address. \
           They will be able to do so by visiting <a href="{url}">{url}</a>'
 
-        sender = "Ricardo <ricardo.gon.tell@gmail.com>"
+        sender = "BIBLIOTECA DIGITAL <ricardo.gon.tell@gmail.com>"
         subject = "Your account has been approved"
 
         #message.to = (":1 <:2>", name, email)

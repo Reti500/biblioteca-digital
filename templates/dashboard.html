@@ -37,24 +37,24 @@
 				<span class="crear categoria icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('categorias')"></span>
 				<h2>Categorías</h2>
 				<ul id="col-1">
-					<li ng-repeat="c in categorias">
+					<li ng-repeat="c in categorias | orderBy:'name'" ng-click="openProductos(c)">
 						<figure></figure>
 						<span>{[{c.name}]}</span>
 					</li>
 				</ul>
 			</article>
-			<article id="Productos" class="activo" ng-show="view_producto">
+			<article id="Productos" class="activo" ng-show="view_productos">
 				<span class="crear producto icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('productos')"></span>
 				<h2>Producto</h2>
 				<ul id="col-2">
-                    <li ng-repeat="p in productos">{[{p.name}]}</li>
+                    <li ng-repeat="p in productos | filter:p.categoria=current_cat.name" ng-click="openArchivos(p)">{[{p.name}]}</li>
 				</ul>
 			</article>
-			<article id="Documentos" class="activo" ng-show="view_archivo">
+			<article id="Documentos" class="activo" ng-show="view_archivos">
 				<span class="subir icono"><img src="/assets/img/subir.png" alt="" ng-click="openLightbox('archivos')"></span>
 				<h2>Documentos</h2>
 				<ul id="col-3">
-                    <li ng-repeat="a in archivos" ng-click="seleccionDocumento(a)"><span>{[{a.name}]}</span> <figure style="background-color: #0092D2;" /></li>
+                    <li ng-repeat="a in archivos | filter:{categoria:current_cat.name,producto:current_prod.name}" ng-click="seleccionDocumento(a)"><span>{[{a.name}]}</span> <figure style="background-color: #0092D2;" /></li>
 				</ul>
 			</article>
 		</div>
@@ -71,18 +71,25 @@
 			</div>
 			<div class="titulo">SUBIR ARCHIVO</div>
 			<hr>
-                <form action="{{url}}" method="POST" enctype="multipart/form-data">
-                    Categoria:  <select name="categoria" ng-model="categoria" >
+
+                <!--<form name="form-a" ng-submit="addArchivo(doc, '{{url}}')" method="POST" enctype="multipart/form-data">
+                    Categoria:  &lt;!&ndash;<select name="categoria" ng-model="categoria" >
                         <option value="{[{c.name}]}" ng-repeat="c in categorias" ng-model="categoria">{[{c.name}]}</option>
-				    </select><br/>
+				    </select><br/>&ndash;&gt; <input type="text" name="categoria" value="{[{current_cat.name}]}" ng-model="doc.categoria"/><br/>
                     <hr/>
-                    Producto:  <select name="producto" ng-model="producto">
+                    Producto:  &lt;!&ndash;<select name="producto" ng-model="producto">
                         <option value="{[{p.name}]}" ng-repeat="p in productos | filter:{categoria:categoria}">{[{p.name}]}</option>
-                    </select><br/>
+                    </select><br/>&ndash;&gt; <input type="text" name="producto" value="{[{current_prod.name}]}" /><br/>
                     <hr/>
                     <input type="file" name="file"><br>
                     <hr/>
                     <input type="submit" name="submit" value="Guardar">
+                </form>-->
+
+                <form name="formD" ng-submit="upload('{{url}}')" enctype="multipart/form-data">
+                    <span ng-show="loading">Loading, please wait</span>
+                    <input type="file" onchange="angular.element(this).scope().filesChanged(this)" multiple/>
+                    <input type="submit" ng-disabled="loading" value="Subir"/>
                 </form>
 			<hr>
 
@@ -139,9 +146,10 @@
 				<span class="msg1">
 					<form ng-submit="addProducto(producto)">
 						<input type="text" placeholder="Nombre del producto" ng-model="producto.name">
-						<select ng-model="producto.categoria" ng-options="c as c.name for c in categorias | orderBy:'name'">
-                            <option value="">-- Escoge una categoria --</option>
+						<!--<select ng-model="producto.categoria" ng-options="c as c.name for c in categorias | orderBy:'name'">
+                            <option value="{[{current_cat.name}]}">-- Escoge una categoria --</option>
 						</select>
+                        <input disabled type="text" name="category" ng-model="producto.categoria.name" value="{[{current_cat.name}]}" disabled>-->
 						<hr>
 						<input type="submit" class="guardarbtn"></a>
 						<div class="cerrarbtn" ng-click="closeLightbox('productos')" style="cursor: pointer;">CERRAR</div>
@@ -229,6 +237,37 @@
 			</a>
 	    </div>
 	</div><!-- Fin del contenido Lightbox -->
+
+    <div id="lightbox" class="activo" ng-show="lightboxes['downloads']">
+		<div class="fondoClicable" ng-click="closeLightbox('downloads');"></div>
+		<div id="contenidoLightbox">
+			<div class="tituloLight">
+				<figure></figure>
+				<span>COMUNICACIONES ADMINISTRADAS</span>
+				<div class="cerrar" ng-click="closeLightbox('downloads');">X</div>
+			</div>
+			<div class="titulo">{[{current_file.name}]}</div>
+			<hr>
+			<dl>
+				<dt>Formato: </dt>
+				<dd>{[{current_file.type.split('/')[1]}]}</dd>
+				<dt>Tamaño: </dt>
+				<dd>{[{current_file.size}]}</dd>
+				<dt>Fecha:</dt>
+				<dd>{[{current_file.fecha}]}</dd>
+			</dl>
+			<hr>
+
+			<a href="#" class="descargar">
+				<figure>
+                    <a href="/serve/{[{current_file.file}]}"><img src="/assets/img/descargarbig.jpg" alt=""></a>
+					<figcaption>
+						DESCARGAR ARCHIVO
+					</figcaption>
+				</figure>
+			</a>
+	    </div>
+	</div>
 
 	<footer class="panel"></footer>
 </body>
