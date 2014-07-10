@@ -179,4 +179,10 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
         $scope.openLightbox('downloads');
         $scope.current_file = documento;
     };
+
+    $scope.delete = function(prod){
+        Producto.destroy({id:prod.id}, function($data){
+            console.log($data);
+        });
+    };
 });

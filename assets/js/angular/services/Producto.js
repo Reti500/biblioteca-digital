@@ -1,5 +1,5 @@
 app.factory('Producto', function($resource){
-    return $resource('/productos/', { },
+    return $resource('/productos/:id', {id: "@id"},
         {
             'create':  { method: 'POST' },
             'show':    { method: 'GET'  },
