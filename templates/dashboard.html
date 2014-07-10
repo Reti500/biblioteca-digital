@@ -52,7 +52,7 @@
 				<span class="crear categoria icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('categorias')"></span>
 				<h2>Categorías</h2>
 				<ul id="col-1">
-					<li ng-repeat="c in categorias | orderBy:'name'" ng-click="openProductos(c)" ng-class="eliminar:current_cat">
+					<li ng-repeat="c in categorias | orderBy:'name'" ng-click="openProductos(c)">
 						<figure></figure>
 						<span>{[{c.name}]}</span>
 						<span class="eliminar">X</span>
