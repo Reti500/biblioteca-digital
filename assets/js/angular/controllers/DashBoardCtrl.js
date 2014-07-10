@@ -4,7 +4,7 @@ app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
 });*/
 
-app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Archivo, User){
+app.controller('DashBoardCtrl', function($scope, $http, $window, Categoria, Producto, Archivo, User){
     $scope.error = false;
     $scope.error_message = "";
     $scope.buquedas = false;
@@ -181,11 +181,11 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
     };
 
     $scope.deleteC = function(cat){
-        Producto.destroy({id:cat.id}, function($data){
+        Categoria.destroy({id:cat.id}, function($data){
             if($data.state == "OK"){
                 delete_item_in_array($scope.categorias, cat.name);
             }else{
-                console.log($data);
+               $window.alert($data.msg);
             }
         });
     };
@@ -195,7 +195,7 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
             if($data.state == "OK"){
                 delete_item_in_array($scope.productos, prod.name);
             }else{
-                console.log($data);
+                $window.alert($data.msg);
             }
         });
     };
@@ -205,14 +205,14 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
             if($data.state == "OK"){
                 delete_item_in_array($scope.archivos, doc.name);
             }else{
-                console.log($data);
+                $window.alert($data.msg);
             }
         });
     };
 
     function delete_item_in_array(array, item){
         for(var i = 0; i < array.length; i++) {
-            if(array.name === prod.name) {
+            if(array[i].name === item) {
                array.splice(i, 1);
             }
         }

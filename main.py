@@ -93,7 +93,7 @@ class CategoriasPage(BaseHandler):
     def get(self):
         cat_json = []
         for c in Categoria.query():
-            my_json = {"name": c.name}
+            my_json = {"name": c.name, "id": c.key.id()}
             cat_json.append(my_json)
 
         obj = {"categorias": cat_json}
@@ -108,17 +108,17 @@ class CategoriasPage(BaseHandler):
         else:
             self.response.out.write(json.dumps({"state": "OK"}))
 
-    def delete(self):
-        jdata = json.loads(self.request.body)
-        if jdata:
-            categoria = Categoria(name=jdata['name'])
-            if categoria:
-                categoria.delete()
-                self.response.out.write(json.dumps({"state":"OK"}))
+    def delete(self, id):
+        categoria = Categoria.get_by_id(int(id))
+        if categoria:
+            query = Producto.query(Producto.categoria == ndb.Key(Categoria, categoria.name))
+            if query.count() > 0:
+                self.response.out.write(json.dumps({"state": "ERROR", "msg": "Elimina los productos primero"}))
             else:
-                self.response.out.write(json.dumps({"state":"ERROR", "msg":"No se encontro la categoria"}))
+                categoria.key.delete()
+                self.response.out.write(json.dumps({"state": "OK", "msg": "Se elimino la categoria!"}))
         else:
-            self.response.out.write(json.dumps({"state":"ERROR", "msg":"Error en los datos"}))
+            self.response.out.write(json.dumps({"state": "ERROR", "msg": "No se encontro la categoria"}))
 
 
 class ProductosPage(BaseHandler):
