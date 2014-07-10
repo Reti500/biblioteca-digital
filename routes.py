@@ -26,6 +26,7 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/categorias', CategoriasPage, name="categorias"),
     webapp2.Route('/interfaz', InterfazPage, name="interfaz"),
     webapp2.Route('/productos', ProductosPage, name="productos"),
+    webapp2.Route('/productos/<id:(.*)>', ProductosPage, name="productos_id"),
     webapp2.Route('/archivos', ArchivosPage, name="archivos"),
     webapp2.Route('/main_upload', MainUploadImage, name='main_upload'),
     webapp2.Route('/upload', UploadHandler, name='upload'),

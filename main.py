@@ -125,7 +125,7 @@ class ProductosPage(BaseHandler):
     def get(self):
         prod_json = []
         for p in Producto.query():
-            my_json = {"name": p.name, "categoria": p.categoria.id()}
+            my_json = {"name": p.name, "categoria": p.categoria.id(), "id": p.key.id()}
             prod_json.append(my_json)
 
         obj = {"productos": prod_json}
@@ -145,17 +145,27 @@ class ProductosPage(BaseHandler):
         else:
             self.response.out.write(json.dumps({"state": "ERROR", "message": "No params"}))
 
-    def delete(self):
-        jdata = json.loads(self.request.body)
-        if jdata:
-            if jdata['categoria']['name']:
-                producto = Producto(name=jdata['name'], categoria=ndb.Key(Categoria, jdata['categoria']['name']))
-                producto.delete()
-                self.response.out.write(json.dumps({"state": "OK"}))
+    def delete(self, id):
+        # jdata = json.loads(self.request.body)
+        # if jdata:
+        #     if jdata['categoria']['name']:
+        #         producto = Producto(name=jdata['name'], categoria=ndb.Key(Categoria, jdata['categoria']['name']))
+        #         producto.delete()
+        #         self.response.out.write(json.dumps({"state": "OK"}))
+        #     else:
+        #         self.response.out.write(json.dumps({"state": "ERROR", "msg": "No se encontro el producto"}))
+        # else:
+        #     self.response.out.write(json.dumps({"state": "ERROR", "msg": "Error en los datos"}))
+        print(id)
+        producto = Producto.get_by_id(ndb.Key(Producto, 'wey').get())
+        if producto:
+            a = Archivo.query(Archivo.producto == producto)
+            if a:
+                print(a)
             else:
-                self.response.out.write(json.dumps({"state": "ERROR", "msg": "No se encontro el producto"}))
+                print("No hay archivos")
         else:
-            self.response.out.write(json.dumps({"state": "ERROR", "msg": "Error en los datos"}))
+            print("NO")
 
 
 class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
