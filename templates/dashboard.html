@@ -112,7 +112,7 @@
                 <form name="formD" ng-submit="upload('{{url}}')" enctype="multipart/form-data">
                     <span ng-show="loading">Loading, please wait</span>
                     <input type="file" onchange="angular.element(this).scope().filesChanged(this)" multiple required/>
-                    <input type="submit" ng-disabled="loading" value="Subir"/>
+                    <input type="submit" ng-disabled="loading" value="Subir" class="btn"/>
                 </form>
 			<hr>
 
@@ -150,7 +150,7 @@
 					<form ng-submit="addCategoria(categoria)">
 						<input type="text" placeholder="Nombre de la categoría" ng-model="categoria.name">
 						<hr>
-						<input type="submit" class="guardarbtn"></a>
+						<input type="submit" class="btn"></a>
 					</form>
 				</span>
 			</span>
