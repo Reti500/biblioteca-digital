@@ -6,6 +6,19 @@
 	<title>Biblioteca Digital Telmex</title>
 	<link rel="stylesheet" href="/assets/css/style.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+    <!--[if IE]>
+        <script src="/assets/js/modernizr.js"></script>
+        </script>
+        <script src="/assets/js/jquery.backgroundSize.js"></script>
+        </script>
+        <script src="/assets/js/placeholders.js"></script>
+        </script>
+    <![endif]-->
     <script src="/assets/js/angular.min.js"></script>
     <script src="/assets/js/angular-resource.js"></script>
     <script src="/assets/js/angular/app.js"></script>
@@ -54,6 +67,7 @@
 					<li ng-repeat="c in categorias | orderBy:'name'" ng-click="openProductos(c)" ng-class="eliminar:current_cat">
 						<figure></figure>
 						<span>{[{c.name}]}</span>
+						<span class="eliminar">X</span>
 					</li>
 				</ul>
 			</article>
@@ -61,14 +75,21 @@
 				<span class="crear producto icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('productos')"></span>
 				<h2>Producto</h2>
 				<ul id="col-2">
-                    <li ng-repeat="p in productos | filter:p.categoria=current_cat.name" ng-click="openArchivos(p)">{[{p.name}]}</li>
+                    <li ng-repeat="p in productos | filter:p.categoria=current_cat.name" ng-click="openArchivos(p)">
+                    <span>{[{p.name}]}</span>
+                    <span class="eliminar">X</span>
+                    </li>
 				</ul>
 			</article>
 			<article id="Documentos" class="activo" ng-show="view_archivos">
 				<span class="subir icono"><img src="/assets/img/subir.png" alt="" ng-click="openLightbox('archivos')"></span>
 				<h2>Documentos</h2>
 				<ul id="col-3">
-                    <li ng-repeat="a in archivos | filter:{categoria:current_cat.name,producto:current_prod.name}" ng-click="seleccionDocumento(a)"><span>{[{a.name}]}</span> <figure style="background-color: #0092D2;" /></li>
+                    <li ng-repeat="a in archivos | filter:{categoria:current_cat.name,producto:current_prod.name}" ng-click="seleccionDocumento(a)">
+                    <span>{[{a.name}]}</span> 
+                    <figure style="background-color: #0092D2;" />
+                    <span class="eliminar">X</span>
+                    </li>
 				</ul>
 			</article>
 		</div>
