@@ -52,7 +52,7 @@
 				<span class="crear categoria icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('categorias')"></span>
 				<h2>Categorías</h2>
 				<ul id="col-1">
-					<li ng-repeat="c in categorias | orderBy:'name'" ng-click="openProductos(c)" ng-class="eliminar:current_cat">
+					<li ng-repeat="c in categorias | orderBy:'name'" ng-click="openProductos(c)">
 						<figure></figure>
 						<span>{[{c.name}]}</span>
 						<span class="eliminar">X</span>
@@ -63,7 +63,7 @@
 				<span class="crear producto icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('productos')"></span>
 				<h2>Producto</h2>
 				<ul id="col-2">
-                    <li ng-repeat="p in productos | filter:p.categoria=current_cat.name" ng-click="openArchivos(p)">
+                    <li ng-repeat="p in productos | filter:{categoria:current_cat.name}" ng-click="openArchivos(p)">
                     <span>{[{p.name}]}</span>
                     <span class="eliminar">X</span>
                     </li>
@@ -281,9 +281,9 @@
 			</dl>
 			<hr>
 
-			<a href="#" class="descargar">
+			<a href="/serve/{[{current_file.file}]}" class="descargar" target="_blank">
 				<figure>
-                    <a href="/serve/{[{current_file.file}]}"><img src="/assets/img/descargarbig.jpg" alt=""></a>
+                    <img src="/assets/img/descargarbig.jpg" alt="">
 					<figcaption>
 						DESCARGAR ARCHIVO
 					</figcaption>
