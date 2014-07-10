@@ -699,6 +699,7 @@ header .buscador ::-webkit-input-placeholder {
   overflow: hidden;
   padding: 0.5em;
   position: relative;
+  height: 3.5em;
 }
 #contenidos ul#col-1 li figure {
   width: 3em;
@@ -738,7 +739,7 @@ header .buscador ::-webkit-input-placeholder {
   -webkit-transition: all 0.15s ease;
   transition: all 0.15s ease;
   border-right: 0px;
-  padding: 1.5em 1em;
+  height: 3.5em;
   position: relative;
 }
 #contenidos ul#col-2 li:hover,
@@ -751,6 +752,7 @@ header .buscador ::-webkit-input-placeholder {
   transition: all 0.15s ease;
   border-left: 10px solid #d9d9d9;
   position: relative;
+  height: 4.5em;
 }
 #contenidos ul#col-3 li:hover {
   background-color: #00aeef;
@@ -772,16 +774,15 @@ header .buscador ::-webkit-input-placeholder {
   white-space: nowrap;
 }
 #contenidos ul#col-3 li figure {
-  width: 3em;
-  height: 3em;
-  margin: -0.5em 0.5em 0 0;
+  width: 2em;
+  height: 2em;
+  margin: 0;
   display: inline-block;
   vertical-align: middle;
   border-radius: 50%;
   overflow: hidden;
   float: right;
   vertical-align: middle;
-  margin-top: 0.5em;
 }
 #contenidos .icono {
   width: 50px;
@@ -1458,6 +1459,17 @@ footer.landing {
 .eliminar:hover {
   background-color: #fff;
   color: #000;
+}
+.clickito {
+  display: inline-block;
+  padding: 0.5em !important;
+  position: absolute;
+  height: 100%;
+  width: 90% !important;
+}
+.clickito span {
+  padding: 0 !important;
+  margin: 0 !important;
 }
 @-webkit-keyframes cargaAnimacion {
   from {
