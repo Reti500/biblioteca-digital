@@ -51,6 +51,7 @@
 			<article id="Categoria" class="activo">
 				<span class="crear categoria icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('categorias')"></span>
 				<h2>Categorías</h2>
+                <span ng-show="loading">Loading, please wait</span>
 				<ul id="col-1">
 					<li ng-repeat="c in categorias | orderBy:'name'" >
 						<span class="clickito" ng-click="openProductos(c)">
