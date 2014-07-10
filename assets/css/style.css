@@ -1127,6 +1127,7 @@ footer .telmexIt {
   color: #fff;
   text-decoration: none;
   margin-bottom: 1em;
+  border: 0 solid;
 }
 #lightbox #contenidoLightbox .mensajeArchivos .cerrarbtn,
 #lightbox #subidaLightbox .mensajeArchivos .cerrarbtn,
@@ -1413,11 +1414,10 @@ footer.landing {
 }
 .eliminar {
   position: absolute;
-  right: 0;
-  top: 0em;
+  right: -0.5em;
+  top: -0.25em;
   width: 1em !important;
-  background: #b3b3b3;
-  color: #fff;
+  color: #000;
   border-radius: 1em;
   height: 1em;
   overflow: hidden;
