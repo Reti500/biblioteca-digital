@@ -97,7 +97,7 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
 
         Producto.create($scope.producto, function($data){
             if($data.state == "OK"){
-                $scope.productos.push({"name": $scope.producto.name, "categoria": $scope.producto.categoria});
+                $scope.productos.push({"name": $scope.producto.name, "categoria": $scope.producto.categoria.name});
                 $scope.producto = angular.copy({});
                 $scope.closeLightbox('productos');
             }
@@ -182,7 +182,11 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
 
     $scope.delete = function(prod){
         Producto.destroy({id:prod.id}, function($data){
-            console.log($data);
+            if($data.state == "OK"){
+                $scope.productos.splice(prod, 1);
+            }else{
+                console.log($data);
+            }
         });
     };
 });

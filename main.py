@@ -146,26 +146,19 @@ class ProductosPage(BaseHandler):
             self.response.out.write(json.dumps({"state": "ERROR", "message": "No params"}))
 
     def delete(self, id):
-        # jdata = json.loads(self.request.body)
-        # if jdata:
-        #     if jdata['categoria']['name']:
-        #         producto = Producto(name=jdata['name'], categoria=ndb.Key(Categoria, jdata['categoria']['name']))
-        #         producto.delete()
-        #         self.response.out.write(json.dumps({"state": "OK"}))
-        #     else:
-        #         self.response.out.write(json.dumps({"state": "ERROR", "msg": "No se encontro el producto"}))
-        # else:
-        #     self.response.out.write(json.dumps({"state": "ERROR", "msg": "Error en los datos"}))
-        print(id)
-        producto = Producto.get_by_id(ndb.Key(Producto, 'wey').get())
+        producto = Producto.get_by_id(int(id))
         if producto:
-            a = Archivo.query(Archivo.producto == producto)
-            if a:
-                print(a)
+            query = Archivo.query(Archivo.producto == ndb.Key(Producto, producto.name))
+            print(query.count())
+            if query.count() > 0:
+                for b in query:
+                    print(b)
+                self.response.out.write(json.dumps({"state": "ERROR", "msg": "Elimina los archivos primero"}))
             else:
-                print("No hay archivos")
+                producto.key.delete()
+                self.response.out.write(json.dumps({"state": "OK", "msg": "Se elimino el producto!"}))
         else:
-            print("NO")
+            self.response.out.write(json.dumps({"state": "ERROR", "msg": "No se encontro producto"}))
 
 
 class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
