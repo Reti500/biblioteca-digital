@@ -149,10 +149,7 @@ class ProductosPage(BaseHandler):
         producto = Producto.get_by_id(int(id))
         if producto:
             query = Archivo.query(Archivo.producto == ndb.Key(Producto, producto.name))
-            print(query.count())
             if query.count() > 0:
-                for b in query:
-                    print(b)
                 self.response.out.write(json.dumps({"state": "ERROR", "msg": "Elimina los archivos primero"}))
             else:
                 producto.key.delete()
@@ -167,7 +164,7 @@ class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
         for a in Archivo.query():
             date = str(a.created_at.date())
             if a.categoria and a.producto:
-                my_json = {"name": a.name, "file": a.file, "size": a.size, "type": a.type, "fecha": date, "categoria": a.categoria.id(), "producto": a.producto.id()}
+                my_json = {"id": a.key.id(), "name": a.name, "file": a.file, "size": a.size, "type": a.type, "fecha": date, "categoria": a.categoria.id(), "producto": a.producto.id()}
             else:
                 my_json = {"name": a.name, "file": a.file, "size": a.size, "type": a.type, "fecha": date}
             arch_json.append(my_json)
@@ -180,6 +177,15 @@ class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
         archivo = Archivo()
         my_file = self.request.get('0').read()
         archivo.file = ndb.BlobKey(my_file)
+
+    def delete(self, id):
+        archivo = Archivo.get_by_id(int(id))
+        if archivo:
+            archivo.key.delete()
+            self.response.out.write(json.dumps({"state": "OK", "msg": "Se elimino el archivo!"}))
+        else:
+            self.response.out.write(json.dumps({"state": "ERROR", "msg": "No se encontro el archivo"}))
+
 
 
 class MainUploadImage(webapp2.RequestHandler):

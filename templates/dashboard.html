@@ -58,7 +58,7 @@
 							<figure></figure>
 							<span>{[{c.name}]}</span>
 						</span>
-						<span class="eliminar">X</span>
+						<span class="eliminar" ng-click="deleteC(c)" confirmation-needed="¿Seguro que quieres eliminarlo?">X</span>
 					</li>
 				</ul>
 			</article>
@@ -70,7 +70,7 @@
                     <span class="clickito" ng-click="openArchivos(p)">
                     	<span>{[{p.name}]}</span>
                     </span>
-                    <span class="eliminar" ng-click="delete(p)">X</span>
+                    <span class="eliminar" ng-click="deleteP(p)" confirmation-needed="¿Seguro que quieres eliminarlo?">X</span>
                     </li>
 				</ul>
 			</article>
@@ -83,7 +83,7 @@
                     	<span>{[{a.name}]}</span> 
                     	<figure style="background-color: #0092D2;"></figure>
                     </span>
-                    <span class="eliminar">X</span>
+                    <span class="eliminar" ng-click="deleteA(a)" confirmation-needed="¿Seguro que quieres eliminarlo?">X</span>
                     </li>
 				</ul>
 			</article>

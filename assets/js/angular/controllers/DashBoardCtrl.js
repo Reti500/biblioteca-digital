@@ -180,13 +180,41 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
         $scope.current_file = documento;
     };
 
-    $scope.delete = function(prod){
-        Producto.destroy({id:prod.id}, function($data){
+    $scope.deleteC = function(cat){
+        Producto.destroy({id:cat.id}, function($data){
             if($data.state == "OK"){
-                $scope.productos.splice(prod, 1);
+                delete_item_in_array($scope.categorias, cat.name);
             }else{
                 console.log($data);
             }
         });
     };
+
+    $scope.deleteP = function(prod){
+        Producto.destroy({id:prod.id}, function($data){
+            if($data.state == "OK"){
+                delete_item_in_array($scope.productos, prod.name);
+            }else{
+                console.log($data);
+            }
+        });
+    };
+
+    $scope.deleteA = function(doc){
+        Archivo.destroy({id:doc.id}, function($data){
+            if($data.state == "OK"){
+                delete_item_in_array($scope.archivos, doc.name);
+            }else{
+                console.log($data);
+            }
+        });
+    };
+
+    function delete_item_in_array(array, item){
+        for(var i = 0; i < array.length; i++) {
+            if(array.name === prod.name) {
+               array.splice(i, 1);
+            }
+        }
+    }
 });
