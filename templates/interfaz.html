@@ -62,7 +62,7 @@
 				<!-- <span class="crear icono"><img src="img/crear.png" alt=""></span> -->
 				<h2>Producto</h2>
 				<ul id="col-2">
-					<li ng-repeat="prod in productos | filter:prod.categoria=idCategoria:strict" ng-click="seleccionProducto(prod.categoria,prod.name)">
+					<li ng-repeat="prod in productos | exact:idCategoria" ng-click="seleccionProducto(prod.categoria,prod.name)">
 						{[{prod.name}]}
 					</li>
 				</ul>

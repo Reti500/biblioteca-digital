@@ -63,7 +63,7 @@
 				<span class="crear producto icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('productos')"></span>
 				<h2>Producto</h2>
 				<ul id="col-2">
-                    <li ng-repeat="p in productos | filter:{categoria:current_cat.name}" ng-click="openArchivos(p)">
+                    <li ng-repeat="p in productos | exact:current_cat.name" ng-click="openArchivos(p)">
                     <span>{[{p.name}]}</span>
                     <span class="eliminar">X</span>
                     </li>
