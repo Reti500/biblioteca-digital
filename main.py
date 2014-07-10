@@ -108,6 +108,18 @@ class CategoriasPage(BaseHandler):
         else:
             self.response.out.write(json.dumps({"state": "OK"}))
 
+    def delete(self):
+        jdata = json.loads(self.request.body)
+        if jdata:
+            categoria = Categoria(name=jdata['name'])
+            if categoria:
+                categoria.delete()
+                self.response.out.write(json.dumps({"state":"OK"}))
+            else:
+                self.response.out.write(json.dumps({"state":"ERROR", "msg":"No se encontro la categoria"}))
+        else:
+            self.response.out.write(json.dumps({"state":"ERROR", "msg":"Error en los datos"}))
+
 
 class ProductosPage(BaseHandler):
     def get(self):
@@ -132,6 +144,18 @@ class ProductosPage(BaseHandler):
                 self.response.out.write(json.dumps({"state": "ERROR", "message": "No hay categoria"}))
         else:
             self.response.out.write(json.dumps({"state": "ERROR", "message": "No params"}))
+
+    def delete(self):
+        jdata = json.loads(self.request.body)
+        if jdata:
+            if jdata['categoria']['name']:
+                producto = Producto(name=jdata['name'], categoria=ndb.Key(Categoria, jdata['categoria']['name']))
+                producto.delete()
+                self.response.out.write(json.dumps({"state": "OK"}))
+            else:
+                self.response.out.write(json.dumps({"state": "ERROR", "msg": "No se encontro el producto"}))
+        else:
+            self.response.out.write(json.dumps({"state": "ERROR", "msg": "Error en los datos"}))
 
 
 class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):

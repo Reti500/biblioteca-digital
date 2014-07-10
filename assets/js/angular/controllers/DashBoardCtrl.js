@@ -85,7 +85,7 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
         Categoria.create($scope.categoria, function($data){
             if($data.state == "OK"){
                 $scope.categorias.push({"name": $scope.categoria.name});
-                $scope.categoria = angular.copy({})
+                $scope.categoria = angular.copy({});
                 $scope.closeLightbox('categorias');
             }
         });
@@ -98,6 +98,7 @@ app.controller('DashBoardCtrl', function($scope, $http, Categoria, Producto, Arc
         Producto.create($scope.producto, function($data){
             if($data.state == "OK"){
                 $scope.productos.push({"name": $scope.producto.name, "categoria": $scope.producto.categoria});
+                $scope.producto = angular.copy({});
                 $scope.closeLightbox('productos');
             }
         });
