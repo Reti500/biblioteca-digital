@@ -1,0 +1,650 @@
+@import "vendors/grid.styl"
+@import "../bower_components/normalize-css/normalize.css"
+
+//////////
+// GRID //
+//////////
+columns = 12
+column-width = 60
+gutter-width = 20
+total-width = 100%
+
+
+////////////
+// LAYOUT //
+////////////
+AzulOscurito = #0085C0
+AzulEstandar = #0092D2
+GrisClaro = #B3B3B3
+body
+	padding-bottom 5em
+	@media (max-width: 480px)
+		padding-bottom 0
+body.principal
+	background AzulOscurito
+	background-image url("../img/fondoindex.jpg")
+	background-position center center
+	background-size 240px 287px
+img
+	max-width 100%
+	height auto
+a
+	color AzulEstandar
+	text-decoration none
+	&:hover
+		text-decoration underline
+.ocultar
+	display none
+.error
+	display block
+	background lighten(red,40%)
+	overflow hidden
+	clear both
+	width 70%
+	padding .5em
+	border-radius .5em
+	border 3px dotted red
+	color white!important
+	margin 0 auto
+.container
+	overflow hidden
+	max-width 980px
+	clear both
+	margin 0 auto
+#login
+	max-width 300px
+	background white
+	overflow hidden
+	margin 4em auto
+	margin 20vh auto
+	text-align center
+	@media (max-width: 480px)
+		margin 1em auto
+	h2
+		color GrisClaro
+		font-size 1em
+	h1
+		color transparent
+		display block
+		overflow hidden
+		margin .25em 0
+	p
+		color AzulEstandar
+		font-size .75em
+	form
+		display block
+		clear both
+		width 100%
+		overflow hidden
+		input, .btn
+			column(10)
+			push(1)
+			padding .25em
+			box-sizing border-box
+			margin-top .35em
+			margin-bottom .35em
+		input[type="submit"], .btn
+			background AzulOscurito
+			color white
+			border 0 solid
+			margin-top 1em
+			margin-bottom 1em
+			text-decoration none
+			padding .5em
+.btn
+	background AzulOscurito
+	color white
+	border 0 solid
+	margin 1em auto
+	text-decoration none
+	padding .5em
+	width 90%
+	display block
+header
+	border-bottom 1px solid AzulOscurito
+	padding .5em 1em
+	height 3em
+	text-align center
+	h1
+		margin 0
+		column(4)
+		text-align left
+		@media (max-width:550px)
+			column(5)
+	.login
+		position relative
+		text-align right
+		img
+			display inline-block
+			vertical-align middle
+		p
+			display inline-block
+			vertical-align middle
+		a
+			border-left 2px solid AzulEstandar
+			margin-left .25em
+			padding-left .5em
+			display inline-block
+		.menuEmergente
+			font-size .8rem
+			@media (max-width: 860px)
+				display none
+				clear both
+				padding 1em
+				overflow hidden
+				position fixed
+				background white
+				top 5em
+				right 0
+				text-align right
+				border 1px solid AzulEstandar
+				img
+					cursor pointer
+				&.activo
+					display inline-block
+	.buscador
+		column(4)
+		margin-top .5em
+		input
+			width 280px
+			max-width 100%
+			padding .25em .25em .25em 1.5em
+			background-image url("../img/buscar.jpg")
+			background-size 12px
+			background-position .25em
+			background-repeat no-repeat
+			background-size 1em
+			height 1.75em
+			box-sizing border-box
+		::-webkit-input-placeholder
+			color AzulOscurito
+#contenidos
+	margin-top 1em
+	text-align center
+	transition all .3s ease
+	article
+		column(3.9)
+		text-align center
+		float none
+		display none
+		vertical-align top
+		opacity 0
+		&.activo
+			display inline-block
+			opacity 1
+		@media (max-width: 700px)
+			column(10)
+			push(1)
+	ul
+		padding 0
+		border 1px solid darken(GrisClaro,50%)
+		text-align left
+		li
+			list-style-type none
+			border-bottom 1px solid darken(GrisClaro,50%)
+			cursor pointer
+		&#col-1
+			li
+				transition all .15s ease
+				overflow hidden
+				padding .5em
+				position relative
+				height 3.5em
+				figure
+					width 3em
+					height 3em
+					margin -.5em .5em 0 0
+					display inline-block
+					vertical-align middle
+					background-color GrisClaro
+					border-radius 50%
+					overflow hidden
+					float none
+					vertical-align middle
+				span
+					column(8)
+					padding 1em 0
+					display inline-block
+					float none
+					vertical-align middle
+				&:hover, &.activo
+					background-color AzulEstandar
+					color white
+					figure
+						background-color transparent
+						border 1px solid white
+		&#col-2
+			li
+				transition all .15s ease
+				border-right 0px
+				height 3.5em
+				position relative
+				&:hover, &.activo
+					border-left 10px solid #00AEEF
+		&#col-3
+			li
+				overflow hidden
+				transition all .15s ease
+				border-left 10px solid lighten(GrisClaro,50%)
+				position relative
+				height 4.5em
+				&:hover
+					background-color #00AEEF
+					border-left 10px solid #00AEEF
+					color white
+					text-shadow 0 2px 1px rgba(AzulOscurito,80%)
+				span
+					column(7.5)
+					padding 1.5em .5em
+					display inline-block
+					overflow hidden
+					text-overflow ellipsis
+					white-space nowrap
+				figure
+					width 2em
+					height 2em
+					margin 0
+					display inline-block
+					vertical-align middle
+					border-radius 50%
+					overflow hidden
+					float right
+					vertical-align middle
+	.icono
+		width 50px
+		display inline-block
+		overflow hidden
+		cursor pointer
+footer
+	background white
+	position fixed
+	bottom 0
+	left 0
+	width 100%
+	height auto
+	overflow hidden
+	padding 1em 0
+	&.panel
+		position fixed
+		background-image url("../img/fondo.png")
+		background-position center bottom
+		background-repeat repeat-x
+		background-size 75px
+		height 25px
+		padding 0
+		@media (max-width: 480px)
+			position inherit
+			margin-top 3em
+	@media (max-width: 480px)
+		position absolute
+	figure
+		margin 0
+	.telmexEsta
+		display inline-block
+		float left
+		text-align center
+		margin-left 1em
+		@media (max-width: 480px)
+			column(5)
+			push(1)
+	.telmexIt
+		display inline-block
+		float right
+		text-align center
+		margin-right 1em
+		@media (max-width: 480px)
+			column(5)
+.ocultar
+	display none
+#lightbox
+	height 0
+	width 0
+	overflow hidden
+	opacity 0
+	transition opacity .3s ease
+	&.activo
+		position fixed
+		top 0
+		left 0
+		height 100%
+		width 100%
+		opacity 1
+		z-index 20
+		.fondoClicable
+			background-color lighten(GrisClaro, 60%)
+			background-color rgba(GrisClaro, 0.6)
+			height 100%
+			width 100%
+			position absolute
+			z-index -40
+		#contenidoLightbox, #subidaLightbox, #adminAlta
+			transform translateY(0)
+	#busquedaResultados
+		background-color white
+		max-width 90%
+		margin 1em auto
+		padding .25em
+		box-sizing border-box
+		color GrisClaro
+		border 5px solid rgba(GrisClaro, .3)
+		h2
+			font-size 1em
+			font-weight normal
+			text-align center
+			margin .5em auto
+			color AzulEstandar
+		hr
+			max-width 300px
+			margin 0 auto
+		h3
+			text-align center
+			font-size 1em
+			margin .5em auto
+			font-weight normal
+		ul
+			padding 0
+			margin 1em auto
+			display block
+			overflow-y auto
+			height 350px
+			background-color white
+			li
+				list-style-type none
+				padding .5em 0
+				border-top 1px solid GrisClaro
+				display block
+				clear both
+				overflow hidden
+				cursor pointer
+				&:hover
+					background-color lighten(GrisClaro,80%)
+				figure
+					display block
+					margin 0
+					padding 0
+					width 1.5em
+					height 1.5em
+					background-color white
+					border 1px solid GrisClaro
+					display inline-block
+					vertical-align middle
+					border-radius 50%
+				.nombre
+					column(6)
+					display inline-block
+					float none
+				.categoria
+					column(4.5)
+					display inline-block
+					float none
+					border-left 1px solid GrisClaro
+					box-sizing border-box
+					padding-left 1em
+					height 1.5em
+					vertical-align middle
+					text-transform uppercase
+				.icono
+					width 1.5em
+					height 1.5em
+					background-color AzulOscurito
+					display inline-block
+					float right
+					margin-right .25em
+					border-radius 50%
+	#contenidoLightbox, #subidaLightbox, #CategoriaLightbox, #ProductoLightbox, #adminAlta
+		width 400px
+		max-width 90%
+		background-color white
+		margin 1em auto
+		position relative
+		overflow hidden
+		color GrisClaro
+		transition all .3s ease
+		transform translateY(5em)
+		input
+			column(12)
+			margin-bottom 1em
+			box-sizing border-box
+		.subirArchivo
+			width 150px
+			margin 2em auto
+		.cargaArchivo
+			cursor pointer
+		.cargaAnimacion
+			display none
+			animation cargaAnimacion 1.5s linear 0 infinite
+		.mensajeArchivos
+			.msg1
+				width 50%
+				display block
+				margin 0 auto
+				text-align center
+				h4
+					font-weight normal
+					margin .5em
+				span
+					color AzulEstandar
+					font-size .8em
+			.msg2
+				display none
+				color AzulEstandar
+				text-align center
+				h3
+					font-weight normal
+			.msg3
+				display none
+				ul
+					padding .25em
+					li
+						list-style-type none
+						cursor pointer
+						margin .25em 0
+						display clear
+						border-bottom 1px solid lighten(GrisClaro, 50%)
+						overflow hidden
+						padding .5em 0
+						.cerrar
+							float right
+							padding .15em .45em
+							text-align center
+							border 1px solid AzulEstandar
+							border-radius 50%
+							color AzulEstandar
+			.guardarbtn
+				column(6)
+				text-align center
+				background-color AzulEstandar
+				padding .5em 0
+				color white
+				text-decoration none
+				margin-bottom 1em
+				border 0 solid
+			.cerrarbtn
+				column(6)
+				text-align center
+				background-color #aaa
+				padding .5em 0
+				color white
+				text-decoration none
+				margin-bottom 1em
+		.tituloLight
+			background-color AzulOscurito
+			color white
+			padding .5em
+			text-align center
+			margin-bottom 1em
+			span
+				vertical-align middle
+				display inline-block
+			figure
+				margin 0
+				padding 0
+				display inline-block
+				width 1em
+				height 1em
+				border 2px solid
+				border-radius 50%
+				overflow hidden
+				vertical-align middle
+				margin-bottom .5em
+			.cerrar
+				right 1em
+				top .55em
+				position absolute
+				cursor pointer
+		.titulo
+			padding 0 1em
+			text-align center
+		hr
+			display block
+			clear both
+			width 100%
+		dl
+			display block
+			clear both
+			margin 0
+			padding .5em 0
+			overflow hidden
+			dt
+				column(4)
+				clear left
+				margin-bottom .5em
+				text-align right
+			dd
+				column(8)
+				margin-bottom .5em
+				clear right
+		.descargar
+			display block
+			margin 0
+			padding 0
+			text-align center
+			color GrisClaro
+			text-decoration none
+			margin-bottom 1em
+			figure
+				margin 1.5em 1em 2.5em 1em
+			img
+				max-width 130px
+				margin-bottom 1em
+.blur
+	filter blur(2px)
+
+header
+	&.landing
+		height 1em
+		border-bottom .25em solid lighten(AzulEstandar,60%)
+		margin-bottom 1em
+footer
+	&.landing
+		position fixed
+		bottom 0
+		left 0
+		width 100%
+		height 0
+		background-image url("../img/fondo.png")
+		background-size 6em 2em
+.colIzq
+	column(4)
+	@media(max-width:480px)
+		column(12)
+		text-align center
+	#login
+		margin 3em auto
+		h2
+			color #00AEEF
+		> figure
+			margin 0
+			padding 0
+			img
+				max-width 115px
+.colDer
+	column(8)
+	@media(max-width:480px)
+		column(12)
+
+.itemLanding
+	column(6)
+	padding 1em 0em
+	border 1px solid GrisClaro
+	box-shadow inset 0 .25em 0 lighten(AzulEstandar,60%)
+	color darken(GrisClaro,20%)
+	box-sizing border-box
+	margin-bottom 1em
+	h3
+		margin 0 1em 0 .25em
+		display inline-block
+		text-transform uppercase
+		font-size .75em
+		font-weight lighter
+		color GrisClaro
+		vertical-align middle
+	figure
+		padding 0
+		margin 0 0 0 1em
+		text-align center
+		display inline-block
+		border-radius 50%
+		width 1.5em
+		height 1.5em
+		overflow hidden
+		border 1px solid GrisClaro
+		vertical-align middle
+	p
+		font-size .65em
+		padding .5em 1em
+	dl
+		font-size .8em
+		padding 0 1em
+		dd
+			column(6)
+			push(1)
+			display block
+			clear right
+		dt
+			column(5)
+			display block
+			text-align right
+		hr
+			clear both
+			display block
+			margin 1em 0
+			width 100%
+			float left
+		figure
+			margin 0
+			padding 0
+			background-color red
+
+@keyframes cargaAnimacion
+	from
+		transform rotateZ(0)
+	to
+		transform rotateZ(360deg)
+
+
+.eliminar
+	position absolute
+	right -.5em
+	top -.25em
+	width 1em!important
+	color black
+	border-radius 1em
+	height 1em
+	overflow hidden
+	display block!important
+	line-height 1em
+	padding .5em!important
+	text-align center
+	&:hover
+		background-color white
+		color black
+.clickito
+	display inline-block
+	padding .5em!important
+	position absolute
+	height 100%
+	width 90%!important
+	span
+		padding 0!important
+		margin 0!important
