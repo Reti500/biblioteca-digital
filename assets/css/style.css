@@ -220,7 +220,6 @@ figure {
 
 hr {
   -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -344,8 +343,6 @@ input {
 
 input[type="checkbox"],
 input[type="radio"] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
@@ -446,11 +443,15 @@ body {
     padding-bottom: 0;
   }
 }
+body.landing {
+  background-image: url("../img/fondo-telmex-it.png");
+  background-size: cover;
+  background-position: center center;
+}
 body.principal {
   background: #0085c0;
   background-image: url("../img/fondoindex.jpg");
   background-position: center center;
-  -webkit-background-size: 240px 287px;
   background-size: 240px 287px;
 }
 img {
@@ -492,6 +493,7 @@ a:hover {
   margin: 4em auto;
   margin: 20vh auto;
   text-align: center;
+  padding: 1em 0.5em 2em;
 }
 @media (max-width: 480px) {
   #login {
@@ -528,8 +530,6 @@ a:hover {
   *margin: 0 1.041124131944478%;
   margin-left: 9.375%;
   padding: 0.25em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin-top: 0.35em;
   margin-bottom: 0.35em;
@@ -559,6 +559,9 @@ header {
   padding: 0.5em 1em;
   height: 3em;
   text-align: center;
+}
+header.landing {
+  background-color: #fff;
 }
 header h1 {
   margin: 0;
@@ -635,15 +638,11 @@ header .buscador input {
   max-width: 100%;
   padding: 0.25em 0.25em 0.25em 1.5em;
   background-image: url("../img/buscar.jpg");
-  -webkit-background-size: 12px;
   background-size: 12px;
   background-position: 0.25em;
   background-repeat: no-repeat;
-  -webkit-background-size: 1em;
   background-size: 1em;
   height: 1.75em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 header .buscador ::-webkit-input-placeholder {
@@ -652,7 +651,6 @@ header .buscador ::-webkit-input-placeholder {
 #contenidos {
   margin-top: 1em;
   text-align: center;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 #contenidos article {
@@ -694,7 +692,6 @@ header .buscador ::-webkit-input-placeholder {
   cursor: pointer;
 }
 #contenidos ul#col-1 li {
-  -webkit-transition: all 0.15s ease;
   transition: all 0.15s ease;
   overflow: hidden;
   padding: 0.5em;
@@ -736,7 +733,6 @@ header .buscador ::-webkit-input-placeholder {
   border: 1px solid #fff;
 }
 #contenidos ul#col-2 li {
-  -webkit-transition: all 0.15s ease;
   transition: all 0.15s ease;
   border-right: 0px;
   height: 3.5em;
@@ -748,7 +744,6 @@ header .buscador ::-webkit-input-placeholder {
 }
 #contenidos ul#col-3 li {
   overflow: hidden;
-  -webkit-transition: all 0.15s ease;
   transition: all 0.15s ease;
   border-left: 10px solid #d9d9d9;
   position: relative;
@@ -805,7 +800,6 @@ footer.panel {
   background-image: url("../img/fondo.png");
   background-position: center bottom;
   background-repeat: repeat-x;
-  -webkit-background-size: 75px;
   background-size: 75px;
   height: 25px;
   padding: 0;
@@ -865,7 +859,6 @@ footer .telmexIt {
   width: 0;
   overflow: hidden;
   opacity: 0;
-  -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
 #lightbox.activo {
@@ -878,6 +871,7 @@ footer .telmexIt {
   z-index: 20;
 }
 #lightbox.activo .fondoClicable {
+  background-color: #e1e1e1;
   background-color: rgba(179,179,179,0.6);
   height: 100%;
   width: 100%;
@@ -887,8 +881,6 @@ footer .telmexIt {
 #lightbox.activo #contenidoLightbox,
 #lightbox.activo #subidaLightbox,
 #lightbox.activo #adminAlta {
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
   transform: translateY(0);
 }
 #lightbox #busquedaResultados {
@@ -896,8 +888,6 @@ footer .telmexIt {
   max-width: 90%;
   margin: 1em auto;
   padding: 0.25em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   color: #b3b3b3;
   border: 5px solid rgba(179,179,179,0.3);
@@ -971,8 +961,6 @@ footer .telmexIt {
   display: inline-block;
   float: none;
   border-left: 1px solid #b3b3b3;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding-left: 1em;
   height: 1.5em;
@@ -1000,10 +988,7 @@ footer .telmexIt {
   position: relative;
   overflow: hidden;
   color: #b3b3b3;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  -webkit-transform: translateY(5em);
-  -ms-transform: translateY(5em);
   transform: translateY(5em);
 }
 #lightbox #contenidoLightbox input,
@@ -1018,8 +1003,6 @@ footer .telmexIt {
   *width: 97.86566840277784%;
   *margin: 0 1.041124131944478%;
   margin-bottom: 1em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #lightbox #contenidoLightbox .subirArchivo,
@@ -1043,7 +1026,6 @@ footer .telmexIt {
 #lightbox #ProductoLightbox .cargaAnimacion,
 #lightbox #adminAlta .cargaAnimacion {
   display: none;
-  -webkit-animation: cargaAnimacion 1.5s linear 0 infinite;
   animation: cargaAnimacion 1.5s linear 0 infinite;
 }
 #lightbox #contenidoLightbox .mensajeArchivos .msg1,
@@ -1295,7 +1277,6 @@ footer .telmexIt {
   margin-bottom: 1em;
 }
 .blur {
-  -webkit-filter: blur(2px);
   filter: blur(2px);
 }
 header.landing {
@@ -1310,7 +1291,6 @@ footer.landing {
   width: 100%;
   height: 0;
   background-image: url("../img/fondo.png");
-  -webkit-background-size: 6em 2em;
   background-size: 6em 2em;
 }
 .colIzq {
@@ -1321,16 +1301,14 @@ footer.landing {
   *width: 31.233723958333343%;
   *margin: 0 1.041124131944478%;
 }
-@media (max-width: 480px) {
-  .colIzq {
-    display: inline;
-    float: left;
-    width: 97.9166666666667%;
-    margin: 0 1.0416666666667%;
-    *width: 97.86566840277784%;
-    *margin: 0 1.041124131944478%;
-    text-align: center;
-  }
+@media( max-width:480px) {
+  display: inline;
+  float: left;
+  width: 97.9166666666667%;
+  margin: 0 1.0416666666667%;
+  *width: 97.86566840277784%;
+  *margin: 0 1.041124131944478%;
+  text-align: center;
 }
 .colIzq #login {
   margin: 3em auto;
@@ -1353,15 +1331,13 @@ footer.landing {
   *width: 64.54969618055554%;
   *margin: 0 1.041124131944478%;
 }
-@media (max-width: 480px) {
-  .colDer {
-    display: inline;
-    float: left;
-    width: 97.9166666666667%;
-    margin: 0 1.0416666666667%;
-    *width: 97.86566840277784%;
-    *margin: 0 1.041124131944478%;
-  }
+@media( max-width:480px) {
+  display: inline;
+  float: left;
+  width: 97.9166666666667%;
+  margin: 0 1.0416666666667%;
+  *width: 97.86566840277784%;
+  *margin: 0 1.041124131944478%;
 }
 .itemLanding {
   display: inline;
@@ -1372,11 +1348,8 @@ footer.landing {
   *margin: 0 1.041124131944478%;
   padding: 1em 0em;
   border: 1px solid #b3b3b3;
-  -webkit-box-shadow: inset 0 0.25em 0 #87daff;
   box-shadow: inset 0 0.25em 0 #87daff;
   color: #8f8f8f;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin-bottom: 1em;
 }
@@ -1471,25 +1444,35 @@ footer.landing {
   padding: 0 !important;
   margin: 0 !important;
 }
-@-webkit-keyframes cargaAnimacion {
+@-moz-keyframes cargaAnimacion {
   from {
-    -webkit-transform: rotateZ(0);
     transform: rotateZ(0);
   }
   to {
-    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes cargaAnimacion {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@-o-keyframes cargaAnimacion {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
     transform: rotateZ(360deg);
   }
 }
 @keyframes cargaAnimacion {
   from {
-    -webkit-transform: rotateZ(0);
-    -ms-transform: rotateZ(0);
     transform: rotateZ(0);
   }
   to {
-    -webkit-transform: rotateZ(360deg);
-    -ms-transform: rotateZ(360deg);
     transform: rotateZ(360deg);
   }
 }
