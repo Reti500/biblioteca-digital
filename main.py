@@ -164,6 +164,7 @@ class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
         arch_json = []
         for a in Archivo.query():
             date = str(a.created_at.date())
+            print a.producto.id()
             cat_key = Categoria.query(Categoria.name == a.categoria.id()).fetch(1)[0]
             prod_key = Producto.query(Producto.name == a.producto.id()).fetch(1)[0]
             if a.categoria and a.producto:

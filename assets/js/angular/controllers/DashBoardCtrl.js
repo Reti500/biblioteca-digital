@@ -97,7 +97,8 @@ app.controller('DashBoardCtrl', function($scope, $http, $window, Categoria, Prod
 
         Producto.create($scope.producto, function($data){
             if($data.state == "OK"){
-                $scope.productos.push({"name": $scope.producto.name, "categoria": $scope.producto.categoria.name});
+                $scope.productos.push({"name": $scope.producto.name, "categoria": $scope.producto.categoria.name, 
+                    "categoria_id": $scope.current_cat.id});
                 $scope.producto = angular.copy({});
                 $scope.closeLightbox('productos');
             }
@@ -136,7 +137,9 @@ app.controller('DashBoardCtrl', function($scope, $http, $window, Categoria, Prod
                             "producto": $scope.current_prod.name,
                             "file": "",
                             "size": $scope.files[0].size,
-                            "type": $scope.files[0].type
+                            "type": $scope.files[0].type,
+                            "categoria_id": $scope.current_cat.id,
+                            "producto_id": $scope.current_prod.id
                         });
                     $scope.closeLightbox('archivos');
                     $scope.files = null;
