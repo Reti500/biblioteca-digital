@@ -53,7 +53,7 @@
 				<h2>Categorías</h2>
                 <span ng-show="loading">Loading, please wait</span>
 				<ul id="col-1">
-					<li ng-repeat="c in categorias | orderBy:'name'" >
+					<li ng-repeat="c in categorias | orderBy:'name'" ng-class="{activo: current_cat.name == c.name}">
 						<span class="clickito" ng-click="openProductos(c)">
 							<figure></figure>
 							<span>{[{c.name}]}</span>
@@ -66,7 +66,7 @@
 				<span class="crear producto icono"><img src="/assets/img/crear.png" alt="" ng-click="openLightbox('productos')"></span>
 				<h2>Producto</h2>
 				<ul id="col-2">
-                    <li ng-repeat="p in productos | exact:current_cat.name">
+                    <li ng-repeat="p in productos | exact:current_cat.name" ng-class="{activo: current_prod.name == p.name}">
                     <span class="clickito" ng-click="openArchivos(p)">
                     	<span>{[{p.name}]}</span>
                     </span>
