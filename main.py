@@ -125,7 +125,8 @@ class ProductosPage(BaseHandler):
     def get(self):
         prod_json = []
         for p in Producto.query():
-            my_json = {"name": p.name, "categoria": p.categoria.id(), "id": p.key.id()}
+            cat_key = Categoria.query(Categoria.name == p.categoria.id()).fetch(1)[0]
+            my_json = {"name": p.name, "categoria": p.categoria.id(), "categoria_id": cat_key.key.id(), "id": p.key.id()}
             prod_json.append(my_json)
 
         obj = {"productos": prod_json}
@@ -163,8 +164,12 @@ class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
         arch_json = []
         for a in Archivo.query():
             date = str(a.created_at.date())
+            cat_key = Categoria.query(Categoria.name == a.categoria.id()).fetch(1)[0]
+            prod_key = Producto.query(Producto.name == a.producto.id()).fetch(1)[0]
             if a.categoria and a.producto:
-                my_json = {"id": a.key.id(), "name": a.name, "file": a.file, "size": a.size, "type": a.type, "fecha": date, "categoria": a.categoria.id(), "producto": a.producto.id()}
+                my_json = {"id": a.key.id(), "name": a.name, "file": a.file, "size": a.size, 
+                    "type": a.type, "fecha": date, "categoria": a.categoria.id(), "producto": a.producto.id(),
+                    "categoria_id": cat_key.key.id(), "producto_id": prod_key.key.id()}
             else:
                 my_json = {"name": a.name, "file": a.file, "size": a.size, "type": a.type, "fecha": date}
             arch_json.append(my_json)
@@ -201,6 +206,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     def post(self):
         categoria_str = self.request.get('categoria')
         producto_str = self.request.get('producto')
+        type_str = self.request.get('type')
 
         upload_files = self.get_uploads('file')  # 'file' is file upload field in the form
         blob_info = upload_files[0]

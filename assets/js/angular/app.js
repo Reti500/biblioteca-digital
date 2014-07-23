@@ -113,3 +113,17 @@ app.filter('exact', [function() {
         return filtered;
     };
 }]);
+
+app.filter('exactID', [function() {
+    return function(items, searchText){
+        var filtered = [];
+        // searchText = String(searchText).toLowerCase();
+        // if(searchText != "") {
+            angular.forEach(items, function (item) {
+                if (item.categoria_id === searchText)
+                    filtered.push(item);
+            });
+        // };
+        return filtered;
+    };
+}]);
