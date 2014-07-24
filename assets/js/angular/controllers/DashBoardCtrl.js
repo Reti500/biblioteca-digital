@@ -15,10 +15,10 @@ app.controller('DashBoardCtrl', function($scope, $http, $window, Categoria, Prod
     $scope.view_archivos = false;
 
     $scope.txt_documents = {
-        "word": "document",
-        "pdf": "application/pdf",
-        "xls": "sheet",
-        "document": "document"
+        "text/plain": "txt",
+        "application/pdf": "pdf",
+        "presentation": "power",
+        "document": "word"
     }
 
     console.log($scope.txt_documents.word);
@@ -190,6 +190,7 @@ app.controller('DashBoardCtrl', function($scope, $http, $window, Categoria, Prod
     $scope.seleccionDocumento = function(documento) {
         $scope.openLightbox('downloads');
         $scope.current_file = documento;
+        console.log(documento);
     };
 
     $scope.deleteC = function(cat){

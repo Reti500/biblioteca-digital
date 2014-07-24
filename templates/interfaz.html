@@ -51,7 +51,7 @@
 				<!-- <span class="crear icono"><img src="img/crear.png" alt=""></span> -->
 				<h2>Categoría</h2>
 				<ul id="col-1">
-					<li ng-repeat="cat in categorias" ng-class="{activo: idCategoria == cat.id}">
+					<li ng-repeat="cat in categorias | orderBy:'name'" ng-class="{activo: idCategoria == cat.id}">
 						<span class="clickito" ng-click="seleccionCategoria(cat.id)">
 							<figure></figure>
 							<span>{[{cat.name}]}</span>
@@ -82,7 +82,7 @@
 					<li ng-repeat="doc in documentos | filter:{categoria_id:strCat,producto_id:strProd}">
                     <span class="clickito" ng-click="seleccionDocumento(doc)">
                     	<span>{[{doc.name}]}</span> 
-                    	<figure style="" ng-class="{word: doc.type == txt_documents.word, pdf: doc.type == txt_documents.pdf}" ></figure>
+                    	<figure style="" ng-class="{true: txt_documents[doc.type], false: 'any'}[txt_documents[doc.type] != null]" ></figure>
                     </span>
                     </li>					
 				</ul>

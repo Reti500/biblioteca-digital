@@ -81,7 +81,9 @@
                     <li ng-repeat="a in archivos | filter:{categoria_id:current_cat.id,producto_id:current_prod.id}">
 	                    <span class="clickito" ng-click="seleccionDocumento(a)">
 	                    	<span>{[{a.name}]}</span> 
-	                    	<figure style="" ng-class="{word: a.type == txt_documents.word, pdf: a.type == txt_documents.pdf}"></figure>
+	                    	<!-- <figure style="" ng-class="{word: a.type == txt_documents.word, pdf: a.type == txt_documents.pdf,
+	                    		(txt_documents.word != null) ? '' : 'any'}"></figure> -->
+	                    		<figure style="" ng-class="{true: txt_documents[a.type], false: 'any'}[txt_documents[a.type] != null]"></figure>
 	                    </span>
 	                    <span class="eliminar" ng-click="deleteA(a)" confirmation-needed="¿Seguro que quieres eliminarlo?">X</span>
                     </li>
@@ -249,7 +251,7 @@
 			<hr>
 			<dl>
 				<dt>Formato: </dt>
-				<dd>{[{current_file.type.split('/')[1]}]}</dd>
+				<dd>{[{current_file.type}]}</dd>
 				<dt>Tamaño: </dt>
 				<dd>{[{current_file.size}]}</dd>
 				<dt>Fecha:</dt>

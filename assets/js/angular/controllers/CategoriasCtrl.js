@@ -3,10 +3,10 @@ app.controller("CategoriasCtrl", function($scope, Categoria, Producto, Archivo) 
     $scope.Lightbox = false;
 
     $scope.txt_documents = {
-        "word": "document",
-        "pdf": "application/pdf",
-        "xls": "sheet",
-        "document": "document"
+        "text/plain": "txt",
+        "application/pdf": "pdf",
+        "presentation": "power",
+        "document": "word"
     }
 
 	$scope.seleccionDocumento = function(documento) {
