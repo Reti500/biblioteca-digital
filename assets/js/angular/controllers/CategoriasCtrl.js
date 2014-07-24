@@ -2,6 +2,13 @@ app.controller("CategoriasCtrl", function($scope, Categoria, Producto, Archivo) 
     $scope.busquedas = false;
     $scope.Lightbox = false;
 
+    $scope.txt_documents = {
+        "word": "document",
+        "pdf": "application/pdf",
+        "xls": "sheet",
+        "document": "document"
+    }
+
 	$scope.seleccionDocumento = function(documento) {
         $scope.Lightbox = true;
         $scope.sinBlur = 'blur';
