@@ -14,6 +14,15 @@ app.controller('DashBoardCtrl', function($scope, $http, $window, Categoria, Prod
     $scope.view_productos = false;
     $scope.view_archivos = false;
 
+    $scope.txt_documents = {
+        "word": "document",
+        "pdf": "application/pdf",
+        "xls": "sheet",
+        "document": "document"
+    }
+
+    console.log($scope.txt_documents.word);
+
     $scope.init = function () {
         $scope.getCategorias();
         $scope.getProductos();

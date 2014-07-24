@@ -79,11 +79,11 @@
 				<h2>Documentos</h2>
 				<ul id="col-3">
                     <li ng-repeat="a in archivos | filter:{categoria_id:current_cat.id,producto_id:current_prod.id}">
-                    <span class="clickito" ng-click="seleccionDocumento(a)">
-                    	<span>{[{a.name}]}</span> 
-                    	<figure style="background-color: #0092D2;"></figure>
-                    </span>
-                    <span class="eliminar" ng-click="deleteA(a)" confirmation-needed="¿Seguro que quieres eliminarlo?">X</span>
+	                    <span class="clickito" ng-click="seleccionDocumento(a)">
+	                    	<span>{[{a.name}]}</span> 
+	                    	<figure style="" ng-class="{word: a.type == txt_documents.word, pdf: a.type == txt_documents.pdf}"></figure>
+	                    </span>
+	                    <span class="eliminar" ng-click="deleteA(a)" confirmation-needed="¿Seguro que quieres eliminarlo?">X</span>
                     </li>
 				</ul>
 			</article>
