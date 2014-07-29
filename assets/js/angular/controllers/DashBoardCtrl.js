@@ -121,8 +121,8 @@ app.controller('DashBoardCtrl', function($scope, $http, $window, Categoria, Prod
             fb.append('file', file);
         });
 
-        fb.append('categoria', $scope.current_cat.name);
-        fb.append('producto', $scope.current_prod.name);
+        fb.append('categoria', $scope.current_cat.id);
+        fb.append('producto', $scope.current_prod.id);
 
         $http.post(url, fb,
             {

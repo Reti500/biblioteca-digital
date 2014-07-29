@@ -164,13 +164,21 @@ class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
         arch_json = []
         for a in Archivo.query():
             date = str(a.created_at.date())
-            print a.producto.id()
-            cat_key = Categoria.query(Categoria.name == a.categoria.id()).fetch(1)[0]
-            prod_key = Producto.query(Producto.name == a.producto.id()).fetch(1)[0]
+            print a.producto
+            # cat_key = Categoria.query(Categoria.name == a.categoria.id()).fetch(1)[0]
+            cat_key = ndb.Key(Categoria, a.categoria.id())
+            # print cat_key.id()
+            # cat_key_2 = Categoria.query(Categoria.name == cat_key.id()).fetch(1)[0]
+            # print(" --------------------------> " + a.categoria.id())
+            # print(cat_key)
+            prod_key = ndb.Key(Producto, a.producto.id())
+            # print prod_key.id()
+            # prod_key_2 = Producto.query(Producto.name == prod_key.id()).fetch(1)[0]
+            # print prod_key_2
             if a.categoria and a.producto:
                 my_json = {"id": a.key.id(), "name": a.name, "file": a.file, "size": a.size, 
                     "type": a.type, "fecha": date, "categoria": a.categoria.id(), "producto": a.producto.id(),
-                    "categoria_id": cat_key.key.id(), "producto_id": prod_key.key.id()}
+                    "categoria_id": cat_key.id(), "producto_id": prod_key.id()}
             else:
                 my_json = {"name": a.name, "file": a.file, "size": a.size, "type": a.type, "fecha": date}
             arch_json.append(my_json)
@@ -205,6 +213,7 @@ class MainUploadImage(webapp2.RequestHandler):
 
 class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     def post(self):
+
         categoria_str = self.request.get('categoria')
         producto_str = self.request.get('producto')
         type_str = self.request.get('type')
@@ -215,6 +224,9 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 
         cat_key = ndb.Key(Categoria, categoria_str)
         prod_key = ndb.Key(Producto, producto_str)
+
+        print cat_key
+        print prod_key
 
         archivo = Archivo()
         archivo.file = str(blob_info.key())
