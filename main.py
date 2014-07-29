@@ -164,6 +164,7 @@ class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
         arch_json = []
         for a in Archivo.query():
             date = str(a.created_at.date())
+# <<<<<<< HEAD
             print a.producto
             # cat_key = Categoria.query(Categoria.name == a.categoria.id()).fetch(1)[0]
             cat_key = ndb.Key(Categoria, a.categoria.id())
@@ -179,6 +180,18 @@ class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
                 my_json = {"id": a.key.id(), "name": a.name, "file": a.file, "size": a.size, 
                     "type": a.type, "fecha": date, "categoria": a.categoria.id(), "producto": a.producto.id(),
                     "categoria_id": cat_key.id(), "producto_id": prod_key.id()}
+# =======
+#             print a.producto.id()
+#             cat_key = Categoria.query(Categoria.name == a.categoria.id()).fetch(1)[0]
+#             prod_key = Producto.query(Producto.name == a.producto.id()).fetch(1)[0]
+
+#             self_type = a.type.rsplit('.', 1)[1] if len(a.type.rsplit('.', 1)) > 1 else a.type
+
+#             if a.categoria and a.producto:
+#                 my_json = {"id": a.key.id(), "name": a.name, "file": a.file, "size": a.size, 
+#                     "type": self_type, "fecha": date, "categoria": a.categoria.id(), "producto": a.producto.id(),
+#                     "categoria_id": cat_key.key.id(), "producto_id": prod_key.key.id()}
+# >>>>>>> efe2d29c881a25c2d0bd123acac23edc77cf1e4b
             else:
                 my_json = {"name": a.name, "file": a.file, "size": a.size, "type": a.type, "fecha": date}
             arch_json.append(my_json)

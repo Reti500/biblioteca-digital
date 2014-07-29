@@ -13,6 +13,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/ANY.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4215,
+		"inputAbbreviatedPath": "\/assets\/img\/ANY.png",
+		"outputAbbreviatedPath": "\/assets\/img\/ANY.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/buscar.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -64,6 +75,17 @@
 		"initialSize": 8361,
 		"inputAbbreviatedPath": "\/assets\/img\/descargarbig.jpg",
 		"outputAbbreviatedPath": "\/assets\/img\/descargarbig.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/DOC.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6298,
+		"inputAbbreviatedPath": "\/assets\/img\/DOC.png",
+		"outputAbbreviatedPath": "\/assets\/img\/DOC.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -123,6 +145,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/img\/PDF.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6491,
+		"inputAbbreviatedPath": "\/assets\/img\/PDF.png",
+		"outputAbbreviatedPath": "\/assets\/img\/PDF.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/PPT.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5212,
+		"inputAbbreviatedPath": "\/assets\/img\/PPT.png",
+		"outputAbbreviatedPath": "\/assets\/img\/PPT.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/img\/subir.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -174,6 +218,17 @@
 		"initialSize": 4615,
 		"inputAbbreviatedPath": "\/assets\/img\/TelmexLogo.png",
 		"outputAbbreviatedPath": "\/assets\/img\/TelmexLogo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/img\/TXT.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4645,
+		"inputAbbreviatedPath": "\/assets\/img\/TXT.png",
+		"outputAbbreviatedPath": "\/assets\/img\/TXT.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -239,17 +294,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/js\/angular\/controllers\/CategoriasCtrl.js",
 		"outputAbbreviatedPath": "\/assets\/js\/angular\/controllers\/min\/CategoriasCtrl-ck.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/assets\/js\/angular\/controllers\/DashBoardCtrl.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/js\/angular\/controllers\/DashBoardCtrl.js",
-		"outputAbbreviatedPath": "\/assets\/js\/angular\/controllers\/min\/DashBoardCtrl-ck.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -412,7 +456,7 @@
 		},
 	"\/bower_components\/normalize-css\/normalize.css": {
 		"fileType": 16,
-		"ignore": 1,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bower_components\/normalize-css\/normalize.css",
 		"outputAbbreviatedPath": "No Output Path",
@@ -466,15 +510,6 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/templates\/admin.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
-	"\/templates\/dashboard.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/templates\/dashboard.html",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -533,6 +568,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/templates\/resetpassword.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/templates\/resetpassword.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/templates\/signup.html": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -545,82 +589,8 @@
 	},
 "hooks": [
 	],
-"lastSavedByUser": "Yoshua Díaz",
+"lastSavedByUser": "CTIN",
 "manualImportLinks": {
-	"\/assets\/js\/angular\/app.js": [
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/angular\/bibliodigital.js",
-			"position": 0,
-			"type": 0
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/angular\/controllers\/CategoriasCtrl.js",
-			"position": 1,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/angular\/controllers\/DashBoardCtrl.js",
-			"position": 2,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/angular\/controllers\/HomeCtrl.js",
-			"position": 3,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/angular\/controllers\/UserCtrl.js",
-			"position": 4,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/angular\/controllers\/LandingCtrl.js",
-			"position": 5,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/angular\/controllers\/SessionsCtrl.js",
-			"position": 6,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/angular\/services\/User.js",
-			"position": 7,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/angular\/services\/Session.js",
-			"position": 8,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/angular\/services\/Producto.js",
-			"position": 9,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/angular\/services\/Categoria.js",
-			"position": 10,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/angular\/services\/Archivo.js",
-			"position": 11,
-			"type": 1
-			}
-		]
 	},
 "projectAttributes": {
 	"bowerAbbreviatedPath": "",

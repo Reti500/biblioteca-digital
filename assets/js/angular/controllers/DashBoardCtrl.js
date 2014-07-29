@@ -14,6 +14,15 @@ app.controller('DashBoardCtrl', function($scope, $http, $window, Categoria, Prod
     $scope.view_productos = false;
     $scope.view_archivos = false;
 
+    $scope.txt_documents = {
+        "text/plain": "txt",
+        "application/pdf": "pdf",
+        "presentation": "power",
+        "document": "word"
+    }
+
+    console.log($scope.txt_documents.word);
+
     $scope.init = function () {
         $scope.getCategorias();
         $scope.getProductos();
@@ -181,6 +190,7 @@ app.controller('DashBoardCtrl', function($scope, $http, $window, Categoria, Prod
     $scope.seleccionDocumento = function(documento) {
         $scope.openLightbox('downloads');
         $scope.current_file = documento;
+        console.log(documento);
     };
 
     $scope.deleteC = function(cat){

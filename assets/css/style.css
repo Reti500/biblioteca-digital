@@ -774,10 +774,29 @@ header .buscador ::-webkit-input-placeholder {
   margin: 0;
   display: inline-block;
   vertical-align: middle;
-  border-radius: 50%;
   overflow: hidden;
   float: right;
   vertical-align: middle;
+}
+#contenidos ul#col-3 li figure.word {
+  background-image: url("/assets/img/DOC.png");
+  background-size: 100% 100%;
+}
+#contenidos ul#col-3 li figure.power {
+  background-image: url("/assets/img/PPT.png");
+  background-size: 100% 100%;
+}
+#contenidos ul#col-3 li figure.txt {
+  background-image: url("/assets/img/TXT.png");
+  background-size: 100% 100%;
+}
+#contenidos ul#col-3 li figure.any {
+  background-image: url("/assets/img/ANY.png");
+  background-size: 100% 100%;
+}
+#contenidos ul#col-3 li figure.pdf {
+  background-image: url("/assets/img/PDF.png");
+  background-size: 100% 100%;
 }
 #contenidos .icono {
   width: 50px;
