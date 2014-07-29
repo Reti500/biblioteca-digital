@@ -176,16 +176,18 @@ class ArchivosPage(blobstore_handlers.BlobstoreUploadHandler):
             # print prod_key.id()
             # prod_key_2 = Producto.query(Producto.name == prod_key.id()).fetch(1)[0]
             # print prod_key_2
+            self_type = a.type.rsplit('.', 1)[1] if len(a.type.rsplit('.', 1)) > 1 else a.type
+
             if a.categoria and a.producto:
                 my_json = {"id": a.key.id(), "name": a.name, "file": a.file, "size": a.size, 
-                    "type": a.type, "fecha": date, "categoria": a.categoria.id(), "producto": a.producto.id(),
+                    "type": self_type, "fecha": date, "categoria": a.categoria.id(), "producto": a.producto.id(),
                     "categoria_id": cat_key.id(), "producto_id": prod_key.id()}
 # =======
 #             print a.producto.id()
 #             cat_key = Categoria.query(Categoria.name == a.categoria.id()).fetch(1)[0]
 #             prod_key = Producto.query(Producto.name == a.producto.id()).fetch(1)[0]
 
-#             self_type = a.type.rsplit('.', 1)[1] if len(a.type.rsplit('.', 1)) > 1 else a.type
+#             
 
 #             if a.categoria and a.producto:
 #                 my_json = {"id": a.key.id(), "name": a.name, "file": a.file, "size": a.size, 
